@@ -1,40 +1,55 @@
 ```mermaid
 sequenceDiagram
     participant User
-    participant DD as Deep Dive Agent
-    participant PI as Project Intelligence Agent
+    participant PSA as Programme Setup Agent
+    participant DKA as Domain Knowledge Agent
+    participant CPA as Client Profile Agent
+    participant AIA as Actionable Insights Agent
     participant MA as Meetings Agent
-    participant UI as UI Dashboard
+    participant KB as Knowledge Base
+    participant UI as Visual Dashboard
     participant SharePoint
     participant Web
     participant Teams
 
-    User->>DD: Input project/client details
-    DD->>SharePoint: Query internal data
-    DD->>Web: Search external data
-    SharePoint-->>DD: Documents
-    Web-->>DD: Web content
-    DD->>User: Present results for validation
-    User-->>DD: Validate relevance
-    DD->>PI: Validated data/summaries
+    User->>PSA: Input project/client details via conversational AI
+    PSA->>SharePoint: Query internal data (e.g., documents, SOWs)
+    PSA->>Web: Search external data (e.g., industry reports)
+    SharePoint-->>PSA: Documents
+    Web-->>PSA: Web content
+    PSA->>User: Confirm data sufficiency
+    User-->>PSA: Validate or add more context
+    PSA->>DKA: Validated domain data
+    PSA->>CPA: Validated client data
+    DKA->>KB: Store domain knowledge (e.g., best practices)
+    CPA->>KB: Store client profile (e.g., stakeholder details)
     MA->>Teams: Fetch meeting recordings
     Teams-->>MA: Audio/transcripts
-    MA->>PI: Action items/sentiment
-    PI->>UI: Consolidated insights
-    UI-->>User: Display dashboard
+    MA->>KB: Store action items/insights
+    DKA->>AIA: Domain summaries
+    CPA->>AIA: Client profile summaries
+    MA->>AIA: Meeting insights
+    AIA->>KB: Store recommendations
+    KB->>UI: Consolidated tagged data
+    UI-->>User: Display visual dashboard with tagged sections
+    User-->>KB: Provide feedback for refinement
 ```
 ```mermaid
 graph TD
     A[SharePoint] -->|Documents| B[Vector Database]
     C[Web Sources] -->|Crawled Data| B
-    B -->|Embeddings| D[Deep Dive Agent]
-    D -->|Summaries| E[Project Intelligence Agent]
-    F[Microsoft Teams] -->|Recordings| G[Meetings Agent]
-    G -->|Insights| E
-    E -->|Dashboard Data| H[REST API]
-    H -->|Outputs| I[React Dashboard]
-    I -->|Feedback| E
-    I -->|Validation| D
+    B -->|Embeddings| D[Programme Setup Agent]
+    D -->|Summaries| E[Domain Knowledge Agent]
+    D -->|Summaries| F[Client Profile Agent]
+    G[Microsoft Teams] -->|Recordings| H[Meetings Agent]
+    E -->|Insights| I[Actionable Insights Agent]
+    F -->|Insights| I
+    H -->|Insights| I
+    I -->|Tagged Data| J[Knowledge Base]
+    J -->|Dashboard Data| K[REST API]
+    K -->|Outputs| L[React Dashboard]
+    L -->|Feedback| J
+    L -->|Validation| D
 ```
 ```mermaid
 graph TD
@@ -49,12 +64,17 @@ graph TD
     end
 
     subgraph Agent Layer
-        B1[Deep Dive Agent]
-        B2[Project Intelligence Agent]
-        B3[Meetings Agent]
+        B1[Programme Setup Agent]
+        B2[Domain Knowledge Agent]
+        B3[Client Profile Agent]
+        B4[Actionable Insights Agent]
+        B5[Meetings Agent]
         A4 --> B1
         B1 --> B2
-        B3 --> B2
+        B1 --> B3
+        B2 --> B4
+        B3 --> B4
+        B5 --> B4
     end
 
     subgraph Processing Layer
@@ -65,13 +85,15 @@ graph TD
         B1 --> C2
         B2 --> C1
         B3 --> C1
+        B4 --> C1
+        B5 --> C1
         C3 --> C1
     end
 
     subgraph UI Layer
         D1[React Dashboard]
         D2[REST API]
-        B2 --> D2
+        B4 --> D2
         D2 --> D1
         D1 --> C3
     end
@@ -82,6 +104,8 @@ graph TD
         E1 --> B1
         E1 --> B2
         E1 --> B3
+        E1 --> B4
+        E1 --> B5
         E2 --> E1
     end
 ```

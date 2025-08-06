@@ -1,0 +1,519 @@
+
+[00:00:00.000 --> 00:00:07.900]   so please let me know when you see my screen okay perfect so before jumping
+[00:00:07.900 --> 00:00:14.840]   into the into the proposal I would like to give you like a brief right like a
+[00:00:14.840 --> 00:00:22.800]   oh hi okay we just good morning good morning we just started like one minute
+[00:00:22.800 --> 00:00:29.760]   ago so always yeah so I am starting giving again the context of what we will
+[00:00:29.760 --> 00:00:34.000]   see today I mean the use case as we aligned it in our last meeting the
+[00:00:34.000 --> 00:00:39.320]   proposal and walkthrough that I will present to you today is regarding the
+[00:00:39.320 --> 00:00:45.080]   use case after winning a project right and we need to onboard the team members
+[00:00:45.080 --> 00:00:50.040]   who will be working on this project specifically what are my goals so the
+[00:00:50.040 --> 00:00:55.720]   goals is ensure everyone is ready before the project starts and also provide
+[00:00:55.720 --> 00:01:01.280]   them all the necessary information for the onboarding centralize the key
+[00:01:01.280 --> 00:01:07.280]   information and important information to get started and of course align align on
+[00:01:07.280 --> 00:01:11.640]   it and expectations and roles and workflows and etc before it start okay
+[00:01:11.640 --> 00:01:18.080]   so that's the use case I will show you today okay perfect so are you seeing my
+[00:01:18.080 --> 00:01:24.040]   screen right okay perfect so please interrupt me if you need to add something
+[00:01:24.040 --> 00:01:29.160]   or if you have questions so the name that we are using right now once we
+[00:01:29.160 --> 00:01:35.680]   log in into the project is well once we log in into the system I'm sorry the
+[00:01:35.680 --> 00:01:39.880]   first thing that we are seeing is project intelligence basically project
+[00:01:39.880 --> 00:01:47.840]   intelligence is in where all the information that I need to get started
+[00:01:47.840 --> 00:01:51.720]   into the parade right and of course we have different sections I will show it to
+[00:01:51.720 --> 00:01:57.560]   you like in a few minutes but first of all if you see here we are welcoming the
+[00:01:57.560 --> 00:02:02.760]   team member into the project in case in this case we are thinking that maybe we
+[00:02:02.760 --> 00:02:08.680]   can use of course some personalized message and according to the role so
+[00:02:08.680 --> 00:02:12.320]   for example here welcome to the project as a senior developer you will be
+[00:02:12.320 --> 00:02:17.080]   working primarily on front-end architecture and component development
+[00:02:17.080 --> 00:02:23.560]   and basically here we have different let's say go to accesses in order to go
+[00:02:23.560 --> 00:02:28.040]   directly through as to a specific information for example if I want to
+[00:02:28.040 --> 00:02:32.240]   like immediately review the onboarding understand the problem statement
+[00:02:32.240 --> 00:02:36.960]   review the knowledge base check the quick wins or even chat with the with the
+[00:02:36.960 --> 00:02:41.360]   assistant that I will show you as well so here there are like different accesses
+[00:02:41.360 --> 00:02:46.600]   right but first of all we are putting here a message like excited to have you
+[00:02:46.600 --> 00:02:52.720]   join join us I prepared an overview etc. like message that we would like to
+[00:02:52.720 --> 00:02:58.960]   provide to the to the case query in this case right and then we have project
+[00:02:58.960 --> 00:03:04.240]   intelligence some information regarding the project right now I am sorry here I
+[00:03:04.240 --> 00:03:11.280]   am seeing that the project is GT Automotive so here I am seeing all the
+[00:03:11.280 --> 00:03:16.560]   information regarding GT Automotive for example when the project start are you
+[00:03:16.560 --> 00:03:21.360]   seeing in a good way or do you want me to go into Figma to zoom in a little bit
+[00:03:21.360 --> 00:03:26.260]   more what do you guys prefer I don't know if you are seeing good I mean the
+[00:03:26.260 --> 00:03:35.080]   screen or if not I can yeah it's a little small okay yeah so men a bit sure
+[00:03:35.080 --> 00:03:43.760]   sure sure I will go into Figma better yeah okay is this better much better
+[00:03:43.760 --> 00:03:49.520]   thank you okay perfect no problem so yeah so here in the information we have
+[00:03:49.520 --> 00:03:55.400]   about this project when the project is start when it will be my start as a as a
+[00:03:55.400 --> 00:04:01.040]   case query and as well when will be the next milestone and how many sprints we
+[00:04:01.040 --> 00:04:06.160]   have some information regarding the timeline and even the team who will be
+[00:04:06.160 --> 00:04:13.160]   working with me in this project right my role the team size direct reports to
+[00:04:13.160 --> 00:04:20.780]   members PM who will be the PM etc etc then we have a section for the that is
+[00:04:20.780 --> 00:04:24.960]   called project onboarding in where I am seeing here like a kind of checklists
+[00:04:24.960 --> 00:04:30.640]   that I need to follow in order to get this started into the project then we
+[00:04:30.640 --> 00:04:35.960]   have a section to understand more about the problem statement even we have a
+[00:04:35.960 --> 00:04:42.480]   section of knowledge base for example if we this AI agent can help me to base it
+[00:04:42.480 --> 00:04:47.520]   on previous information or or password regarding this client if this is an
+[00:04:47.520 --> 00:04:51.600]   existing client or even password that we have been working a line it with this
+[00:04:51.600 --> 00:04:56.720]   project we can have here some suggestions like a we recommend to you to
+[00:04:56.720 --> 00:05:02.400]   take this training or we use similar components from the other project that
+[00:05:02.400 --> 00:05:09.840]   could be applied here etc etc some quick wins also so basically improvements or
+[00:05:09.840 --> 00:05:15.080]   tasks that we can do to have a big impact like early on right high impact
+[00:05:15.080 --> 00:05:22.600]   tasks some AI insights as well categorized it based on for example some
+[00:05:22.600 --> 00:05:28.520]   market trends or insights or warning aid this project how unclear KPIs or
+[00:05:28.520 --> 00:05:33.720]   whatever again if this is wording but this is the section for the AI insights
+[00:05:33.720 --> 00:05:41.400]   and suggested actions items as well here the upcoming milestones as well the key
+[00:05:41.400 --> 00:05:47.280]   client stakeholders here for example I can see at first glance who are the
+[00:05:47.280 --> 00:05:51.520]   primary client stakeholders of course we will have this section for all the
+[00:05:51.520 --> 00:05:57.480]   stakeholders but at least here at first glance I can see like who who is my VP of
+[00:05:57.480 --> 00:06:02.440]   product that is the primary decision-maker who is the CTO or the
+[00:06:02.440 --> 00:06:07.280]   technical approver of this project and also the daily coordinator of this
+[00:06:07.280 --> 00:06:12.400]   project as well the team allocation right all the teams that will be
+[00:06:12.400 --> 00:06:17.200]   participating in the project the development team the UX team Salesforce
+[00:06:17.200 --> 00:06:26.480]   QA and so on I will make a pause here questions comment just a question what
+[00:06:26.480 --> 00:06:30.080]   do you think about this project intelligence that is the first section
+[00:06:30.080 --> 00:06:44.640]   that I have here yeah the problem statement is the problem statement we
+[00:06:44.640 --> 00:06:51.200]   are resolved we will we will resolve for this project again this is a summary of
+[00:06:51.200 --> 00:06:54.560]   the problem statement but we will have like a section for the problem
+[00:06:54.560 --> 00:06:59.200]   statement in where we will find the for example the pain points and more
+[00:06:59.200 --> 00:07:06.400]   information about it but again this first step it's basically like an overview of
+[00:07:06.400 --> 00:07:14.360]   of everything all the necessary information you need to know yeah but if
+[00:07:14.360 --> 00:07:19.240]   you want to go into details we have these options to learn more that will
+[00:07:19.240 --> 00:07:24.160]   jump into the section that is basically for the problem statement with more
+[00:07:24.160 --> 00:07:34.000]   details with the pain points and etc in a more detailed way yeah okay so as I
+[00:07:34.000 --> 00:07:38.080]   say this is all the necessary information at first glance that you need to
+[00:07:38.080 --> 00:07:43.600]   know like the first step right and then if you want to know more about the client
+[00:07:43.600 --> 00:07:50.160]   of this project you can go into the client profile tab in this way so here
+[00:07:50.160 --> 00:07:57.720]   we can find for example more about this client even we can understand the for
+[00:07:57.720 --> 00:08:03.720]   example the company sites the operative region where they are in USA and
+[00:08:03.720 --> 00:08:09.400]   Latin America etc etc in which year this company was founded as well again there
+[00:08:09.400 --> 00:08:15.900]   are some information that maybe we need to iterate or you know like change
+[00:08:15.900 --> 00:08:19.880]   wording etc regarding the KPIs or regarding the information we would like
+[00:08:19.880 --> 00:08:25.320]   to show it here but this is basically everything regarding the client right
+[00:08:25.320 --> 00:08:32.360]   some industry insights regarding this type of business right in this case
+[00:08:32.360 --> 00:08:37.160]   automotive this client is from the automotive industry so we are putting
+[00:08:37.160 --> 00:08:42.520]   here some industry insights and this is super important the stakeholders of
+[00:08:42.520 --> 00:08:48.360]   this client who will be in this project and even here we can have for example
+[00:08:48.360 --> 00:08:55.280]   the contact and also the availability for example a brief or description of
+[00:08:55.280 --> 00:09:00.480]   each of these persons and also the the access to know more about this regarding
+[00:09:00.480 --> 00:09:05.000]   some you know like if you want to know more about Sarah Jones or Michael Chen
+[00:09:05.000 --> 00:09:09.760]   you can go to LinkedIn from here and you can you can view more information
+[00:09:09.760 --> 00:09:17.400]   about it yeah yeah but can we get access to the Figma board for this sure yeah I
+[00:09:17.400 --> 00:09:20.400]   will give you access after this meeting or do you want the access right now I
+[00:09:20.400 --> 00:09:26.320]   don't know so this meeting is fine yeah so is there anything that I missed is
+[00:09:26.320 --> 00:09:30.600]   there anything that I missed before we started no right you started just we
+[00:09:30.600 --> 00:09:36.120]   just started so so what I'm not understanding Gabby is how is that
+[00:09:36.120 --> 00:09:41.960]   this information is coming here oh we understood that based on this use case
+[00:09:41.960 --> 00:09:47.800]   that is the project I already want the project right so I already this
+[00:09:47.800 --> 00:09:52.240]   information is already in the system it could be from SharePoint or it could be
+[00:09:52.240 --> 00:09:59.200]   from other external how do I bring that how do how does how do we recognize that
+[00:09:59.200 --> 00:10:06.560]   it's coming this needs to be tagged okay so for example we have here the
+[00:10:06.560 --> 00:10:12.640]   sections of for the integrations but you mean like how we can know like all
+[00:10:12.640 --> 00:10:18.160]   the information where this this information is coming yeah so correct so
+[00:10:18.160 --> 00:10:21.520]   this is the flow right I think you're missing the journey a little bit okay
+[00:10:21.520 --> 00:10:27.380]   let me explain you the journey so I won the project right yep if I win the
+[00:10:27.380 --> 00:10:34.880]   project and I'm a pre-sales person and Ray and and Alberto right me and
+[00:10:34.880 --> 00:10:39.800]   Alberto are pre-sales Ray is the sales person so three of us together worked on
+[00:10:39.800 --> 00:10:44.800]   an opportunity which is GT automotive mm-hmm and we were able to close that
+[00:10:44.800 --> 00:10:50.800]   opportunity and we won the opportunity mm-hmm now that's where I'm saying okay
+[00:10:50.800 --> 00:10:55.360]   now I won the opportunity how do I now give as much intelligence as possible
+[00:10:55.360 --> 00:11:00.320]   to my team that is getting onboarded around the customer around the domain
+[00:11:00.320 --> 00:11:04.280]   and around the problem statement that we are solving and what is the scope
+[00:11:04.280 --> 00:11:09.360]   right and any other bits of information that I can bring into enable this team
+[00:11:09.360 --> 00:11:12.640]   that is getting on board it so what should be my journey my journey should
+[00:11:12.640 --> 00:11:19.360]   start saying okay hey pre-sales person please create it please onboard the
+[00:11:19.360 --> 00:11:27.200]   project here so I come in I put in the customer is GT automotive mm-hmm I put
+[00:11:27.200 --> 00:11:34.240]   in industry automotive I put in location Latin or Ghana or whatever right yep
+[00:11:34.240 --> 00:11:39.880]   then I put in is there a link of the website if there is one mm-hmm right
+[00:11:39.880 --> 00:11:45.120]   then I say can you put in all the information that you've gathered through
+[00:11:45.120 --> 00:11:49.920]   pre-sales mm-hmm right so then I'll probably share the SharePoint link yep
+[00:11:49.920 --> 00:11:56.200]   here is the SharePoint link it has all the pre-sales documents mm-hmm right yeah
+[00:11:56.200 --> 00:12:00.800]   this is what I'm saying correct so that's where our journey should start that
+[00:12:00.800 --> 00:12:06.480]   journey should then translate to the outcome of what you're showing correct
+[00:12:06.480 --> 00:12:10.120]   yeah I start to directly in the onboarding because of the use case we
+[00:12:10.120 --> 00:12:16.200]   wanted to review but yeah this is the setup of the project yes okay right and
+[00:12:16.200 --> 00:12:24.720]   and then yeah and and the onboarding side yeah create a project okay can you go
+[00:12:24.720 --> 00:12:29.560]   through correct yeah of course remember that we discuss about maybe we can have
+[00:12:29.560 --> 00:12:36.000]   some templates in order to that help me to create a project right let's keep it
+[00:12:36.000 --> 00:12:41.000]   as simple as possible for now we don't need the project name description
+[00:12:41.000 --> 00:12:47.240]   timeline budget priority mm-hmm more than that okay then next word where do I
+[00:12:47.240 --> 00:12:54.160]   upload my complete knowledge base that I've gathered over the last three four
+[00:12:54.160 --> 00:12:59.540]   weeks of my interactions with the customer so we have here the options to
+[00:12:59.540 --> 00:13:04.960]   that is called look up I'm sorry in where we can you know like make a web
+[00:13:04.960 --> 00:13:11.400]   research or maybe documents based on an internal database and here even we can
+[00:13:11.400 --> 00:13:16.200]   upload some documents as well like RFP requirements the brief or something mm-hmm
+[00:13:16.200 --> 00:13:22.320]   yeah number I want to just share a SharePoint folder and the SharePoint
+[00:13:22.320 --> 00:13:26.680]   folder will have everything inside that I don't even have to talk about whether
+[00:13:26.680 --> 00:13:31.040]   it is a brief because the SharePoint folder will have here is the recordings
+[00:13:31.040 --> 00:13:36.240]   and we will name the recording in such a fashion where it has some context in the
+[00:13:36.240 --> 00:13:41.280]   name so that the LLM can get a little bit of context mm-hmm right the recording
+[00:13:41.280 --> 00:13:48.320]   can be you know the name does GT underscore mm-hmm you know lead
+[00:13:48.320 --> 00:13:54.000]   management process right yeah that means that it's a lead management process
+[00:13:54.000 --> 00:13:58.280]   right and the LLM can bring out some intelligence from there on what is that
+[00:13:58.280 --> 00:14:03.400]   that was discussed right and it'll go through all the videos it'll go to all
+[00:14:03.400 --> 00:14:06.320]   the collateral I'll give you those are all videos I'm talking about right
+[00:14:06.320 --> 00:14:11.080]   meetings yeah then it'll go through all the solution document it'll go through a
+[00:14:11.080 --> 00:14:15.480]   bunch of other things and it'll combine this information and it will bring out
+[00:14:15.480 --> 00:14:21.600]   this three or four areas right one area is what is the customer who is the
+[00:14:21.600 --> 00:14:29.880]   customer second area is what what is the problem we are solving mm-hmm third area
+[00:14:29.880 --> 00:14:36.080]   is what is the industry doing to solve the problem which is where I was
+[00:14:36.080 --> 00:14:40.320]   talking to Alberta the other day that okay fine we also can go out and get
+[00:14:40.320 --> 00:14:46.040]   some information and store it all right we don't but we don't share our
+[00:14:46.040 --> 00:14:49.760]   information out is what I was telling so we bring some intelligence into the
+[00:14:49.760 --> 00:14:55.520]   tool right and the fourth is hey we are using Salesforce because I'll define
+[00:14:55.520 --> 00:14:59.360]   that in the beginning when I'm creating a project I'll say this is going to be
+[00:14:59.360 --> 00:15:05.320]   built on Salesforce or Java or JavaScript my database is there's my back end is
+[00:15:05.320 --> 00:15:10.440]   there's a quick snapshot of what is the platform looking like right which will
+[00:15:10.440 --> 00:15:15.160]   then give you some insights on hey if this is Salesforce and if I'm using
+[00:15:15.160 --> 00:15:24.120]   sales cloud and communities here are the best practices right this is just to
+[00:15:24.120 --> 00:15:30.960]   give them an idea right what are the best practices here is a data model right
+[00:15:30.960 --> 00:15:35.880]   here are the journeys that are already available within you know out of the box
+[00:15:35.880 --> 00:15:40.240]   because I can get that information is on the web I don't have to do much right
+[00:15:40.240 --> 00:15:45.920]   even in fact I can ask our team to go get all this information and create our
+[00:15:45.920 --> 00:15:50.560]   own repository mm-hmm that the LLM can you know go through and spit it out as well
+[00:15:50.560 --> 00:15:58.720]   right so so I need that kind of a journey and a flow yeah I keep it very
+[00:15:58.720 --> 00:16:06.340]   simple right I mean this is an MVP that we're building all I need is the minimal
+[00:16:06.340 --> 00:16:12.560]   information that I can present to the team that changes the perspective of our
+[00:16:12.560 --> 00:16:17.880]   onboarding into a project today mm-hmm yeah I think we have both journeys
+[00:16:17.880 --> 00:16:21.640]   separated right now like you know like when you create a project and set up
+[00:16:21.640 --> 00:16:27.040]   everything I don't need this is this is this today's project status I don't need
+[00:16:27.040 --> 00:16:32.380]   that okay because this is this means that the project has started I'm just
+[00:16:32.380 --> 00:16:38.920]   saying focus on pre onboarding before the project starts is what I want to
+[00:16:38.920 --> 00:16:45.880]   focus on yeah that is like setting up the project yeah and put all the documents
+[00:16:45.880 --> 00:16:50.400]   and integrate with your point and everything yeah yes now let's ask a
+[00:16:50.400 --> 00:16:55.000]   few questions to Alberto and Ray Ray and Alberto what is that you're you're
+[00:16:55.000 --> 00:17:00.040]   thinking from a solution perspective can you explain so that the UX team can
+[00:17:00.040 --> 00:17:05.440]   then imagine to see how this journey should be on the front end from a
+[00:17:05.440 --> 00:17:12.680]   perspective I am thinking in two possibilities one perhaps is one
+[00:17:12.680 --> 00:17:21.480]   extreme one that I love the one is perhaps I don't want in my mind to make
+[00:17:21.480 --> 00:17:27.920]   to a client to deal with a classic interfaces in the sense that I don't
+[00:17:27.920 --> 00:17:34.560]   want to overwhelm them in the sense that to introduce them a lot of
+[00:17:34.560 --> 00:17:40.600]   information and a lot of fields to feel so I would like a kind of very
+[00:17:40.600 --> 00:17:47.960]   interactive assistance like saying like having a brief talk about your project
+[00:17:47.960 --> 00:17:53.280]   and I will construct you and I will ask you the information that I will need I
+[00:17:53.280 --> 00:18:01.480]   this is like I would love but I don't know if we are ready for that but if you
+[00:18:01.480 --> 00:18:06.620]   are seeing we are ready for that so so what you're understanding right Gabby
+[00:18:06.620 --> 00:18:15.160]   are you understanding he is looking to build a conversational yeah so he's
+[00:18:15.160 --> 00:18:20.440]   saying now the the moment the agent kicks in the agent should say hello
+[00:18:20.440 --> 00:18:25.560]   welcome I'm your pre-onboarding assistant can you please give me a brief of
+[00:18:25.560 --> 00:18:32.280]   your project maybe that's that's where you start right you can type the brief
+[00:18:32.280 --> 00:18:37.000]   and then the agent will probably go to the next step saying can you provide me
+[00:18:37.000 --> 00:18:41.840]   any additional documentation do you have any meeting recordings that you can
+[00:18:41.840 --> 00:18:48.240]   share right things like that you understand right yeah so he wants to
+[00:18:48.240 --> 00:18:53.480]   make a conversational AI yeah I understand yeah we even explored that
+[00:18:53.480 --> 00:18:58.080]   that option as well Ali do you remember through you remember where we have those
+[00:18:58.080 --> 00:19:04.440]   screens yes give me a second because I I know we we explored that option like in
+[00:19:04.440 --> 00:19:10.240]   a more conversational way so I would like to show you what is that what we
+[00:19:10.240 --> 00:19:16.780]   started to do yeah something about this barma guys in general perhaps please
+[00:19:16.780 --> 00:19:23.680]   correct me if I am wrong or if I am just kind of dreaming in this thing but for me
+[00:19:23.680 --> 00:19:34.480]   this assistant AI it has previously we have like a template or a list of
+[00:19:34.480 --> 00:19:39.840]   necessary information that will we need to start to construct a project for a
+[00:19:39.840 --> 00:19:46.560]   specific client so by means this kind of conversational interaction so we can
+[00:19:46.560 --> 00:19:50.760]   to follow a step by step the minimal information that we can to retrieve from
+[00:19:50.760 --> 00:19:57.000]   them and to put it in there so it will be more friendly you know instead to give
+[00:19:57.000 --> 00:20:04.000]   to the control to the to to the client to put information there because we can
+[00:20:04.000 --> 00:20:09.440]   to to have information that you we really don't want so that is what it makes
+[00:20:09.440 --> 00:20:16.240]   sense for me that kind of things because hey I will guide to the client step by
+[00:20:16.240 --> 00:20:22.420]   step and we will come to retrieve the right information that we want to have
+[00:20:22.420 --> 00:20:29.920]   that's what I thought yeah no that's I like the idea maybe we should have talked
+[00:20:29.920 --> 00:20:36.080]   about it last time so that we go save some time for Gabby yeah right now I'm
+[00:20:36.080 --> 00:20:40.000]   sorry this is a combination like an interface and body we added the option
+[00:20:40.000 --> 00:20:46.480]   to to have this more conversational with this AI and right to ask whatever you
+[00:20:46.480 --> 00:20:53.120]   need across all the process but maybe with what I am understanding the focus
+[00:20:53.120 --> 00:20:57.920]   will be more on the this conversation right in order to set up and be ready
+[00:20:57.920 --> 00:21:06.360]   for this this project and for me okay okay so the so sorry go ahead now go
+[00:21:06.360 --> 00:21:12.480]   ahead go ahead know whatever saying is even if the AI is guiding it you will
+[00:21:12.480 --> 00:21:17.200]   still need a user interface for the user to upload the data right and also give
+[00:21:17.200 --> 00:21:25.880]   the summary so like like your chatbots right like a bank chatbot or your any of
+[00:21:25.880 --> 00:21:30.580]   the chatbots that you have they say hey I will guide you through this okay why
+[00:21:30.580 --> 00:21:34.240]   don't you go through this UI now that UI flow can be made dynamic that's a
+[00:21:34.240 --> 00:21:38.920]   different story but I don't think that the frames that they have created will be
+[00:21:38.920 --> 00:21:47.360]   you know will we have to be reworked right because the content that we want
+[00:21:47.360 --> 00:21:54.320]   right like the context that you want right the the SOW that needs to be
+[00:21:54.320 --> 00:22:00.840]   uploaded or the the hierarchy of that organization that needs to be updated
+[00:22:00.840 --> 00:22:08.720]   right so we need to build something like this right I mean sorry something like
+[00:22:08.720 --> 00:22:18.400]   this right is that right right so you can to talk to him or to come to I just
+[00:22:18.400 --> 00:22:29.600]   are yeah I I need to build every onboarding right is what we'll tell or
+[00:22:29.600 --> 00:22:34.200]   because it's an onboarding agent I don't need to have to say this as well right
+[00:22:34.200 --> 00:22:39.440]   it should start off once the agent starts it should by default ask can you
+[00:22:39.440 --> 00:22:43.920]   please give me the the program that you're trying to start whatever right I
+[00:22:43.920 --> 00:22:48.820]   mean imagine that and then this is where we we upload files we uploads you know
+[00:22:48.820 --> 00:22:58.120]   sit like this itself right and then we keep conversating in the end I think the
+[00:22:58.120 --> 00:23:05.560]   end outcome should be like should now I have information enough information the
+[00:23:05.560 --> 00:23:08.840]   LLM probably will come to a point where it says hey now I have enough enough
+[00:23:08.840 --> 00:23:15.040]   information can I generate the pre onboarding content completely required
+[00:23:15.040 --> 00:23:21.780]   for your team the answer is if we say yes great if we say no I'll give you
+[00:23:21.780 --> 00:23:32.160]   additional context we give additional context is that right yes I agree with
+[00:23:32.160 --> 00:23:38.240]   that idea have to say and I want to say something more if you don't mind in the
+[00:23:38.240 --> 00:23:43.680]   same direction but the other thing I love that interface that Kathy show us
+[00:23:43.680 --> 00:23:51.040]   about the details on any stakeholder would you have even the LinkedIn profiles
+[00:23:51.040 --> 00:23:58.240]   and so on that's beautiful I guess but I really don't know if currently in the
+[00:23:58.240 --> 00:24:04.400]   current environment of AI it will be a nice idea to have information about a
+[00:24:04.400 --> 00:24:12.400]   company and you know the persons inside the company and so on I think we show
+[00:24:12.400 --> 00:24:19.600]   this is also my idea and a personal comment I would like to ask them to the
+[00:24:19.600 --> 00:24:24.560]   client a do you want me to complete this profile with two personal information
+[00:24:24.560 --> 00:24:28.960]   do you want me to have access to them or do you want me to guide could to be
+[00:24:28.960 --> 00:24:34.640]   access to this information for another company's so it could be prepared or do
+[00:24:34.640 --> 00:24:39.960]   it will be public that kind of things I think it could make more personalized
+[00:24:39.960 --> 00:24:49.920]   the interaction with the AI so I quickly interrupt here right this is not we are
+[00:24:49.920 --> 00:24:54.600]   not exposing this to the client and the information that we are getting is we
+[00:24:54.600 --> 00:24:57.960]   are getting from our interaction with the client and the publicly available
+[00:24:57.960 --> 00:25:03.880]   information right yeah right and we're utilizing it internally we are not if we
+[00:25:03.880 --> 00:25:08.240]   were to sell this information yes what you're saying is correct no we are not
+[00:25:08.240 --> 00:25:13.360]   selling this information so I don't think an approval from the client would be
+[00:25:13.360 --> 00:25:18.760]   required for utilizing publicly available information
+[00:25:18.760 --> 00:25:25.720]   good point thank you that's it instruction for setup see this right you see
+[00:25:25.720 --> 00:25:31.000]   this right Gabby yes you're following this yep this is a good yeah we can
+[00:25:31.000 --> 00:25:35.040]   probably replicate something like this instructions to set up right is what it's
+[00:25:35.040 --> 00:25:41.840]   saying I can save this then I can attach attachments or any conversations right
+[00:25:41.840 --> 00:25:49.760]   no conversations yet same thing upload I just throw my entire I give it the
+[00:25:49.760 --> 00:25:55.480]   context and then I should just upload a SharePoint drive with the context and the
+[00:25:55.480 --> 00:26:02.280]   SharePoint drive we should be able to generate the pre-onboarding content and
+[00:26:02.280 --> 00:26:06.540]   the pre-onboarding content go ahead go ahead somebody raised their hand yeah
+[00:26:06.540 --> 00:26:14.400]   Alice hello Varma this is totally doable with the with the chat and we were
+[00:26:14.400 --> 00:26:20.040]   actually exploring that like that interaction like that lay out completely
+[00:26:20.040 --> 00:26:26.680]   and how to actually ask the project what I need to know because I'm new in this
+[00:26:26.680 --> 00:26:30.840]   project and who's better than the project to tell me what they're what they're
+[00:26:30.840 --> 00:26:38.320]   doing for for my onboarding so I was thinking there was a layout that was
+[00:26:38.320 --> 00:26:44.600]   actually very fun because okay so I asked everything to the the chat but but
+[00:26:44.600 --> 00:26:50.440]   where do I see this summarized information on like like like imagine like
+[00:26:50.440 --> 00:26:55.520]   you have like a full mural or board on your office about the project so that's
+[00:26:55.520 --> 00:27:02.440]   something that we could explore as well we can actually merge the the the layout
+[00:27:02.440 --> 00:27:08.720]   from growth that you actually share right now with something that notion AI is
+[00:27:08.720 --> 00:27:14.160]   doing right now with basically they they say and something that adverto
+[00:27:14.160 --> 00:27:17.720]   mentioned before is like okay this is the information am I getting this right
+[00:27:17.720 --> 00:27:21.680]   okay do you like this do you want me to actually add this as a reminder on your
+[00:27:21.680 --> 00:27:26.640]   board and we can have like a little summary for sort of for what we have on
+[00:27:26.640 --> 00:27:32.120]   the let's say the onboarding agent views that we're we filled looking for
+[00:27:32.120 --> 00:27:36.160]   something a bit more visual instead of conversational but we can actually have
+[00:27:36.160 --> 00:27:42.240]   those visual thingies that they want to always remember let's say for example
+[00:27:42.240 --> 00:27:47.320]   this glacial process of every issues I have that note every day are every day
+[00:27:47.320 --> 00:27:52.920]   they're waiting for me or in case oh you you have like tickets that are on their
+[00:27:52.920 --> 00:27:57.360]   dependencies or that's that can be optimized because you already do did
+[00:27:57.360 --> 00:28:02.040]   something before on a predict similar we can have that sort of life would work
+[00:28:02.040 --> 00:28:06.880]   based on the conversation anything that could be a nice way to merge those
+[00:28:06.880 --> 00:28:13.720]   needs because or features more I better saying that this yes because because I
+[00:28:13.720 --> 00:28:18.940]   think those are two the two key things that this experience should have it's
+[00:28:18.940 --> 00:28:24.240]   like an open communication but also the remembrance of what we have gathered and
+[00:28:24.240 --> 00:28:30.080]   that sort of could be a nice way to create visuals we know that on every day
+[00:28:30.080 --> 00:28:33.680]   we have to present a lot of things and that's something that actually could
+[00:28:33.680 --> 00:28:42.280]   save a lot of time or for our users that's just like an idea
+[00:28:42.280 --> 00:28:49.880]   can I say um I was I would like to say Alessandra I love your idea and I think
+[00:28:49.880 --> 00:28:56.520]   it's really is synchronized with the current approach that the LLM's public
+[00:28:56.520 --> 00:29:03.560]   LLM's use so they use currently something some of them called artifacts some
+[00:29:03.560 --> 00:29:07.760]   of them called canvas that is actually this combination that you are talking
+[00:29:07.760 --> 00:29:12.680]   about if I understood your idea you are talking with the LLM you are chatting or
+[00:29:12.680 --> 00:29:17.360]   whatever but in the other side is telling you what is happening what is the
+[00:29:17.360 --> 00:29:24.800]   advance of your task I am making code or I am making a plan or whatever so it's
+[00:29:24.800 --> 00:29:35.120]   so cool very interactive so what I'm understanding go ahead go ahead and I
+[00:29:35.120 --> 00:29:39.260]   got basically started like trying to get those pictures once Alberto mentioned
+[00:29:39.260 --> 00:29:43.880]   like he liked the cards that we have or for let's say the profiles of the
+[00:29:43.880 --> 00:29:48.520]   stakeholders that's something very visual that we can have there but yeah I
+[00:29:48.520 --> 00:29:53.320]   didn't want to interrupt your partner sorry about that no no no I'm trying to
+[00:29:53.320 --> 00:29:58.480]   I'm trying to take this forward and then visualize this right on what we just
+[00:29:58.480 --> 00:30:03.040]   talked about or what we discussed so what one one hand you're saying the
+[00:30:03.040 --> 00:30:10.600]   conversation flow you know is is good is great we understand but then what let
+[00:30:10.600 --> 00:30:18.280]   me let me give you an example right so it becomes say I I don't know let me give
+[00:30:18.280 --> 00:30:21.900]   it so the let's follow this right
+[00:30:48.280 --> 00:31:06.520]   this is what I'll say right maybe you can give more as well but that's the
+[00:31:06.520 --> 00:31:18.100]   context right and then I'll probably say here is the share point
+[00:31:21.400 --> 00:31:36.880]   what's happening point holder with all the resales and sales activities right
+[00:31:36.880 --> 00:31:41.520]   this is what I'll say correct and I'll probably attach right some document
+[00:31:41.520 --> 00:31:47.720]   whatever right and it gives me and it gives me a it's not letting me okay and
+[00:31:47.720 --> 00:31:54.440]   it gives me a response correct so now we are saying that this response I can
+[00:31:54.440 --> 00:32:00.640]   tag this response to my mirror board hey this response is good can you please
+[00:32:00.640 --> 00:32:09.360]   tag this to the scope in the mirror board is that what I'm understanding or we
+[00:32:09.360 --> 00:32:22.440]   say no no and you refine this to a smaller summary it'll again probably
+[00:32:22.440 --> 00:32:27.840]   throw something back right again it'll right here I can say tag this to like
+[00:32:27.840 --> 00:32:34.160]   this right so for our use case we are saying that hey please tag this to scope
+[00:32:34.160 --> 00:32:39.000]   or please tag this to problem statement please some and which gets
+[00:32:39.000 --> 00:32:41.640]   that is where you're creating your mirror board is that is that what I'm
+[00:32:41.640 --> 00:32:54.760]   understanding okay yes yes it should be something like that we can see how we
+[00:32:54.760 --> 00:33:00.160]   can actually make that campus a bit more organized I don't know Albert if you
+[00:33:00.160 --> 00:33:08.200]   would have time to like review the scope of how much we can push no so no no I
+[00:33:08.200 --> 00:33:13.240]   think we need to take it in a different way right maybe we should ask a Renault
+[00:33:13.240 --> 00:33:18.720]   okay from your experience of running a program right Renault what would be the
+[00:33:18.720 --> 00:33:25.240]   six or seven things that we need to we need to bring out to use for pre-on
+[00:33:25.240 --> 00:33:34.720]   boarding and those six or seven becomes your pre-on boarding tags so any
+[00:33:34.720 --> 00:33:40.720]   outcome we get here we tag it to that for example right for this I'll also say
+[00:33:40.720 --> 00:33:54.600]   given the share point folder can you review and give me the technical
+[00:33:54.600 --> 00:34:05.280]   architecture right then it should come to you right now I take this and tag it
+[00:34:05.280 --> 00:34:12.920]   to a technical architecture section or ask to then if I'm the best practice the
+[00:34:12.920 --> 00:34:25.640]   follow-up for breaking up I'm break can you hear in yes it gave me this
+[00:34:25.640 --> 00:34:33.300]   can you hear me or is it the same but one it's a slightly better
+[00:34:33.300 --> 00:34:40.600]   but it's still breaking let me cut the video feed I think it's my side okay I'll
+[00:34:40.600 --> 00:34:45.480]   stop here but I think you guys got the context right so what I mean by saying
+[00:34:45.480 --> 00:34:49.960]   is every response needs to be tagged to five or six sections on the mirror board
+[00:34:49.960 --> 00:34:54.220]   just keep it like that for now right let's not complicate it and and when I
+[00:34:54.220 --> 00:34:59.480]   say I'm done then you create you create that entire onboarding mirror board that
+[00:34:59.480 --> 00:35:06.080]   we can share with every person in the team that they can review read and and
+[00:35:06.080 --> 00:35:12.340]   leverage for their own onboarding makes sense any other questions any any
+[00:35:12.340 --> 00:35:23.960]   comments and I just one comment is that Alberto we need to I think you know this
+[00:35:23.960 --> 00:35:29.720]   thing is good but can we go through the mirror board go through your vision it
+[00:35:29.720 --> 00:35:35.960]   need not it need not be a mirror board it need not be a mirror board it can
+[00:35:35.960 --> 00:35:41.180]   also be a when I say a mirror board I think what we mean is similar to what
+[00:35:41.180 --> 00:35:47.400]   Gabby is showing yeah something to console the information yeah correct yeah
+[00:35:47.400 --> 00:35:52.520]   and show it and present it yeah yeah my my thing was you know go through those
+[00:35:52.520 --> 00:35:59.280]   figma that they have already created try to overlap that with Alberto's vision
+[00:35:59.280 --> 00:36:05.600]   see you know and I have some thoughts so see how we can merge them together and
+[00:36:05.600 --> 00:36:11.040]   see what is that what is that missing or what is that redundant and and where we
+[00:36:11.040 --> 00:36:15.760]   have if you have to do a pivot then we'll have to do that quick Alberto you
+[00:36:15.760 --> 00:36:20.640]   get the idea right yeah I got it just I want to say something right I'm sorry
+[00:36:20.640 --> 00:36:26.720]   just please go ahead I need I need I need I feel like I need to interrupt you
+[00:36:26.720 --> 00:36:33.800]   guys just please wanted to say this Barma girls please I am saying this
+[00:36:33.800 --> 00:36:38.080]   because this is the feeling that I have with the interaction with the general AI
+[00:36:38.080 --> 00:36:45.680]   that I have and I have learned with another colleagues that I have so the
+[00:36:45.680 --> 00:36:52.680]   trend now is like to take out all the overwhelming load to the interaction to
+[00:36:52.680 --> 00:36:58.720]   the computational systems to the client and to make it easier and friendly in
+[00:36:58.720 --> 00:37:05.840]   the sense that if you have a kind of chat or more humanized way to deal with is
+[00:37:05.840 --> 00:37:12.880]   the best because it's the trend another the new trend also is take out any
+[00:37:12.880 --> 00:37:18.720]   interface with the computer just make these little devices and let's talk I
+[00:37:18.720 --> 00:37:24.440]   am your friend it's like having your little friend always available for you
+[00:37:24.440 --> 00:37:29.480]   this is what the people is asking for now but I understand that these kind of
+[00:37:29.480 --> 00:37:34.480]   system is a very specific kind of system where we have to control what is the
+[00:37:34.480 --> 00:37:39.680]   advances on the project what are the problems that we are facing what is the
+[00:37:39.680 --> 00:37:46.440]   future what is the project in long term what is the project vision so what I am
+[00:37:46.440 --> 00:37:53.280]   saying is why not we use this new trend this is what I am trying to say let's
+[00:37:53.280 --> 00:37:57.740]   use a mixture between them this conversational thing to construct the
+[00:37:57.740 --> 00:38:04.760]   onboarding and let's use this graphical system in order to keep them updated
+[00:38:04.760 --> 00:38:13.440]   about the advances on the project so we need to make it as Parma said brief with
+[00:38:13.440 --> 00:38:19.760]   a minimal kind of information and everything everything the logic the
+[00:38:19.760 --> 00:38:27.840]   analysis all the plots let's take care that those those agents take care about
+[00:38:27.840 --> 00:38:33.520]   all those details and only if the client say hey tell me about something
+[00:38:33.520 --> 00:38:40.080]   specific then this flag tells to the LMA I need to plot something or I need to
+[00:38:40.080 --> 00:38:44.440]   summarize something or I need to look for information and bring them out and to
+[00:38:44.440 --> 00:38:50.680]   put it in the right way to the client like more dynamic it is true also as I
+[00:38:50.680 --> 00:38:56.240]   understood on this system that we need to have a very detailed data set about
+[00:38:56.240 --> 00:39:04.640]   everything conversations plans compositions of the teams everything
+[00:39:04.640 --> 00:39:09.520]   sure to be there but let's in my idea perhaps I am a mistake but I would love
+[00:39:09.520 --> 00:39:16.000]   to have something more interactive if you need something keep the order to the
+[00:39:16.000 --> 00:39:24.560]   LM give freedom to the agent he needs to do the job and brings to the client the
+[00:39:24.560 --> 00:39:29.960]   right information that's what I that's why I'm trying to say because it's a
+[00:39:29.960 --> 00:39:35.920]   trend it's it's something that we are getting accustomed to to deal into this
+[00:39:35.920 --> 00:39:44.400]   computational phases no we are we are on the same page Alberto absolutely the
+[00:39:44.400 --> 00:39:49.640]   same page but only one correction Alberto this is not going to be a client
+[00:39:49.640 --> 00:39:55.840]   facing tool at all we are not going to show this to any customer this is only
+[00:39:55.840 --> 00:40:03.600]   for internal onboarding internal only internal you understand right second
+[00:40:03.600 --> 00:40:13.720]   second right we are not getting into the execution phase of the program this is
+[00:40:13.720 --> 00:40:22.120]   pre pre program start the program has not started whatever we are doing here is
+[00:40:22.120 --> 00:40:31.000]   only to enable our teams in a very very futuristic way because we have the
+[00:40:31.000 --> 00:40:37.120]   technology available and we have wealth of information available out there how
+[00:40:37.120 --> 00:40:44.680]   do we bring all that together structure in such a fashion where this one day two
+[00:40:44.680 --> 00:40:51.920]   day or three day of onboarding can be very valuable for our teams so that when
+[00:40:51.920 --> 00:40:56.720]   they start they have a head start and they're well prepared to take on that
+[00:40:56.720 --> 00:41:02.880]   challenge right we'll talk about the extensions later once we finish this
+[00:41:02.880 --> 00:41:06.840]   agent then we can talk about the other agents I'm actually trying to see if I
+[00:41:06.840 --> 00:41:13.800]   can get you the GT automotive older so that you I want to give you guys a
+[00:41:13.800 --> 00:41:23.920]   context of yeah yeah and that's why I'm seeing this like a combination of two
+[00:41:23.920 --> 00:41:29.680]   approaches like focus on a more conversational way or approach right in
+[00:41:29.680 --> 00:41:35.920]   order to give them this give the AI agent or to the system the information and
+[00:41:35.920 --> 00:41:40.480]   ask them that like the information that I need to know right in order to
+[00:41:40.480 --> 00:41:46.080]   understand and set up the project but I need those information I need to put it
+[00:41:46.080 --> 00:41:50.600]   in some sections I need to to say to the agent that I need this information that I
+[00:41:50.600 --> 00:41:56.920]   think is good to the problem statement to the whatever market insight or
+[00:41:56.920 --> 00:42:01.840]   industry insights in order for others to consult those information as well and
+[00:42:01.840 --> 00:42:09.880]   even once I am in the system we design it the ability to have a chat as well
+[00:42:09.880 --> 00:42:14.360]   even if we are you know like interacting with the system I can access to the
+[00:42:14.360 --> 00:42:18.600]   conversational approach as well I mean across all the process so we are
+[00:42:18.600 --> 00:42:28.320]   thinking in something like that combined both yeah yeah I have a question so is
+[00:42:28.320 --> 00:42:35.060]   this agent for one person only or if Gabi is adding things or teaching this
+[00:42:35.060 --> 00:42:41.120]   agent or this chat I can see what Gabi gathered from this client or only when
+[00:42:41.120 --> 00:42:46.960]   she shared this information with me like I can collaborate with Gabi is that
+[00:42:46.960 --> 00:42:56.200]   our feature that we are expecting to have no no I okay let me let me tell you
+[00:42:56.200 --> 00:43:02.440]   me as a pre-sales person we sold this so what we are doing is we are
+[00:43:02.440 --> 00:43:08.440]   transitioning whatever we did to the delivery organization now today the
+[00:43:08.440 --> 00:43:12.920]   transition right I'll tell you how it happens typically in an organization a
+[00:43:12.920 --> 00:43:19.160]   pre-sales engineer will join a call with a delivery manager they'll sit down and
+[00:43:19.160 --> 00:43:23.480]   they'll explain as to what they've gone through with this customer what is the
+[00:43:23.480 --> 00:43:29.040]   problem statement what is the solution what is the scope and give them the SW
+[00:43:29.040 --> 00:43:33.640]   document and give them some high-level you know information and that is it it
+[00:43:33.640 --> 00:43:39.040]   is done then the delivery manager takes it and then he goes on from there the
+[00:43:39.040 --> 00:43:43.520]   missing piece here right today when the delivery manager takes it he or she has
+[00:43:43.520 --> 00:43:48.560]   limited information in front of him to sit down and onboard his entire team into
+[00:43:48.560 --> 00:43:55.800]   the program in a very efficient way if I were if and this is what I think would
+[00:43:55.800 --> 00:44:02.160]   add not I think I believe it'll add a lot of value the value is the delivery
+[00:44:02.160 --> 00:44:10.400]   manager should be able to explain their team members who is the customer which
+[00:44:10.400 --> 00:44:15.320]   domain is the customer in what is the problem statement we are solving what
+[00:44:15.320 --> 00:44:19.320]   is the technology we are using to solve this problem statement or enable this
+[00:44:19.320 --> 00:44:25.320]   business to do their business better right consolidated all that and give a
+[00:44:25.320 --> 00:44:30.800]   good understanding to the team that hello this is what the program is all
+[00:44:30.800 --> 00:44:35.440]   about this is the platform we are using here are the platform capabilities
+[00:44:35.440 --> 00:44:41.280]   right here are the platforms best practices here is what the industry is
+[00:44:41.280 --> 00:44:46.400]   saying saying hey typically in this industry this is a onboarding happens
+[00:44:46.400 --> 00:44:50.240]   typically in industry this is our sales operations process happens typically
+[00:44:50.240 --> 00:44:56.280]   in industry this is how the process happens right all that information is
+[00:44:56.280 --> 00:45:00.880]   available today if I ask GROC how a billing happens for a dealership it'll
+[00:45:00.880 --> 00:45:07.600]   tell me okay let me let me ask and show you guys right how does a how does
+[00:45:07.600 --> 00:45:29.120]   a billing process happen for a ship see I've asked GROC right so now I've become a
+[00:45:29.120 --> 00:45:38.280]   fan of GROC not chat anymore chat GPD it's good after I subscribe to a better
+[00:45:38.280 --> 00:45:44.560]   version of it but I think my internet is slow but anyways right so I can ask how
+[00:45:44.560 --> 00:45:49.080]   does how does billing process happen for an automotive dealership it'll give me
+[00:45:49.080 --> 00:45:55.880]   some knowledge saying here are the five steps or here are the ten steps yeah the
+[00:45:55.880 --> 00:46:00.880]   internet is slow some reason yeah but but this is what I want to do I want to
+[00:46:00.880 --> 00:46:06.440]   make sure that we leverage this capability and we build a quick plan so
+[00:46:06.440 --> 00:46:11.560]   today if I tell the delivery manager to do it he'll probably have to do it using
+[00:46:11.560 --> 00:46:16.680]   GROC or chat GPT or deep seek or one of these areas right and then he needs to
+[00:46:16.680 --> 00:46:20.760]   copy them he needs to paste it he needs to create a document what are we doing
+[00:46:20.760 --> 00:46:26.080]   we are creating agent that is going to do all this for us and it's going to give
+[00:46:26.080 --> 00:46:30.480]   an onboarding plan and the onboarding plan will have these five or six areas
+[00:46:30.480 --> 00:46:35.400]   that I just talked about so that it can be shared with the team that is getting
+[00:46:35.400 --> 00:46:40.120]   onboarded to this program where they can spend two or three days come fully
+[00:46:40.120 --> 00:46:43.160]   prepared and they're ready to go and I can speak the customer's language it
+[00:46:43.160 --> 00:46:52.000]   it's day and night difference do you guys have any further questions and I'll
+[00:46:52.000 --> 00:46:56.640]   I'm totally in alignment with what Albert said I'm totally in alignment with
+[00:46:56.640 --> 00:47:00.760]   how we should build this by showing these examples so you guys have to take it
+[00:47:00.760 --> 00:47:12.600]   from here you know I think it's clear Pamela you do you have some questions
+[00:47:12.600 --> 00:47:19.160]   yeah I'm good sorry I just cannot speak the other ones I've been following thank
+[00:47:19.160 --> 00:47:30.280]   you Ray you're silent I need to connect with Albert while I agree that you know
+[00:47:30.280 --> 00:47:37.480]   that is the approach we have to go with what I want to see is there is a lot of
+[00:47:37.480 --> 00:47:44.080]   information that needs to be presented to see what we're talking about is a
+[00:47:44.080 --> 00:47:49.960]   conversation right the conversation will happen once right but then that
+[00:47:49.960 --> 00:47:54.720]   information has to be persisted and shown again and again if you want to get
+[00:47:54.720 --> 00:48:00.480]   there right so if I was searching for something right now you are correct
+[00:48:00.480 --> 00:48:05.240]   that's a conversational thing but once I have searched for it and it also has to
+[00:48:05.240 --> 00:48:12.280]   now wants to decimate its information to the team I that's where I want to see
+[00:48:12.280 --> 00:48:18.360]   that correlation because what I want to what I want to see is that the UI that
+[00:48:18.360 --> 00:48:25.040]   has been built plus the interface that we're talking about right how can we
+[00:48:25.040 --> 00:48:31.560]   marry both of them right because here is the thing so if I'm using this chart it
+[00:48:31.560 --> 00:48:38.560]   could say hey give me your SOW give me the the org structure give me the
+[00:48:38.560 --> 00:48:44.080]   business context give me what industry it is give me the files that are
+[00:48:44.080 --> 00:48:51.600]   relevant here give me x give me y give me z right or you could have an agent
+[00:48:51.600 --> 00:48:56.080]   which will point to the SharePoint folder which which is all fine right and then
+[00:48:56.080 --> 00:49:00.320]   you have an outcome that you are expecting it here we know that we have a
+[00:49:00.320 --> 00:49:05.360]   standardized six things that we need right we need your best practices we need
+[00:49:05.360 --> 00:49:09.040]   the domain expertise we need to know what the problem statement is what our
+[00:49:09.040 --> 00:49:14.400]   solution is what our architecture is what our text track is right for example
+[00:49:14.400 --> 00:49:22.960]   if you're approaching that right now if I know that for certain I that's where
+[00:49:22.960 --> 00:49:28.080]   I'm a little I'm a little taken aback with the chat thing because the chat
+[00:49:28.080 --> 00:49:33.040]   thing is necessary when you are asking a different questions when my question is
+[00:49:33.040 --> 00:49:40.320]   straightforward and single what is my onboarding process it's a single thing
+[00:49:40.320 --> 00:49:49.380]   over and over again no no I think the chat comes in when I want to ask hey
+[00:49:49.380 --> 00:49:57.920]   what are the best practices within this industry how does how does the supply
+[00:49:57.920 --> 00:50:05.320]   chain process work in this industry what are the key technologies that this
+[00:50:05.320 --> 00:50:10.760]   industry uses right this is this is where the external interaction needs to
+[00:50:10.760 --> 00:50:18.120]   happen is what I've been saying from the beginning okay okay so I'm getting
+[00:50:18.120 --> 00:50:24.040]   fixated on on the standard things that are required for onboarding and I hear
+[00:50:24.040 --> 00:50:27.960]   what you're saying so it has to be a combination correct so that's what I'm
+[00:50:27.960 --> 00:50:35.720]   saying see not we don't we even though we say we we are while I say that we are
+[00:50:35.720 --> 00:50:41.680]   focusing we as a K-square are focusing on banking and insurance okay if you ask
+[00:50:41.680 --> 00:50:47.260]   me today do we have one consolidated document of understanding what are the
+[00:50:47.260 --> 00:50:53.680]   20 things that happen in the banking as a business and how do they generate
+[00:50:53.680 --> 00:51:03.520]   revenue we don't have the document and all right and how does that map to a
+[00:51:03.520 --> 00:51:07.240]   product like sales force how do you how do you get all this information
+[00:51:07.240 --> 00:51:10.800]   at all I need to talk to Eric I need to talk to Girish I need to talk to
+[00:51:10.800 --> 00:51:14.800]   Reynolds I need to talk to Alberto I need to talk to Gabby I need to talk to
+[00:51:14.800 --> 00:51:18.320]   four five people in the organization saying okay can you get me all this
+[00:51:18.320 --> 00:51:25.080]   information so what we are saying is while we have all these people in the
+[00:51:25.080 --> 00:51:29.520]   organization how can we leverage what is out there in the world the information
+[00:51:29.520 --> 00:51:34.160]   is available we just have to prompt it to get the information once I get the
+[00:51:34.160 --> 00:51:39.280]   information I can then share it with the organization for review and then publish
+[00:51:39.280 --> 00:51:54.240]   it to the team okay okay that clarifies one thank you okay any questions if not
+[00:51:54.240 --> 00:52:00.400]   Gabby again the ball is in your court please Gabby and team I'll I'm not
+[00:52:00.400 --> 00:52:06.280]   discounting Pam and I'll the team right the ball is in your court we should
+[00:52:06.280 --> 00:52:13.920]   probably connect back today is what Tuesday maybe Thursday I would love to
+[00:52:13.920 --> 00:52:19.840]   see some progress while that progress is happening you can share some initial
+[00:52:19.840 --> 00:52:23.600]   ideas rather than you finishing the whole thing maybe share some initial
+[00:52:23.600 --> 00:52:27.760]   ideas saying hey what do you think about this journey right and give a brief
+[00:52:27.760 --> 00:52:32.240]   about the journey as well use chat GPT to throw the journey and say hey how
+[00:52:32.240 --> 00:52:35.440]   should I write a brief for my technical engineering team and see what it says
+[00:52:35.440 --> 00:52:41.080]   right and then share that with the team right so that they get a feel of it they
+[00:52:41.080 --> 00:52:44.680]   get an understanding of it and then Reynolds about Alberto you guys can
+[00:52:44.680 --> 00:52:50.640]   think to see how they should come from a engineering perspective
+[00:52:54.800 --> 00:53:02.640]   okay all right okay perfect so I will set up a meeting for Thursday and anyway
+[00:53:02.640 --> 00:53:08.960]   we have some ideas before we will share with you in advance okay okay yeah thank
+[00:53:08.960 --> 00:53:15.600]   you everyone thank you thank you thank you thanks

@@ -1,89 +1,118 @@
+% Setting up the LaTeX document with necessary packages
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amsfonts}
 \usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{pdflscape} % Added for landscape orientation
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 \setlength{\parindent}{0pt}
 
+% Beginning the document
 \begin{document}
 
-\title{K-Square Project Onboarding Agent: Streamlining Execution Team Integration}
+% Defining the title, author, and date
+\title{K-Square Programme Onboarding Agent: Enhancing Execution Team Integration}
 \author{Alberto Espinosa \\ KSquare Group}
 \date{1 August 2025}
 \maketitle
 
+% Providing an abstract for the document
 \begin{abstract}
-The K-Square Project Onboarding Agent is an artificial intelligence system designed to streamline the onboarding process for programme execution teams following project acquisition. By automating the aggregation of internal and external data, the system enables teams to acquire domain knowledge, understand client contexts, and commence work efficiently. This paper presents the system’s architecture, core principles, implications, and relevance, with an evaluation of agentic technologies such as LangGraph and Ollama for implementation.
+The K-Square Programme Onboarding Agent is an artificial intelligence system designed to streamline the onboarding process for programme execution teams following project acquisition. By combining a conversational AI interface with a visual knowledge base, the system aggregates internal and external data to deliver domain-specific insights, client profiles, and actionable recommendations. This paper presents the system’s architecture, core principles, implications, and proposed technologies, such as LangGraph and Ollama, for implementation, ensuring efficient integration within a 2–3 day timeframe.
 \end{abstract}
 
+% Introducing the system and its purpose
 \section{Introduction}
-The onboarding of programme execution teams after a project is won represents a critical phase in project management. Manual processes, which rely on gathering insights from sales, pre-sales, and other stakeholders, are time-consuming and prone to inefficiencies. The K-Square Project Onboarding Agent addresses this challenge by leveraging artificial intelligence to automate data aggregation and insight generation, enabling execution teams to integrate rapidly and effectively. This paper outlines the system’s design, its core ideas, and its potential impact on enterprise workflows.
+The onboarding of programme execution teams post-project acquisition is a pivotal phase in project management. Traditional manual processes, reliant on knowledge transfer from sales and pre-sales teams, are often inefficient and time-consuming. The K-Square Programme Onboarding Agent addresses this challenge by automating data aggregation and insight generation, enabling rapid and effective team integration. This internal tool focuses on pre-onboarding, preparing teams before project execution begins, using a conversational interface and structured visual outputs. This paper outlines the system’s design, principles, and potential impact on enterprise workflows.
 
+% Describing the system’s architecture and workflow
 \section{System Overview}
-The K-Square Project Onboarding Agent is a closed-loop ecosystem that synthesises internal and external data to facilitate onboarding. It comprises three primary agents:
-\begin{itemize}
-    \item \textbf{Deep Dive Agent}: Conducts research by querying internal repositories (e.g., SharePoint) and the open web to gather client-specific and industry-relevant information. It employs human validation to ensure relevance.
-    \item \textbf{Project Intelligence Agent}: Aggregates outputs from active agents to generate a dashboard of key insights, recommendations, and actionable outputs, such as summaries and statements of work.
-    \item \textbf{Meetings Agent}: Analyses meeting data (e.g., transcripts, audio recordings) to extract action items, sentiment, and scope expansions, enhancing future interactions.
-\end{itemize}
-The system focuses on post-sales onboarding, relying on structured internal data (e.g., categorised SharePoint folders) to deliver domain knowledge, best practices, and client profiles within a condensed timeframe (2–3 days).
+The K-Square Programme Onboarding Agent is a closed-loop ecosystem that integrates internal data (e.g., SharePoint documents, meeting recordings) and external data (e.g., public web sources) to facilitate pre-onboarding. It combines a conversational AI for data input with a visual dashboard for team access, comprising six core components:
 
+% Listing the system components
+\begin{itemize}
+    \item \textbf{Programme Setup Agent}: Guides users through a conversational interface to input project and client details, such as client name, industry, problem statement, and SharePoint links.
+    \item \textbf{Domain Knowledge Agent}: Aggregates internal and external data to provide domain-specific insights, best practices, and reusable templates.
+    \item \textbf{Client Profile Agent}: Builds detailed client profiles using internal documents and public data, validated by users for relevance.
+    \item \textbf{Actionable Insights Agent}: Generates recommendations, summaries, and tasks to guide team preparation.
+    \item \textbf{Meetings Agent}: Analyses Microsoft Teams recordings to extract action items, scope insights, and engagement metrics.
+    \item \textbf{Knowledge Base}: Centralises tagged data in a visual format for team access and reference.
+\end{itemize}
+
+The system leverages structured internal repositories and a tagging system to organise outputs, ensuring scalability and accessibility for teams within a 2–3 day onboarding period.
+
+% Illustrating the system workflow with a diagram
 \subsection{System Workflow}
-The system’s workflow is illustrated in Figure \ref{fig:overview}, which provides a high-level overview of data flow from client inputs to onboarding outputs. Client and project details are processed through data aggregation, agent analysis, and user validation, culminating in a dashboard that delivers actionable insights. This process ensures efficient integration of execution teams by automating repetitive tasks and leveraging structured data.
+The system’s workflow, depicted in Figure \ref{fig:workflow}, illustrates data flow from user inputs through a conversational AI to onboarding outputs presented in a visual dashboard. Users interact with the Programme Setup Agent to provide project details, which are processed by other agents, validated, and stored in the Knowledge Base for team access.
 
-\begin{figure}[h]
+% Placing the figure on a single landscape page
+\begin{landscape}
+\begin{figure}[p]
     \centering
-    \includegraphics[width=0.3\textwidth]{/Users/albertohernandez/Documents/projects/KS-onboarding/doc/images/overview.png}
-    \caption{High-level overview of the K-Square Project Onboarding Agent workflow.}
-    \label{fig:overview}
+    \includegraphics[width=\textwidth]{/Users/albertohernandez/Documents/projects/KS-onboarding/doc/images/workflow.png}
+    \caption{Workflow of the K-Square Programme Onboarding Agent, showing conversational input and visual output.}
+    \label{fig:workflow}
 \end{figure}
+\end{landscape}
 
-\section{Core Ideas}
-The system is underpinned by several foundational principles:
+% Outlining the core principles of the system
+\section{Core Principles}
+The system is guided by the following principles:
 \begin{itemize}
-    \item \textbf{Automation}: By automating data aggregation and insight generation, the system reduces reliance on manual stakeholder interactions.
-    \item \textbf{Human-in-the-Loop}: Users validate agent outputs to train the system, ensuring continuous improvement in accuracy and relevance.
-    \item \textbf{Structured Data Reliance}: The system leverages well-organised internal repositories to enhance data retrieval and processing efficiency.
-    \item \textbf{Actionable Outputs}: The system generates summaries, onboarding plans, and reusable templates to enable rapid project initiation.
+    \item \textbf{Automation}: Automates data aggregation and insight generation to minimise manual knowledge transfer.
+    \item \textbf{Conversational Interaction}: Employs a chat-based interface to simplify data input and guide users step-by-step.
+    \item \textbf{Visual Organisation}: Presents information in a structured, visual format (e.g., a dashboard or board) for team accessibility.
+    \item \textbf{Human Validation}: Incorporates user feedback to refine AI outputs, ensuring accuracy and relevance.
+    \item \textbf{Structured Data}: Relies on organised internal repositories (e.g., SharePoint) for efficient data retrieval.
+    \item \textbf{Actionable Outputs}: Delivers summaries, checklists, and recommendations to enable rapid project initiation.
 \end{itemize}
 
+% Discussing the implications of the system
 \section{Implications}
-The K-Square Project Onboarding Agent offers significant implications for programme management:
+The K-Square Programme Onboarding Agent offers significant benefits for programme management:
 \begin{itemize}
-    \item \textbf{Efficiency Gains}: Automation reduces onboarding time from weeks to days, enabling faster project execution.
-    \item \textbf{Scalability}: The modular agentic architecture supports expansion to accommodate additional functionalities or larger datasets.
-    \item \textbf{Enterprise Adoption}: Integration with existing tools (e.g., Microsoft Teams, SharePoint) aligns with enterprise workflows, facilitating adoption.
+    \item \textbf{Efficiency}: Reduces onboarding time to 2–3 days, accelerating project execution.
+    \item \textbf{Scalability}: Supports multiple clients and industries through a modular, tagged data structure.
+    \item \textbf{Enterprise Integration}: Aligns with tools like Microsoft Teams and SharePoint, facilitating adoption.
+    \item \textbf{Team Preparedness}: Equips teams with comprehensive client and domain knowledge, enhancing client interactions.
 \end{itemize}
 
+% Highlighting the relevance of the system
 \section{Relevance}
-The system addresses a critical need in programme management: the rapid integration of execution teams. By streamlining onboarding, it reduces dependency on stakeholder availability and ensures consistent delivery of domain knowledge. Its focus on post-sales execution aligns with enterprise priorities, making it a valuable tool for organisations seeking to optimise project initiation processes.
+The system addresses a critical need in programme management: rapid and effective team onboarding. By automating pre-onboarding tasks and delivering structured insights, it reduces reliance on stakeholder availability and ensures consistent knowledge delivery. Its focus on internal use and pre-execution preparation aligns with enterprise priorities, optimising project initiation processes.
 
+% Exploring architectural possibilities for implementation
 \section{Architectural Possibilities}
-The system’s architecture can be realised using agentic technologies, with LangGraph and Ollama as primary candidates.
+The system’s architecture leverages agentic technologies, with LangGraph and Ollama as primary candidates, complemented by alternatives for specific tasks.
 
+% Describing LangGraph as a framework
 \subsection{LangGraph}
-LangGraph, a graph-based framework for multi-agent workflows, is well-suited for orchestrating the system’s agents. It enables dynamic task routing, where outputs from the Deep Dive Agent feed the Project Intelligence Agent, ensuring efficient data flow. Its strengths include flexibility and context retention, which are critical for complex agent interactions. However, its complexity requires experienced developers, and simpler alternatives like CrewAI may be preferable for rapid prototyping.
+LangGraph, a graph-based framework for multi-agent workflows, orchestrates the system’s agents by enabling dynamic task routing. Outputs from the Domain Knowledge and Client Profile Agents feed into the Actionable Insights Agent, ensuring efficient data flow. Its flexibility and context retention are ideal for complex interactions, though its complexity may require experienced developers. Simpler frameworks, such as CrewAI, may be considered for rapid prototyping.
 
+% Describing Ollama for local LLM deployment
 \subsection{Ollama}
-Ollama facilitates local deployment of large language models (e.g., LLaMA 3), ensuring data privacy and reducing cloud costs. It is ideal for processing sensitive internal data, such as SharePoint documents. However, its reliance on smaller models limits performance for large-scale inference, necessitating cloud-based alternatives (e.g., OpenAI) for external data processing. Combining Ollama with a cloud LLM offers a balanced approach.
+Ollama supports local deployment of large language models (e.g., LLaMA 3), ensuring data privacy for internal SharePoint documents. It is suitable for processing sensitive data but may be limited for large-scale external data inference, necessitating cloud-based LLMs (e.g., OpenAI) for web searches. A hybrid approach combining Ollama and cloud LLMs balances privacy and performance.
 
+% Discussing alternative technologies
 \subsection{Alternatives}
-CrewAI provides a simpler framework for agent collaboration, suitable for initial prototypes. Hugging Face Transformers supports fine-tuning for domain-specific tasks, enhancing accuracy. Pinecone or Weaviate can manage vector search for efficient document retrieval. A hybrid architecture, with LangGraph for orchestration, Ollama for internal processing, and cloud LLMs for external data, is recommended to optimise performance and privacy.
+CrewAI offers a simpler framework for agent collaboration, ideal for initial prototypes. Hugging Face Transformers supports fine-tuning for domain-specific tasks, improving accuracy. Pinecone or Weaviate can manage vector search for efficient document retrieval. A hybrid architecture, with LangGraph for orchestration, Ollama for internal processing, and cloud LLMs for external data, is recommended.
 
+% Proposing additional features for the Meetings Agent
 \section{Suggested Additional Features}
-The Meetings Agent, as described in the System Overview, employs sentiment analysis to extract insights from meeting data, providing a valuable indication of the general tone and opinions expressed during client interactions. To enhance this capability, a novel approach proposed by \textbf{Alberto Espinosa} (\cite{espinosa2025}) in a recent scientific study introduces a formal dynamical measurement of opinion change based on semantics and complexity. This research, available at \href{https://arxiv.org/abs/2505.02581}{https://arxiv.org/abs/2505.02581}, develops a change-of-opinion attack test using perturbation and intervention analysis to study how conversational dynamics evolve. By tracking shifts in semantics, sentiment, and topics, this measurement offers a more granular understanding of meeting interactions, enabling the Meetings Agent to identify nuanced changes in client perspectives and adapt onboarding outputs accordingly. Integrating this approach would enhance the system’s ability to deliver precise, context-aware insights, aligning with the goal of streamlining execution team integration. 
+The Meetings Agent analyses Microsoft Teams recordings to extract action items and scope insights. A novel approach proposed by Espinosa (\cite{espinosa2025}) introduces a dynamical measurement of opinion change based on semantics and complexity, detailed in \href{https://arxiv.org/abs/2505.02581}{arXiv:2505.02581}. This method uses perturbation and intervention analysis to track shifts in conversational dynamics, enhancing the agent’s ability to identify nuanced client perspectives. Integrating this feature could improve the precision of meeting insights, subject to evaluation for feasibility.
 
-This feature is a suggestion and is subject to evaluation and approval, as it involves a high-level mathematical implementation.
-
-
+% Concluding the document with future directions
 \section{Conclusion}
-The K-Square Project Onboarding Agent represents a transformative solution for programme execution team integration. By automating onboarding through a robust agentic system, it delivers efficiency, scalability, and enterprise alignment. LangGraph and Ollama, complemented by alternative technologies, provide a feasible architectural foundation. Future work should focus on fine-tuning models, refining human-in-the-loop mechanisms, and incorporating advanced measurements of conversational dynamics to enhance system performance.
+The K-Square Programme Onboarding Agent offers a transformative approach to team integration by combining conversational AI with a visual knowledge base. By automating data aggregation and delivering actionable insights, it enhances efficiency, scalability, and enterprise alignment. LangGraph and Ollama, supported by alternative technologies, provide a robust architectural foundation. Future work should focus on refining the conversational interface, enhancing human validation mechanisms, and evaluating advanced features like opinion change analysis to optimise system performance.
 
+% Providing the bibliography
 \begin{thebibliography}{1}
 \bibitem{espinosa2025}
 A. Espinosa, ``Embracing Inevitable AI Misalignment as a Strategy to Steer Competitive Agents Towards Human Alignment: Change-of-Opinion Attacks and Interventions,'' arXiv preprint arXiv:2505.02581, 2025.
 \end{thebibliography}
 
-
+% Ending the document
 \end{document}

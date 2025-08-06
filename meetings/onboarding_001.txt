@@ -1,0 +1,820 @@
+
+[00:00:00.000 --> 00:00:04.440]   if you want to start with an introduction of the effort or.
+[00:00:04.440 --> 00:00:12.120]   Yeah, sure. OK. So hi Ray and who else is here? Alberto. OK.
+[00:00:12.120 --> 00:00:15.800]   So I think it's the first time for me seeing Alberto. So nice to
+[00:00:15.800 --> 00:00:20.960]   meeting you. So nice to meet you. So we are the product
+[00:00:20.960 --> 00:00:24.480]   designers here in case where we are part of the same team.
+[00:00:24.480 --> 00:00:28.040]   And right now I don't know what do you know regarding this
+[00:00:28.040 --> 00:00:31.280]   experience we are creating. But according to the context we
+[00:00:31.280 --> 00:00:35.280]   already know that you are building or implementing something
+[00:00:35.280 --> 00:00:39.840]   regarding AI, right? So on on this side on the design
+[00:00:39.840 --> 00:00:43.120]   experience we are creating, you know, like the experience and
+[00:00:43.120 --> 00:00:47.560]   the front end and the visuals in order to make these things
+[00:00:47.560 --> 00:00:53.400]   happen. So what we will see today is basically we are working
+[00:00:53.400 --> 00:00:57.160]   with models and with different agents, right? So what we will
+[00:00:57.160 --> 00:01:01.560]   see today is the model and agent focus on the onboarding. This
+[00:01:01.560 --> 00:01:07.120]   means that like the the first steps of the entire process and
+[00:01:07.120 --> 00:01:11.320]   product lifecycle process. So this is the experience that we
+[00:01:11.320 --> 00:01:14.760]   are building and we would like to show you in order to be
+[00:01:14.760 --> 00:01:18.360]   aligned on both sides, right? Receive your feedback, receive
+[00:01:18.360 --> 00:01:22.200]   your inputs, of course, and we will iterate accordingly. But
+[00:01:22.200 --> 00:01:25.840]   basically we are working in and what we will see today is
+[00:01:25.840 --> 00:01:30.480]   based on some requirements that Barma share with us. So yeah,
+[00:01:30.480 --> 00:01:34.320]   with that said, I think we are ready. I don't know if you have
+[00:01:34.320 --> 00:01:36.760]   questions before we start.
+[00:01:36.760 --> 00:01:42.560]   Not me, but I really I am anxious to see what you have here
+[00:01:42.560 --> 00:01:43.120]   really.
+[00:01:43.120 --> 00:01:47.640]   Okay, it's a it's a great experience. I promise to you so
+[00:01:47.640 --> 00:01:51.840]   we are like putting so much efforts and passion in what we
+[00:01:51.840 --> 00:01:55.760]   are creating. So yeah, so let's do it. Yeah.
+[00:01:55.760 --> 00:02:00.720]   Okay, so I will give you the walkthrough on the things that
+[00:02:00.720 --> 00:02:04.440]   we have been designing. So just a quick note, feel free to
+[00:02:04.440 --> 00:02:10.400]   interrupt me anytime for any questions. And also just a quick
+[00:02:10.400 --> 00:02:15.400]   note, Figma is a program that let us create screens. And the
+[00:02:15.400 --> 00:02:21.440]   screens are not yet full, let's say finished products. So some
+[00:02:21.560 --> 00:02:25.560]   stages might be missing or something that it's not say a
+[00:02:25.560 --> 00:02:30.200]   complete interaction. So these are just basically nice, very,
+[00:02:30.200 --> 00:02:35.960]   very nice pictures. So we are proposing that that the experience
+[00:02:35.960 --> 00:02:39.840]   starts on projects as for now, so that maybe we can create the
+[00:02:39.840 --> 00:02:44.480]   projects and see them either on tables or cards so that we can
+[00:02:44.480 --> 00:02:49.880]   actually have like a little scope on how the project is from
+[00:02:49.880 --> 00:02:53.760]   the end to end. So these percentages are related to how
+[00:02:53.760 --> 00:03:02.080]   much of the project we have ongoing. Once we click on the on
+[00:03:02.080 --> 00:03:05.520]   the projects, we will see a project view. But we also have
+[00:03:05.520 --> 00:03:08.920]   the option to create projects. These projects, we're not sure
+[00:03:08.920 --> 00:03:13.840]   yet if we're going to start with a, let's say an agent that
+[00:03:13.840 --> 00:03:18.120]   helps you create the project into the say that the diving it's
+[00:03:18.120 --> 00:03:23.560]   a agent we have, this agent, we call it deep dive, but it's
+[00:03:23.560 --> 00:03:27.960]   basically because it's our research based agents that it
+[00:03:27.960 --> 00:03:34.400]   essentially enable us to, to deep dive and search and get a
+[00:03:34.400 --> 00:03:40.160]   common understanding on what the client is. And, and basically
+[00:03:40.160 --> 00:03:42.240]   have everything. We have
+[00:03:42.240 --> 00:03:45.840]   I'm sorry, I will interrupt you a little bit. So we are still
+[00:03:45.840 --> 00:03:48.840]   defining some names for the agents, right? But it's
+[00:03:48.840 --> 00:03:55.240]   basically this first agent will help us to it's more like the
+[00:03:55.240 --> 00:03:58.960]   contextual one, right? Like to setting up like, you know,
+[00:03:58.960 --> 00:04:02.280]   understanding first understanding the client, the
+[00:04:02.280 --> 00:04:05.920]   context and everything in order to start the project. So that's
+[00:04:05.920 --> 00:04:10.040]   why we are calling right now deep dive. But again, wording, we
+[00:04:10.040 --> 00:04:13.440]   can change the name if we need. But right now, that's the
+[00:04:13.440 --> 00:04:17.280]   purpose of that. Okay, cool, cool, cool.
+[00:04:17.280 --> 00:04:21.880]   Yes, on this one through, we will show you three agents that
+[00:04:21.880 --> 00:04:26.800]   are in progress as well. So any suggestions are welcome. The
+[00:04:26.800 --> 00:04:29.760]   project intelligence one is the first agent we're going to show
+[00:04:29.760 --> 00:04:35.480]   you this will gather all the agents, common knowledge, and
+[00:04:35.480 --> 00:04:40.440]   create basically the summarized version to create, let's say
+[00:04:40.440 --> 00:04:45.760]   reports and stuff that the the user will need to share or, or
+[00:04:45.760 --> 00:04:51.960]   present or let's say, give you to have today's insights of the
+[00:04:51.960 --> 00:04:55.880]   project. That's like, what's the actual information of the
+[00:04:55.880 --> 00:04:58.760]   project that we have now? The deep dive agent that is a
+[00:04:58.760 --> 00:05:04.200]   research based agent that will help us to to get all the
+[00:05:04.200 --> 00:05:07.520]   information that we need to actually engage with the client
+[00:05:07.520 --> 00:05:11.120]   on the same ground, and the meetings agents that will
+[00:05:11.120 --> 00:05:15.240]   basically gather all the meeting information and create
+[00:05:15.240 --> 00:05:21.520]   actionable insights and, and basically, analytics that will
+[00:05:21.520 --> 00:05:26.600]   let us know more about the meetings, then let us go into
+[00:05:26.600 --> 00:05:30.240]   detail on things that we might miss during the meeting.
+[00:05:30.240 --> 00:05:35.680]   Yeah, I have a question. Yeah, go ahead. Can I ask you? Yeah, I
+[00:05:35.680 --> 00:05:39.400]   want to ask you about the first one, the project
+[00:05:39.400 --> 00:05:44.800]   intelligence. I just want to understand this agent has access
+[00:05:44.800 --> 00:05:49.560]   to all information about the clients. It's like a the global
+[00:05:49.560 --> 00:05:54.120]   vision of the whole information. Okay, cool. So this is the one
+[00:05:54.120 --> 00:05:59.680]   capable to make any kind of insights or summarizes and
+[00:05:59.680 --> 00:06:03.960]   recommendation that kind of things, right? Yeah. Okay, let me
+[00:06:04.000 --> 00:06:07.640]   let me explain a little bit more about that. So basically, each
+[00:06:07.640 --> 00:06:11.400]   agent that we will have will do different things, right? Each
+[00:06:11.400 --> 00:06:14.680]   agent will do different things, and different purpose, each
+[00:06:14.680 --> 00:06:18.280]   agent have different purpose. But basically, the project
+[00:06:18.280 --> 00:06:23.280]   intelligence is not like the agent as it is, is more like,
+[00:06:23.280 --> 00:06:27.560]   here, we will find it's in order to have a section in where we
+[00:06:27.560 --> 00:06:32.200]   can find everything as a summary, or the most important
+[00:06:32.200 --> 00:06:37.280]   information for us to consult, you know, instead of going per
+[00:06:37.280 --> 00:06:40.720]   agent and switching per agent and everything there in that
+[00:06:40.720 --> 00:06:45.840]   section, we will, we will have or we will find like the most
+[00:06:45.840 --> 00:06:51.440]   important information that we are doing, separated for each
+[00:06:51.440 --> 00:06:55.520]   agent, you know, maybe, for example, if the deep dive can
+[00:06:55.520 --> 00:06:59.680]   help us to understand the context and understand the
+[00:06:59.680 --> 00:07:05.080]   client, maybe we will have some insights and summary that the
+[00:07:05.080 --> 00:07:08.800]   AI can give us. But in the project intelligence, instead of
+[00:07:08.800 --> 00:07:11.600]   going like, what happened in the meetings agents, what happened
+[00:07:11.600 --> 00:07:14.680]   in the deep dive, they're in the brain intelligence, we will
+[00:07:14.680 --> 00:07:20.800]   have that summary of information. Yeah, good. Just, I want to
+[00:07:20.800 --> 00:07:24.320]   be sure to understand this concept. Project intelligence
+[00:07:24.320 --> 00:07:29.280]   then it's like a dashboard, where you can see exactly what you
+[00:07:29.280 --> 00:07:33.120]   have as a client. So all the, as you said, the most important
+[00:07:33.120 --> 00:07:37.880]   information is there, is not kind of intelligent thing. It's a
+[00:07:37.880 --> 00:07:39.760]   summary dashboard.
+[00:07:39.760 --> 00:07:43.640]   Like an aggregation of everything else that you've been
+[00:07:43.640 --> 00:07:44.320]   working with.
+[00:07:44.320 --> 00:07:49.360]   Can you go back to the dashboard once, please?
+[00:07:56.640 --> 00:07:59.760]   Where you had the list of agents. I think the next one, right?
+[00:07:59.760 --> 00:08:01.560]   Oh, sure.
+[00:08:01.560 --> 00:08:08.120]   Yeah. The thing you need to understand, the client before
+[00:08:08.120 --> 00:08:12.960]   the project work begins. Automatically captured nodes,
+[00:08:12.960 --> 00:08:14.760]   stars, highlights from the meeting.
+[00:08:14.760 --> 00:08:23.800]   Okay, the expectation is, we will have these agents, canned
+[00:08:23.800 --> 00:08:24.720]   agents, right?
+[00:08:26.200 --> 00:08:31.200]   When we're talking about deep dive, then this question, I
+[00:08:31.200 --> 00:08:37.600]   think is, is more for Alberto, if it is too detailed, then
+[00:08:37.600 --> 00:08:41.840]   Alberto, we can reserve it for later. But is the idea, from
+[00:08:41.840 --> 00:08:44.960]   what I'm understanding is, let's say, we have a meeting with
+[00:08:44.960 --> 00:08:53.680]   NAS tomorrow. So this deep dive agent should be able to go
+[00:08:53.680 --> 00:08:58.080]   across our repositories as well as the open internet to find out
+[00:08:58.080 --> 00:09:01.680]   whatever context it can find about the client. Is that the
+[00:09:01.680 --> 00:09:02.520]   right understanding?
+[00:09:02.520 --> 00:09:07.920]   Yes, it is. I think it's the whole idea. Like, yes, like an
+[00:09:07.920 --> 00:09:14.200]   expert or kind of researcher about specific topics, he's
+[00:09:14.200 --> 00:09:17.120]   capable to understand and to explain those things. Yeah.
+[00:09:17.120 --> 00:09:21.200]   We have a proposal for the UI. In case you want to see that
+[00:09:21.200 --> 00:09:25.400]   first, instead of seeing the, the project intelligence ones?
+[00:09:25.400 --> 00:09:31.160]   No, that's fine. I don't want to disturb your, your train of
+[00:09:31.160 --> 00:09:34.520]   power. So whichever way you have decided to proceed, please do
+[00:09:34.520 --> 00:09:34.800]   so.
+[00:09:34.800 --> 00:09:42.960]   Okay. So going quickly around the project intelligence feature,
+[00:09:42.960 --> 00:09:47.680]   as Pamela said, is an aggregator. Basically, something
+[00:09:47.680 --> 00:09:50.880]   that Barma told us about the experiences that the agents are
+[00:09:50.880 --> 00:09:58.000]   not, like, not all agents will be active in the project. So
+[00:09:58.000 --> 00:10:01.560]   the user would be able to add the specific agents per project.
+[00:10:01.560 --> 00:10:07.800]   And the project intelligence feature basically, as Pamela
+[00:10:07.800 --> 00:10:13.440]   said, aggregates all the available agents into a summarized
+[00:10:13.440 --> 00:10:18.640]   version. So we have a few components such as the smart
+[00:10:18.640 --> 00:10:22.720]   recommendations or insights related to what the project
+[00:10:22.720 --> 00:10:27.080]   looks today, and which actions are recommended. We have quick
+[00:10:27.080 --> 00:10:31.720]   actions to create or generate outputs, such as one page
+[00:10:31.720 --> 00:10:36.840]   summaries, SOWs, and basically presentations on executive or
+[00:10:36.840 --> 00:10:40.040]   executive summaries. This is something that needs to be refined.
+[00:10:40.040 --> 00:10:46.400]   So don't pay that much attention to that. Also, we have
+[00:10:46.400 --> 00:10:50.560]   textual information regarding the project. This is auto
+[00:10:50.560 --> 00:10:55.120]   generated based on the upload and documents. This is these
+[00:10:55.120 --> 00:10:58.440]   uploads happen on the project creation screen. We're going to
+[00:10:58.440 --> 00:11:03.720]   go right there in a few minutes. And we can also see insights
+[00:11:03.720 --> 00:11:06.960]   such as how the solution would look and the benefits that it
+[00:11:06.960 --> 00:11:11.280]   would go to both clients and customers, sort of like a sales
+[00:11:11.280 --> 00:11:19.200]   pitch inside. We also have a profile of the client information
+[00:11:19.200 --> 00:11:23.920]   by common knowledge of the client, the alignment team, and
+[00:11:23.920 --> 00:11:28.920]   stakeholder profiles, and maybe even, let's say, create an
+[00:11:28.920 --> 00:11:34.920]   organizational map based on that. We have checklists as well for
+[00:11:34.920 --> 00:11:39.720]   the onboarding and checklists related to, let's say, the
+[00:11:39.720 --> 00:11:43.640]   agents we have available. For example, if I have the deep dive,
+[00:11:43.640 --> 00:11:49.480]   I can know that I would need to actually search for stuff and
+[00:11:49.480 --> 00:11:54.480]   just check on that. Again, these are just recommendations. Now
+[00:11:54.480 --> 00:12:00.360]   this is not a final input/output thing. So that's going to
+[00:12:00.360 --> 00:12:03.360]   take a bit more defining for that. This is just the first
+[00:12:03.360 --> 00:12:08.440]   meeting. We have also a knowledge based section. This is more
+[00:12:08.440 --> 00:12:13.320]   for basically gather what's the knowledge on the client. Let's
+[00:12:13.320 --> 00:12:17.200]   say the profiles from the stakeholders that came from the
+[00:12:17.200 --> 00:12:21.560]   dean, best practices on what the solution could do. Let's say,
+[00:12:21.560 --> 00:12:26.920]   for example, we are going to use the agent force and we want to
+[00:12:26.920 --> 00:12:31.520]   basically have training videos or manuals for the team to work
+[00:12:31.520 --> 00:12:36.000]   on. And glossaries that could come from the meetings, let's say
+[00:12:36.000 --> 00:12:41.240]   the meeting's agent, they found a weird word with intelligence
+[00:12:41.240 --> 00:12:45.880]   and gather that on the glossary. Lastly, on the operating
+[00:12:45.880 --> 00:12:49.000]   intelligence, we have a document both that gathers
+[00:12:49.000 --> 00:12:54.640]   specific documents, either from manual input or from the lookup
+[00:12:54.680 --> 00:13:02.640]   component. And sorry, there was a bit of noise. And also a set
+[00:13:02.640 --> 00:13:06.320]   up for the sources on these repositories that I might have,
+[00:13:06.320 --> 00:13:11.000]   let's say, for example, SharePoint or Drive, so that I can
+[00:13:11.000 --> 00:13:16.120]   actually look up from, let's say company databases or personal
+[00:13:16.120 --> 00:13:23.320]   databases that I could use for the lookup agent. Feel free to
+[00:13:23.320 --> 00:13:31.800]   interrupt me. Yeah. No question. No questions. Yeah. So for
+[00:13:31.800 --> 00:13:37.400]   the type agent, you can see we have a few tabs as well for
+[00:13:37.400 --> 00:13:40.520]   client profile setup, industry insights, summaries for the
+[00:13:40.520 --> 00:13:46.200]   opportunity and the know house of the project. This is the view
+[00:13:46.200 --> 00:13:49.760]   we have for the lookup component. As you can see, it's
+[00:13:49.760 --> 00:13:54.120]   basically a search engine that will enable you to search either
+[00:13:54.120 --> 00:13:59.280]   or internal or web search or both. Depends on the capabilities
+[00:13:59.280 --> 00:14:03.800]   you let us know that we were going to have for that. And once
+[00:14:03.800 --> 00:14:08.720]   you do the search, it will show you the results. And as the agent
+[00:14:08.720 --> 00:14:14.640]   is learning, you're suggesting to have a verify or deny the
+[00:14:14.640 --> 00:14:20.160]   search or the result as the just so that the agent can filter
+[00:14:20.160 --> 00:14:23.760]   which information is gonna take into account to create those
+[00:14:23.760 --> 00:14:28.240]   summaries. As you can see, we have like an empty state for the
+[00:14:28.240 --> 00:14:32.280]   lookup resources. You're not having anything considered up to
+[00:14:32.280 --> 00:14:35.960]   now. And once you start considering things, it sort of
+[00:14:35.960 --> 00:14:39.800]   would look like this, so that you can see which assets or
+[00:14:39.800 --> 00:14:44.680]   resources you have a way to basically remove or expand on
+[00:14:44.680 --> 00:14:50.400]   the resource. And in the future, we will have like a page to
+[00:14:50.400 --> 00:14:54.400]   just basically see on that question. Yes. Yeah, I have a
+[00:14:54.400 --> 00:14:58.920]   question that you don't mind. So in that screen in the analytics
+[00:14:58.920 --> 00:15:07.600]   engine. So in the left of the screen, that one, just want to
+[00:15:07.600 --> 00:15:13.840]   understand that part where you have the checkbox there. If I
+[00:15:13.840 --> 00:15:17.480]   understood the agent, the intelligent agent will have the
+[00:15:17.480 --> 00:15:22.320]   capacity, the capabilities to take that kind of decisions. So
+[00:15:22.320 --> 00:15:27.920]   it will be autonomous in this kind of thing. So you mean this
+[00:15:27.920 --> 00:15:32.480]   part, right? That one. Okay, so we understand that this is a
+[00:15:32.480 --> 00:15:37.520]   learning system. So like a LLMM. And we're gonna try to
+[00:15:37.880 --> 00:15:42.640]   as like, we need to teach the program, which sort of resources
+[00:15:42.640 --> 00:15:46.280]   is gonna take in consideration. For example, this is a data
+[00:15:46.280 --> 00:15:53.240]   court from 2012. Maybe we can see maybe it's the same name as
+[00:15:53.240 --> 00:15:56.520]   the company we proposed, but it has a little typo, as you can
+[00:15:56.520 --> 00:15:59.880]   see. Okay, maybe if this is because it's another company
+[00:15:59.880 --> 00:16:03.160]   that used to have this name or something, and this is a result
+[00:16:03.160 --> 00:16:06.760]   that we don't want to take in consideration. But sorry, the
+[00:16:06.760 --> 00:16:10.560]   question just to clarify is if the system makes this decision,
+[00:16:10.560 --> 00:16:18.160]   or if we as the human user decide if the if this is going to be
+[00:16:18.160 --> 00:16:20.000]   used or not, right? What's that?
+[00:16:20.000 --> 00:16:26.440]   Except to give the intelligence, it will take by itself, the
+[00:16:26.440 --> 00:16:31.880]   decisions to, to, to, you know, to auto to make the
+[00:16:31.880 --> 00:16:38.640]   authorization or something or like the idea here is to use the
+[00:16:38.640 --> 00:16:43.080]   human eye to exactly what Ali mentioned, like to decide if we
+[00:16:43.080 --> 00:16:47.480]   want to include this file, or this web or this resource or not.
+[00:16:47.480 --> 00:16:53.160]   But like human made. Yes, this will be a human step. And it
+[00:16:53.160 --> 00:16:56.080]   also could help into training the program in the future stage.
+[00:16:56.080 --> 00:16:58.760]   But this is a human input as for now.
+[00:16:59.440 --> 00:17:01.320]   Good. Thank you. Thank you.
+[00:17:01.320 --> 00:17:09.800]   We'll have to have to take a look at this one, Alberto, because
+[00:17:09.800 --> 00:17:16.040]   typically the outputs are not going to be, you know, single or,
+[00:17:16.040 --> 00:17:22.200]   you know, double digit outcomes, right? It can be multiple. So
+[00:17:22.200 --> 00:17:27.200]   we'll have to find a way of how to optimize that. But anyways, I
+[00:17:27.200 --> 00:17:30.080]   think this is a man in the middle kind of scenario that you
+[00:17:30.080 --> 00:17:34.680]   want to exclude, exclude, non relevant.
+[00:17:34.680 --> 00:17:40.400]   Yeah, I just, yeah, I understand. Yeah, just wanted to
+[00:17:40.400 --> 00:17:45.560]   understand Ray, if the core idea here, at least in this screen,
+[00:17:45.560 --> 00:17:50.720]   if it was to give auto, autonomy to the agents to take
+[00:17:50.720 --> 00:17:55.640]   crucial decisions, if that is the case, it's something we have
+[00:17:55.640 --> 00:18:00.600]   to plan deeply and to think of, and to be very careful about
+[00:18:00.600 --> 00:18:03.880]   this, just was the question in my mind that that was, no, no,
+[00:18:03.880 --> 00:18:06.360]   I, I, I, I hear you, I hear you.
+[00:18:06.360 --> 00:18:14.360]   Yeah, that's it. But now I understand that this part this
+[00:18:14.360 --> 00:18:18.320]   this screen is just like kind of suggestions, because the human
+[00:18:18.320 --> 00:18:22.680]   perhaps he has, or she has not the capacity to understand, to
+[00:18:22.680 --> 00:18:27.600]   forget, to remember everything. So if everything, you forgot
+[00:18:27.600 --> 00:18:31.520]   something. So the suggestions are here because the intelligence
+[00:18:31.520 --> 00:18:35.760]   will make, will be in your back, caring you, right?
+[00:18:35.760 --> 00:18:42.200]   Exactly. Exactly. And again, just like, like a comment on how
+[00:18:42.200 --> 00:18:47.880]   the UI looks, this is totally adaptable to what the output
+[00:18:47.880 --> 00:18:51.960]   that you managed to generate. You mentioned that we might get
+[00:18:52.080 --> 00:18:56.560]   lots of sources, maybe even sources, like answers that are
+[00:18:56.560 --> 00:19:03.040]   this big, or even bigger. Everything that you get to, to
+[00:19:03.040 --> 00:19:06.480]   understand on this process, we can adapt it on the screen. And
+[00:19:06.480 --> 00:19:09.320]   that's totally, totally valid.
+[00:19:09.320 --> 00:19:16.240]   So what are we expect? So this one, right, where you these are
+[00:19:16.240 --> 00:19:21.200]   all the documents that was found on the web search for that
+[00:19:21.200 --> 00:19:23.000]   particular company? Is that correct?
+[00:19:23.000 --> 00:19:28.480]   Yes, either all or the most relevant. Maybe we can add like,
+[00:19:28.480 --> 00:19:33.760]   like, let's say, see, see more something like that.
+[00:19:33.760 --> 00:19:40.200]   So that I'm trying to, I'm trying to gauge the intent, which
+[00:19:40.200 --> 00:19:43.000]   Verma had conveyed to you, right? So I'm trying to get that
+[00:19:43.000 --> 00:19:49.800]   intent. It's it's not about the look and feel of the UI. So the
+[00:19:49.800 --> 00:19:52.800]   idea here is, when you're trying to do a deep dive, let's say I
+[00:19:52.800 --> 00:19:57.960]   have a meeting with NIS Guyana tomorrow, right today, right? I
+[00:19:57.960 --> 00:20:02.160]   put NIS Guyana there, right? Automatically, it shows NIS
+[00:20:02.160 --> 00:20:07.960]   Guyana has been a company since 1970, right? So you will find a
+[00:20:07.960 --> 00:20:14.360]   lot of documents which might have NIS Guyana's RFPs, you know,
+[00:20:14.440 --> 00:20:22.520]   public records, forms, clients, list of vendors, the whole nine
+[00:20:22.520 --> 00:20:26.840]   yards, right? Whatever is publicly available information. It
+[00:20:26.840 --> 00:20:33.960]   could also bring up if the if the LLM is, you know, is not
+[00:20:33.960 --> 00:20:37.480]   weighing things correctly, it could also bring up NIS
+[00:20:37.880 --> 00:20:45.100]   Sentencing, right? Because they're similar. So now, for the
+[00:20:45.100 --> 00:20:48.040]   man in the middle to identify those documents, depending upon
+[00:20:48.040 --> 00:20:51.400]   how many are safe. So what we are saying is, hey, if it's
+[00:20:51.400 --> 00:20:55.240]   possible, review that, and make sure that you only have the
+[00:20:55.240 --> 00:21:00.160]   relevant NIS Guyana relevant information that you would want
+[00:21:00.160 --> 00:21:06.600]   to consume. And all the search data should, sorry, go ahead, I
+[00:21:06.600 --> 00:21:07.880]   won't go ahead of myself.
+[00:21:07.880 --> 00:21:12.040]   No, don't worry. Yes, yes. Maybe it's something that we can
+[00:21:12.040 --> 00:21:17.400]   add is basically, let's say a tag for center certainty. So that
+[00:21:17.400 --> 00:21:22.600]   one can you say, okay, I have a component for that. Let me just
+[00:21:22.600 --> 00:21:27.560]   try to illustrate it better. Second, I'm trying not to spoil
+[00:21:27.560 --> 00:21:31.920]   anything. So one second. I don't see it.
+[00:21:32.960 --> 00:21:37.120]   But I'll say this is a lot of. Yeah, I like that. I like, I
+[00:21:37.120 --> 00:21:42.240]   like what you mentioned. And that's really a nice point to add
+[00:21:42.240 --> 00:21:46.160]   into the program, but maybe we can have some tonight. And I'm
+[00:21:46.160 --> 00:21:49.280]   personally, that's where you're known.
+[00:21:49.280 --> 00:21:52.080]   Like your assi, uh huh.
+[00:21:58.600 --> 00:22:01.480]   Okay, something like that. Is that what you were heading or
+[00:22:01.480 --> 00:22:06.840]   the relevance part, right? So my point is, if we are asking the
+[00:22:06.840 --> 00:22:10.400]   LLM to do the relevance, why are we asking it to give the
+[00:22:10.400 --> 00:22:11.280]   relevant data?
+[00:22:11.280 --> 00:22:15.000]   Alberto, that's more for you.
+[00:22:15.000 --> 00:22:23.360]   It will be relevant. If the LLM can give, I don't know if it
+[00:22:23.360 --> 00:22:25.760]   will be accuracy, but it will be more relevance, right?
+[00:22:29.480 --> 00:22:32.880]   Accuracy would be if I say NIS, Guyana, RFP, then it'll be
+[00:22:32.880 --> 00:22:37.400]   accurate. But if I say NIS, Guyana, get me all the
+[00:22:37.400 --> 00:22:41.000]   information of NIS, Guyana, then it will be relevance of
+[00:22:41.000 --> 00:22:45.240]   whether this is relevant to NIS, Guyana or not. And if my LLM
+[00:22:45.240 --> 00:22:49.320]   is already doing the relevance, why am I getting relevant
+[00:22:49.320 --> 00:22:49.880]   records?
+[00:22:49.880 --> 00:22:51.360]   Okay.
+[00:22:51.360 --> 00:22:56.720]   I'm not trying to change the UI, but just something that we can
+[00:22:56.720 --> 00:22:57.640]   think about later.
+[00:22:59.520 --> 00:23:03.680]   I'm trying to see why, you know, as far as possible, can we
+[00:23:03.680 --> 00:23:04.960]   exclude the man in the middle?
+[00:23:04.960 --> 00:23:11.120]   I think that comes to train up to some point or up to some
+[00:23:11.120 --> 00:23:11.720]   stage.
+[00:23:11.720 --> 00:23:16.240]   Yep, yep, yep. No, completely agree with this, this step, but
+[00:23:16.240 --> 00:23:17.320]   I'm just trying to
+[00:23:17.320 --> 00:23:20.280]   Hello, Varma. Just saw you there.
+[00:23:20.280 --> 00:23:25.040]   Yeah, I just came in. Yeah, yeah. Go on, continue, continue.
+[00:23:25.520 --> 00:23:28.920]   Yeah, we were discussing about the client lookup, because
+[00:23:28.920 --> 00:23:32.120]   Alberto and Ray wanted to understand more about this
+[00:23:32.120 --> 00:23:36.720]   feature. But also something that I would like to add here is
+[00:23:36.720 --> 00:23:39.960]   like, for example, now we are discussing about a new client
+[00:23:39.960 --> 00:23:44.240]   that is coming, right? But even if this was an existing client,
+[00:23:44.240 --> 00:23:48.080]   we can obtain also some information that maybe we can
+[00:23:48.080 --> 00:23:52.840]   already have in our records on in our database. So it could be
+[00:23:52.840 --> 00:23:56.520]   like for both sides, what do we have in the internet regarding
+[00:23:56.520 --> 00:24:00.360]   this, this new client, or if we already have something, we can
+[00:24:00.360 --> 00:24:03.520]   find it as well, or we can obtain it as well from here.
+[00:24:03.520 --> 00:24:08.440]   It's good. Thank you. Okay.
+[00:24:08.440 --> 00:24:17.560]   Varma, do you want us to initiate again or continue? Okay,
+[00:24:17.880 --> 00:24:23.040]   continue, continue. Okay. Okay. Just as a context, we are
+[00:24:23.040 --> 00:24:26.960]   seeing we are we just started to see the deep dive agent that
+[00:24:26.960 --> 00:24:30.200]   is the one to understand that is the agent to understand more
+[00:24:30.200 --> 00:24:34.480]   about the context, the client, once we are about to start a
+[00:24:34.480 --> 00:24:35.280]   project. Okay.
+[00:24:35.280 --> 00:24:44.200]   Perfect. Yeah, you can continue. Okay. So the deep dive has
+[00:24:44.200 --> 00:24:49.600]   these four four tabs that is the setup of the client, the
+[00:24:49.600 --> 00:24:52.200]   industry insights, the summary opportunity and the know house.
+[00:24:52.200 --> 00:24:55.560]   On the setup, we have the basically the information
+[00:24:55.560 --> 00:24:58.880]   gathered and a way to add more information that it's the look
+[00:24:58.880 --> 00:25:02.080]   up agent. As we were previously discussing, we are trying to
+[00:25:02.080 --> 00:25:06.640]   see if which types of results we're going to have if we need
+[00:25:06.640 --> 00:25:11.720]   any other information that will aid the user into taking the
+[00:25:11.720 --> 00:25:16.200]   decision and help the agent to learn. And we're basically also
+[00:25:16.200 --> 00:25:20.320]   adding a component to basically, okay, this is a result I want
+[00:25:20.320 --> 00:25:24.800]   to include into this profile or not. This result is no no use
+[00:25:24.800 --> 00:25:33.640]   for me. These resources will be available later. And we can also
+[00:25:33.640 --> 00:25:38.360]   have ways to upload documents as well, maybe something that we
+[00:25:38.360 --> 00:25:44.120]   got on an email, maybe, or something that that the client
+[00:25:44.120 --> 00:25:49.640]   just provided into like the day to day. And we get insights from
+[00:25:49.640 --> 00:25:54.080]   from these documents as well, sort of like an instruction that
+[00:25:54.080 --> 00:26:01.160]   we can have like a little preview on on how these sections
+[00:26:01.160 --> 00:26:08.080]   would, let's say, let me just go into a little interaction. Maybe
+[00:26:08.080 --> 00:26:13.440]   I want to ask something for this section to improve or or ask
+[00:26:13.440 --> 00:26:17.920]   for a little change. It's a bit too small. Sorry about that. And
+[00:26:17.920 --> 00:26:21.280]   if I don't like this result, or I want any change, I can just
+[00:26:21.280 --> 00:26:25.120]   basically discard it or whatever, and go back to my
+[00:26:25.120 --> 00:26:32.880]   original company. We have a way also to see it, let's say, okay,
+[00:26:32.880 --> 00:26:37.120]   I did the agent generated information. And we are not
+[00:26:37.120 --> 00:26:41.360]   taking that into consideration as a user. I have a lot of things
+[00:26:41.360 --> 00:26:44.840]   going on. And I have an alert that it shows me I'm not doing
+[00:26:44.840 --> 00:26:47.720]   something related to this information. Maybe we can see,
+[00:26:47.720 --> 00:26:52.440]   okay, you're ignoring these go explore these things, create
+[00:26:52.440 --> 00:26:56.120]   questions, schedule meeting to just resolve this, and have
+[00:26:56.120 --> 00:27:02.600]   actions so that the user can actually do something about the
+[00:27:02.600 --> 00:27:08.680]   alerts that the agent is generating. So that's it for
+[00:27:08.680 --> 00:27:14.680]   this tab. We also have alongside other tabs and components, we
+[00:27:14.680 --> 00:27:20.120]   have actions generated by the agent sort of like recommendations,
+[00:27:20.120 --> 00:27:25.040]   and quick actions that are actually part of the agent as
+[00:27:25.040 --> 00:27:28.840]   part of like, okay, I'm an expert user, I know what I want to
+[00:27:28.840 --> 00:27:33.600]   do quickly, or I need like the agent to recommend me anything.
+[00:27:33.600 --> 00:27:41.080]   So this is also like a summarized view of the client
+[00:27:41.080 --> 00:27:44.200]   information, I'm not looking into anything, I'm just gently
+[00:27:44.200 --> 00:27:49.560]   reviewing, I have collapsed views for these extractions and
+[00:27:49.560 --> 00:27:55.120]   have like, also say sections where I want to always see this
+[00:27:55.120 --> 00:27:59.080]   information, we can prioritize maybe the extractions that we
+[00:27:59.080 --> 00:28:03.880]   get, like a standard. So like, let's say, for example, as this
+[00:28:03.880 --> 00:28:07.720]   is a case where product I will always want to see a highlight
+[00:28:07.720 --> 00:28:12.320]   solution summary, that it's a short and sweet so that we can
+[00:28:12.320 --> 00:28:16.520]   always have that selling point there. And we know that it's
+[00:28:16.520 --> 00:28:21.120]   there. So for the industry insights, we have sort of like a
+[00:28:21.120 --> 00:28:26.480]   more dashboard looking section that has, let's say counter for
+[00:28:26.480 --> 00:28:30.240]   trends, what's going on, what's the opportunity to look in
+[00:28:30.240 --> 00:28:35.480]   like, what's the market size, how the users are looking, oh, sorry,
+[00:28:35.480 --> 00:28:38.280]   this is not this market trends, quick, quick.
+[00:28:38.280 --> 00:28:47.840]   So Ray and Alberto, I don't pay attention too much to the
+[00:28:47.840 --> 00:28:50.920]   information that is getting displayed here, just look for
+[00:28:50.920 --> 00:28:55.320]   the journey, the journey can now, we can just look for the
+[00:28:55.320 --> 00:28:58.480]   the the experience in the journey, right? So the client
+[00:28:58.480 --> 00:29:01.760]   setup, what we want to define is up to us, right? We can probably
+[00:29:01.760 --> 00:29:03.040]   call it scope.
+[00:29:03.040 --> 00:29:06.520]   Industry insights, you can call it something else if you want
+[00:29:06.520 --> 00:29:09.480]   the tab there, right? Opportunity summary, do you want to
+[00:29:09.480 --> 00:29:13.360]   add opportunity summary, where you want to add the audio file,
+[00:29:13.360 --> 00:29:17.200]   the, you know, the, the gathered information document,
+[00:29:17.200 --> 00:29:20.600]   right, whatever, right? So we can discuss to see on how what and
+[00:29:21.040 --> 00:29:23.680]   and and how the information should reflect there, but look
+[00:29:23.680 --> 00:29:27.280]   at the, the journey and the experience, pay, pay attention
+[00:29:27.280 --> 00:29:27.640]   to that.
+[00:29:27.640 --> 00:29:32.960]   This is another view for the lookup component, as you can see,
+[00:29:32.960 --> 00:29:37.000]   it's, it's basically as in a default state. I haven't looked
+[00:29:37.000 --> 00:29:42.800]   for anything, but as this is another tab that it's called
+[00:29:42.800 --> 00:29:46.800]   Know House, that basically gathers best practices, training
+[00:29:46.800 --> 00:29:50.880]   manuals and compliance for that. I saw that we are going to
+[00:29:50.880 --> 00:29:54.360]   need, for example, a license for the design team that was
+[00:29:54.360 --> 00:29:58.560]   extracted, and I don't have it on my, my checklist yet, or it's
+[00:29:58.560 --> 00:30:03.040]   not contemplated, I can add it. I have a like a repository, as
+[00:30:03.040 --> 00:30:06.280]   Gaby mentioned before, of what's going on on previous
+[00:30:06.280 --> 00:30:10.680]   projects that would be unused for this project, such as, let's
+[00:30:10.680 --> 00:30:16.240]   say, documents generated, maybe templates of services, reusable
+[00:30:16.240 --> 00:30:18.840]   technical components from another project that could be
+[00:30:18.840 --> 00:30:22.600]   unused on that, legal considerations that, that could
+[00:30:22.600 --> 00:30:29.320]   affect this project, and sort of other documents to take into
+[00:30:29.320 --> 00:30:32.520]   consideration, maybe from, from other clients as well.
+[00:30:32.520 --> 00:30:38.680]   For the opportunity summary, this is a bit more business-based,
+[00:30:38.680 --> 00:30:45.920]   but it's basically one sec. So, just give me one more piece.
+[00:30:47.320 --> 00:30:52.320]   Okay. Trying to figure out, again, not the data part, I'm
+[00:30:52.320 --> 00:30:56.080]   trying to figure out the difference between industry
+[00:30:56.080 --> 00:30:59.360]   insights and the know-how.
+[00:30:59.360 --> 00:31:04.240]   You want me to put the, the streets together so that you
+[00:31:04.240 --> 00:31:08.680]   can. That's fine. I just, so this is an overall, what are we
+[00:31:08.680 --> 00:31:15.160]   looking for? Looking for areas of improvement, known
+[00:31:15.160 --> 00:31:20.120]   challenges and strength and market trends. What is this, our
+[00:31:20.120 --> 00:31:20.800]   strengths?
+[00:31:20.800 --> 00:31:28.080]   There are strengths, like positioning the market or in the
+[00:31:28.080 --> 00:31:36.520]   industry. What is basically, let's say, sort of, or value that
+[00:31:36.520 --> 00:31:41.400]   we're offering that puts us aside from the market on this
+[00:31:41.400 --> 00:31:45.080]   proposal. Yeah. So, basically, that section that is called
+[00:31:45.080 --> 00:31:50.040]   right now, Alec, can you scroll to the top, please? Mark, yeah,
+[00:31:50.040 --> 00:31:53.240]   industry insights. So, basically, we have a stretch there
+[00:31:53.240 --> 00:31:58.040]   and also areas to improve, because according to the
+[00:31:58.040 --> 00:32:02.440]   landscape of competitors that we have here, we can know, for
+[00:32:02.440 --> 00:32:07.160]   example, some market trends, some main competitors that we
+[00:32:07.160 --> 00:32:11.240]   have in the industry, but also based on that information, and
+[00:32:11.240 --> 00:32:14.840]   based on our company, we can see, like, okay, regarding this
+[00:32:14.840 --> 00:32:18.600]   competitive analysis, we have these as your strengths, and
+[00:32:18.600 --> 00:32:22.440]   maybe this one, we detected that maybe these are areas to
+[00:32:22.440 --> 00:32:25.800]   improve. That's why we have those aspects here in the
+[00:32:25.800 --> 00:32:31.400]   industry insights. Yeah. Yeah. So, the intent here, right,
+[00:32:31.400 --> 00:32:34.280]   again, will change this information, Gaby. Not
+[00:32:34.280 --> 00:32:36.840]   everything makes sense, but this is a good thought process,
+[00:32:36.840 --> 00:32:40.840]   right? This makes totally sense for probably a sales
+[00:32:40.840 --> 00:32:43.640]   organization to get insights into, okay, what's happening in
+[00:32:43.640 --> 00:32:47.480]   my organization versus what's happening out there, right? But
+[00:32:47.480 --> 00:32:50.200]   the intent here, if you look at it, this agent that we're
+[00:32:50.200 --> 00:32:53.320]   building is not for the sales teams. The agent that we're
+[00:32:53.320 --> 00:32:56.120]   building is for the program teams, right, that are going to
+[00:32:56.120 --> 00:32:59.080]   execute. So, it's more execution program teams that are
+[00:32:59.080 --> 00:33:02.680]   going to look at this industry insights. So, the relevant
+[00:33:02.680 --> 00:33:05.640]   information here should be, I give you when I'm setting up
+[00:33:05.640 --> 00:33:07.880]   the client, right? I'm setting up the client saying Bank of
+[00:33:07.880 --> 00:33:11.080]   St. Lucia, for example. And I'm saying Bank of St. Lucia is
+[00:33:11.080 --> 00:33:14.600]   financial services industry, right? It's a bank. Then I'm
+[00:33:14.600 --> 00:33:17.160]   saying, within that, I'm setting up the profile of the
+[00:33:17.160 --> 00:33:20.280]   customer that I want to generate onboarding plan for my
+[00:33:20.280 --> 00:33:24.120]   execution team, right? So, Bank of St. Lucia, I'm saying
+[00:33:24.120 --> 00:33:27.160]   banking industry, then I'm saying, what is that I'm
+[00:33:27.160 --> 00:33:29.800]   solving for, right? The problem statement. Let's keep it
+[00:33:29.800 --> 00:33:32.440]   very simple like that, right? The problem statement is,
+[00:33:32.440 --> 00:33:35.960]   hey, K Square has been engaged to solve for their
+[00:33:35.960 --> 00:33:39.080]   loan management system. That's what I'm saying. I'll give
+[00:33:39.080 --> 00:33:43.560]   one statement. That's it, right? Using these three data
+[00:33:43.560 --> 00:33:48.040]   points, I should get some industry insights that I can
+[00:33:48.040 --> 00:33:53.560]   use for my teams to prepare and understand, right? Now, the
+[00:33:53.560 --> 00:33:56.520]   second level of this setup is, I'm also saying, hey, I'm
+[00:33:56.520 --> 00:34:00.280]   solving LOS and I'm saying, hey, here is the entire scope of
+[00:34:00.280 --> 00:34:02.920]   LOS I'm solving because I'm already, I already won this
+[00:34:02.920 --> 00:34:07.400]   program, right? The industry insights you're showing me is
+[00:34:07.400 --> 00:34:10.840]   if I want to win a program, what should I do? But I won the
+[00:34:10.840 --> 00:34:15.720]   program already, right? So, what we want to do is to change
+[00:34:15.720 --> 00:34:22.120]   this from industry insights to domain information or domain
+[00:34:22.120 --> 00:34:26.120]   knowledge. So that our execution teams can read through
+[00:34:26.120 --> 00:34:29.640]   this domain knowledge and get ready before they can get onto
+[00:34:29.640 --> 00:34:34.120]   the program. That's the intent. You understand, right?
+[00:34:34.120 --> 00:34:36.360]   That's a know-how that you're talking about, right, Varma?
+[00:34:36.360 --> 00:34:41.240]   Correct. Exactly. So industry insights is for, so just wanted
+[00:34:41.240 --> 00:34:44.840]   to understand the intent there. So client profile setup is
+[00:34:44.840 --> 00:34:49.000]   what we are providing as an input for the agent to
+[00:34:49.000 --> 00:34:51.880]   understand, the LLM to understand the client and search
+[00:34:51.880 --> 00:34:55.240]   for the client and provide the results. Industry insights is
+[00:34:55.240 --> 00:35:01.720]   getting an overall insights of that, maybe, that overall
+[00:35:01.720 --> 00:35:06.040]   geography, geographical location, the kind of market
+[00:35:06.040 --> 00:35:10.360]   domain they are in. When we talk about competitors, we are
+[00:35:10.360 --> 00:35:12.840]   talking about our competitors or their competitors?
+[00:35:12.840 --> 00:35:17.720]   Their competitors. This is all, yes, absolutely, right? See,
+[00:35:17.720 --> 00:35:21.480]   our competitors is very valuable if this agent is for sales
+[00:35:21.480 --> 00:35:24.840]   team. Again, I'm retreating. What we're building here is an
+[00:35:24.840 --> 00:35:30.920]   agent for program execution team within K-square. With the
+[00:35:30.920 --> 00:35:35.880]   notion and the assumption that I already won the program, now
+[00:35:35.880 --> 00:35:39.160]   what I want to do is I want to ask the sales team and the
+[00:35:39.160 --> 00:35:42.600]   pre-sales team to come and throw everything possible on this
+[00:35:42.600 --> 00:35:47.560]   agent and the agent will give us these three things. I think
+[00:35:47.560 --> 00:35:50.520]   one, the first one, it will summarize the opportunity for
+[00:35:50.520 --> 00:35:56.600]   us, okay? Second one, it will give us an entire domain
+[00:35:56.600 --> 00:36:02.040]   experience knowledge or domain knowledge or domain onboarding
+[00:36:02.040 --> 00:36:04.440]   is what we can call domain knowledge onboarding or domain
+[00:36:04.440 --> 00:36:10.200]   knowledge, go read it. The third, we can, we can, we can call
+[00:36:10.200 --> 00:36:13.560]   it, the third, we can call it, what are the, even in the
+[00:36:13.560 --> 00:36:15.640]   domain knowledge itself, if you want to define it, you can
+[00:36:15.640 --> 00:36:18.200]   define it or you can call it, what are the domain's best
+[00:36:18.200 --> 00:36:26.040]   practices for the problem that we are solving, right? See, what
+[00:36:26.040 --> 00:36:30.680]   is the end goal? What is the end goal, right? The end goal
+[00:36:30.680 --> 00:36:36.680]   is I want every person in the organization when they're
+[00:36:36.680 --> 00:36:41.240]   getting onboarded into a program to have a quick two to
+[00:36:41.240 --> 00:36:46.280]   three-day onboarding plan and I want to provide all possible
+[00:36:46.280 --> 00:36:51.560]   information for them to get themselves onboarded. For that
+[00:36:51.560 --> 00:36:54.200]   today, what we are doing, right? I have to go to Ray, if Ray
+[00:36:54.200 --> 00:36:58.520]   is a pre-sales person, then I have to go to Alberto, who is an
+[00:36:58.520 --> 00:37:01.800]   architect in the organization, then I have to go to Gabby, who
+[00:37:01.800 --> 00:37:05.000]   is a BA in the organization. I have to ask the three of them
+[00:37:05.000 --> 00:37:07.640]   saying, hey, guys, can you come together? This is the team
+[00:37:07.640 --> 00:37:10.280]   that's coming on board. Can you please work with them to
+[00:37:10.280 --> 00:37:16.040]   onboard them? I want to completely eliminate that. I want
+[00:37:16.040 --> 00:37:19.400]   sales and pre-sales to throw things on this agent and the
+[00:37:19.400 --> 00:37:22.680]   agent should give us an entire onboarding content that they
+[00:37:22.680 --> 00:37:27.720]   can leverage to get themselves onboarded.
+[00:37:27.720 --> 00:37:31.880]   Make sense. Thanks, Varma.
+[00:37:31.880 --> 00:37:38.200]   You understood, right? Yes. Yes. Gabby, Al and Pam, I hope you
+[00:37:38.200 --> 00:37:41.640]   got the context. So, you might have to change a little. The
+[00:37:41.640 --> 00:37:45.000]   thought process is right, but you've built this agent which
+[00:37:45.000 --> 00:37:49.400]   will be more helpful for a sales person. Yeah, like a
+[00:37:49.400 --> 00:37:52.840]   combination, yeah. Correct. And a pre-sales person. Because
+[00:37:52.840 --> 00:37:55.720]   here, I don't see, I might need information, right? Market
+[00:37:55.720 --> 00:37:59.000]   information is good, right? But it's a very high level, but
+[00:37:59.000 --> 00:38:01.720]   that's not what I want to focus on, right? Having market
+[00:38:01.720 --> 00:38:04.280]   information to my program team is also very good. Market
+[00:38:04.280 --> 00:38:07.160]   information like what is the size of the market that we are
+[00:38:07.160 --> 00:38:10.840]   dealing with? Okay. Across Caribbean, the banking market
+[00:38:10.840 --> 00:38:15.080]   is 20 billion. That's a good data point to have. Why it's a
+[00:38:15.080 --> 00:38:18.040]   good data point to have? We are giving them knowledge to
+[00:38:18.040 --> 00:38:21.560]   speak or talk or even think and engage in those lines. And
+[00:38:21.560 --> 00:38:26.280]   we are making them already engage and get themselves
+[00:38:26.280 --> 00:38:31.160]   engraved into the program that they're getting to get on.
+[00:38:31.160 --> 00:38:34.440]   Just imagine, right, Gabby? If I tell you, you're joining DLL.
+[00:38:34.440 --> 00:38:38.280]   DLL is in Lee Finance. Oh, by the way, the industry that you're
+[00:38:38.280 --> 00:38:41.640]   going to solve a problem for is a one trillion industry,
+[00:38:41.640 --> 00:38:46.200]   right? Your curiosity grows twofold. Oh wow, this is
+[00:38:46.200 --> 00:38:49.880]   interesting. I'm working for a program where I'm solving a
+[00:38:49.880 --> 00:38:54.520]   problem to a customer where the industry is two trillion.
+[00:38:54.520 --> 00:38:57.480]   That's good to know, right? And tomorrow, if they want to
+[00:38:57.480 --> 00:39:00.520]   present themselves to a consultant or they're doing an
+[00:39:00.520 --> 00:39:02.760]   interview, right? For example, they're going to another
+[00:39:02.760 --> 00:39:06.200]   program. I assigned Gabby to another program. Gabby can
+[00:39:06.200 --> 00:39:10.040]   talk. Hey, look, I work for a customer called DLL. They're
+[00:39:10.040 --> 00:39:13.320]   in Lee Finance. The total industry size for that is
+[00:39:13.320 --> 00:39:17.960]   two trillion. And the problem we solved is so forth, which has
+[00:39:17.960 --> 00:39:21.000]   changed the experience for the customer, which has impacted
+[00:39:21.000 --> 00:39:24.840]   the customer's business by one billion dollars. I'm just
+[00:39:24.840 --> 00:39:28.280]   saying, right? I mean, that changes the perspective of who
+[00:39:28.280 --> 00:39:32.840]   a K-squared is when I'm talking to a customer. Yeah. Yeah.
+[00:39:32.840 --> 00:39:36.600]   You are more prepared in advance. Yeah. And Barma, one
+[00:39:36.600 --> 00:39:40.680]   question. Is it fair to say that right now, these will be
+[00:39:40.680 --> 00:39:46.280]   used only for projects that we want, but not for not for new
+[00:39:46.280 --> 00:39:49.800]   projects in where we need to, you know, make a proposal in
+[00:39:49.800 --> 00:39:53.320]   one day? No, no, I told you this. Don't don't look at get
+[00:39:53.320 --> 00:39:56.920]   get generated at all. Okay. This is not a pre-sales. This is
+[00:39:56.920 --> 00:40:00.680]   not a sales agent. This is a program on boarding agent.
+[00:40:00.680 --> 00:40:04.760]   Okay. Got it. So we need to adjust some things.
+[00:40:04.760 --> 00:40:11.640]   Correct. Okay. Okay. Okay. Okay. So just to continue, I'm
+[00:40:11.640 --> 00:40:16.520]   going to skip the like quickly on the ideas on some
+[00:40:16.520 --> 00:40:20.120]   generations on the on the let's say the domain knowledge so
+[00:40:20.120 --> 00:40:23.240]   that you can review this Barma because you haven't seen
+[00:40:23.240 --> 00:40:26.840]   it. We basically thought about some components for the
+[00:40:26.840 --> 00:40:30.200]   best practices for the different members of the team.
+[00:40:30.200 --> 00:40:33.560]   Like basically, okay, I need for my designers to take in
+[00:40:33.560 --> 00:40:37.160]   consideration the best accessibility
+[00:40:37.160 --> 00:40:40.680]   considerations for or compliances for this project. I
+[00:40:40.680 --> 00:40:44.840]   need my my sales for team to have these training things.
+[00:40:44.840 --> 00:40:49.000]   I need this technical list. Okay. Consider and this is what we
+[00:40:49.000 --> 00:40:53.240]   knew from previous projects. Basically, okay, we had a
+[00:40:53.240 --> 00:40:56.520]   similar project and there was delay because the MVP was not
+[00:40:56.520 --> 00:41:01.160]   properly defined. Yes. Yes, and stuff like that. We had
+[00:41:01.160 --> 00:41:05.000]   design workshop practices and these reduced over to other
+[00:41:05.000 --> 00:41:08.120]   projects. How many sessions we had? No, this is wonderful. I
+[00:41:08.120 --> 00:41:11.880]   like this. Yeah, internal repository and and getting out
+[00:41:11.880 --> 00:41:15.480]   insights from internal is wonderful. Yeah. And if you
+[00:41:15.480 --> 00:41:19.320]   have if you have reusable templates, point it out to
+[00:41:19.320 --> 00:41:22.680]   them saying, hey, here is a SharePoint link. Yes, exactly.
+[00:41:22.680 --> 00:41:27.640]   Right. Go review. Yep. And following the logic that we want
+[00:41:27.640 --> 00:41:31.960]   to have the quickest onboarding possible, you can also
+[00:41:31.960 --> 00:41:36.600]   summarize all this and can you zoom to this action? Yeah,
+[00:41:36.600 --> 00:41:40.280]   you can like export the summary and you can easily share and
+[00:41:40.280 --> 00:41:43.800]   and have like a synthesized version of this as well.
+[00:41:43.800 --> 00:41:52.920]   Yes. Okay. So, so, so can you go back and reimagine on how
+[00:41:52.920 --> 00:41:57.560]   this should be for a program onboarding agent? Because
+[00:41:57.560 --> 00:42:01.320]   once we finish this, we have a follow up to build. We have a
+[00:42:01.320 --> 00:42:03.880]   follow up. Once I'm onboarded, what is the first action that
+[00:42:03.880 --> 00:42:06.840]   we'll do right is requirements or discovery, correct?
+[00:42:06.840 --> 00:42:09.960]   Yeah. So, we are already Alberto and team are already
+[00:42:09.960 --> 00:42:13.400]   working on that requirements engine for me. Okay.
+[00:42:13.400 --> 00:42:16.280]   So, that's the next logical step. But here is a good thing,
+[00:42:16.280 --> 00:42:19.720]   right? When I'm already taking the requirement engine into
+[00:42:19.720 --> 00:42:23.560]   consideration, my onboarding engine has already given me a
+[00:42:23.560 --> 00:42:28.360]   bunch of outcomes, which the requirements engine can take it
+[00:42:28.360 --> 00:42:35.160]   into consideration for its own knowledge, right? And the
+[00:42:35.160 --> 00:42:38.360]   outcomes are going to be better because I have the internal
+[00:42:38.360 --> 00:42:43.800]   repository. Then I have the existing discovery recordings.
+[00:42:43.800 --> 00:42:47.800]   Just imagine if an LLM can read both and come with a great
+[00:42:47.800 --> 00:42:50.600]   and and can come with a much better outcome is what I believe.
+[00:42:50.600 --> 00:42:54.760]   What do you think, Alberto and Ray?
+[00:43:03.240 --> 00:43:10.120]   I really have not any opinion about this, Barma. I just, I'm
+[00:43:10.120 --> 00:43:13.480]   just trying to see how this match into the whole concept to
+[00:43:13.480 --> 00:43:17.000]   be honest. I'm just trying to understand to catch your whole
+[00:43:17.000 --> 00:43:21.320]   idea, Barma. I think, I, so I think again, it could just be
+[00:43:21.320 --> 00:43:27.880]   me, right? Barma, I'm sorry if I'm, I'm repeating myself.
+[00:43:27.880 --> 00:43:32.840]   But I think there is a little bit of a mixture here. I got
+[00:43:32.840 --> 00:43:37.240]   your thoughts clear, Barma, that this is not about a new
+[00:43:37.240 --> 00:43:40.440]   client that we're talking about. This is about a client that
+[00:43:40.440 --> 00:43:44.840]   we have acquired. So we've been through the whole process,
+[00:43:44.840 --> 00:43:49.160]   the sales piece, the presales, the SOW and everything, right?
+[00:43:49.160 --> 00:43:51.720]   We have all the information and now we are building that
+[00:43:51.720 --> 00:43:57.160]   onboarding step. I think the reason why we, the initial
+[00:43:57.160 --> 00:44:01.400]   screens that we talked about, we're talking about, you know,
+[00:44:01.400 --> 00:44:06.680]   generating the SOW or was that an input, Gabby? Was that an
+[00:44:06.680 --> 00:44:09.560]   output or was that an input? That's an input that was
+[00:44:09.560 --> 00:44:16.520]   analyzed by AI. Yes, ideally. At the statement of work, yeah.
+[00:44:16.520 --> 00:44:21.560]   Okay, so that's an input to the deep type. All right, makes
+[00:44:21.560 --> 00:44:24.600]   sense. Yes. Make sense. Thank you. Thanks for
+[00:44:24.600 --> 00:44:29.560]   clarifying that. But I think the point that you made using our
+[00:44:29.560 --> 00:44:34.760]   internal data and compounding that with the external data to
+[00:44:34.760 --> 00:44:44.920]   get out a very streamlined kind of process, it sounds doable,
+[00:44:44.920 --> 00:44:50.920]   but we'll have to research on it a bit. Alberto, is that a
+[00:44:50.920 --> 00:44:57.160]   true statement or can you give an opinion on that?
+[00:44:57.160 --> 00:45:01.320]   No, I will probably put it very simple. Sorry to cut you
+[00:45:01.320 --> 00:45:09.720]   short and Alberto, you as well. To me, it is 100% doable.
+[00:45:09.720 --> 00:45:13.960]   I'll tell you how. It is about restructuring our internal
+[00:45:13.960 --> 00:45:18.200]   information in a very structured way, which will become the
+[00:45:18.200 --> 00:45:20.840]   input into these agents. When I say structured way, I'll give
+[00:45:20.840 --> 00:45:24.840]   you an example as well. I have a SharePoint folder which is
+[00:45:24.840 --> 00:45:29.720]   financial services. That becomes any customer that I tag to
+[00:45:29.720 --> 00:45:34.280]   this agent with the industry financial services, that's the
+[00:45:34.280 --> 00:45:38.920]   folder it is hitting, no matter what. Okay. In that financial
+[00:45:38.920 --> 00:45:42.840]   services SharePoint, we'll have different folders for
+[00:45:42.840 --> 00:45:46.440]   different customers and each customer folder will have all
+[00:45:46.440 --> 00:45:51.640]   possible documentation that we have. Okay. Right. Now, the
+[00:45:51.640 --> 00:45:54.680]   agent needs to look at all that and it'll create its own
+[00:45:54.680 --> 00:45:58.760]   knowledge. That's the whole thing about LLM, right?
+[00:45:58.760 --> 00:46:00.920]   And it's going to give us outcomes and the outcomes are not
+[00:46:00.920 --> 00:46:03.480]   going to be accurate, right? I mean, the outcomes can be
+[00:46:03.480 --> 00:46:07.320]   60% accurate, but we have a feedback loop which is
+[00:46:07.320 --> 00:46:11.560]   where I'm saying, hey, is this information valuable?
+[00:46:11.560 --> 00:46:15.160]   Then I, that's where the conversation comes. No,
+[00:46:15.160 --> 00:46:18.680]   this is not valuable. Can you look for this? Which is like your
+[00:46:18.680 --> 00:46:23.160]   chat GPT, you understand, right? Yep. Yep. The only thing
+[00:46:23.160 --> 00:46:25.720]   is we are keeping it closed loop within our own ecosystem.
+[00:46:25.720 --> 00:46:28.520]   The agent is going to only act on the information within our
+[00:46:28.520 --> 00:46:33.400]   ecosystem. That is one, right? While that is true, we also
+[00:46:33.400 --> 00:46:37.320]   want external information to come in. From where are we
+[00:46:37.320 --> 00:46:39.960]   getting this external information, right? Is using
+[00:46:39.960 --> 00:46:42.520]   whatever, right? I'll let you guys decide. But why we need
+[00:46:42.520 --> 00:46:47.080]   the external information, right? Is for us to create more
+[00:46:47.080 --> 00:46:52.360]   domain onboarding, right? Hey, what is LOS? We have a, we
+[00:46:52.360 --> 00:46:55.640]   should have a definition there for the team to understand.
+[00:46:55.640 --> 00:46:58.280]   What are the best practices in LOS? What are the nine steps
+[00:46:58.280 --> 00:47:02.280]   or 20 steps that happen? In each step, what is a typical
+[00:47:02.280 --> 00:47:05.080]   domain model? Reh, yesterday, you and me did a small
+[00:47:05.080 --> 00:47:08.280]   exercise, Reh. You saw the information the LLM is
+[00:47:08.280 --> 00:47:11.480]   throwing. It's unbelievable information, right? If I have
+[00:47:11.480 --> 00:47:14.040]   that information, Reh, and if I get into a conversation with
+[00:47:14.040 --> 00:47:19.960]   the CFO, I can speak their language. That is what I want.
+[00:47:19.960 --> 00:47:24.760]   Okay. Yeah. I got it. Yeah.
+[00:47:24.760 --> 00:47:31.560]   And we will, we will create that internal structure. I'll help,
+[00:47:31.560 --> 00:47:34.680]   I'll, I'll take the ownership of making sure that we create
+[00:47:34.680 --> 00:47:37.480]   different SharePoints and every documentation is getting
+[00:47:37.480 --> 00:47:40.440]   consolidated into that. Even, right, we'll also consolidate
+[00:47:40.440 --> 00:47:45.160]   saying in, in banking industry, in that customer, we'll create
+[00:47:45.160 --> 00:47:48.600]   multiple folders, right? Folder is, one is about
+[00:47:48.600 --> 00:47:51.240]   back office operations. So, anything related to that
+[00:47:51.240 --> 00:47:55.560]   banking customer that we dealt with, related to back office,
+[00:47:55.560 --> 00:48:00.280]   all the documentation goes there, right? Anything related to
+[00:48:00.280 --> 00:48:04.760]   say, you know, LOS is a separate folder. All LOS is
+[00:48:04.760 --> 00:48:07.720]   going there. And within that LOS folder, right Reh, we can
+[00:48:07.720 --> 00:48:10.920]   also split it. Again, I don't know if we need to, but that is
+[00:48:10.920 --> 00:48:15.080]   the information I need from you guys, especially Alberto.
+[00:48:15.080 --> 00:48:19.000]   In LOS, you have onboarding, you have underwriting, you have
+[00:48:19.000 --> 00:48:22.200]   disbursement. I'm just saying, right? Just three for now, but
+[00:48:22.200 --> 00:48:25.640]   you have more steps. If you want, we can even split that
+[00:48:25.640 --> 00:48:28.680]   folder into three subfolders internally. And we should ask
+[00:48:28.680 --> 00:48:34.440]   the teams to put documentation into each folder, right? And
+[00:48:34.440 --> 00:48:37.320]   that becomes wealth of information. And we already
+[00:48:37.320 --> 00:48:41.080]   have tons of information in between five customers, Reh,
+[00:48:41.080 --> 00:48:45.080]   banking. If I can structure this, get the data, and if
+[00:48:45.080 --> 00:48:48.120]   Alberto and you build an LLM and run the LLM against the
+[00:48:48.120 --> 00:48:51.080]   data, I'm sure you'll get wealth of information from
+[00:48:51.080 --> 00:48:54.520]   there. For sure.
+[00:48:54.520 --> 00:49:00.440]   Sure, they understand your concept.
+[00:49:00.440 --> 00:49:06.520]   Mm-hmm. It makes sense now. Yeah. Obviously, um, okay.
+[00:49:06.520 --> 00:49:13.560]   Yeah, I understood, I guess.
+[00:49:13.560 --> 00:49:17.560]   Good. So, Gaby, can you go back and reimagine, right?
+[00:49:17.560 --> 00:49:21.560]   Yes. Uh, whatever, you understood the concept now. My client setup means I'm
+[00:49:21.560 --> 00:49:25.720]   setting up the project or the program. Mm-hmm.
+[00:49:25.720 --> 00:49:29.880]   But when I'm setting up the program, I'm setting up the,
+[00:49:29.880 --> 00:49:35.320]   the, um, I'm setting up the customer as well so that
+[00:49:35.320 --> 00:49:40.440]   the LLM can give certain level of, uh, certain level of external
+[00:49:40.440 --> 00:49:44.840]   information as well using that. Mm-hmm.
+[00:49:44.840 --> 00:49:49.640]   Okay. Yeah. Hope I'm not confusing, guys. I'm so sorry.
+[00:49:49.640 --> 00:49:52.920]   Hope I'm not confusing, guys. I hope you're, you're following me.
+[00:49:52.920 --> 00:49:56.280]   You're following my thought process. Yes, Parma.
+[00:49:56.280 --> 00:50:00.920]   Parma, I just wanted to say no, don't, it is not confusing.
+[00:50:00.920 --> 00:50:05.560]   But I guess at least for me, it's a very rich and broad idea.
+[00:50:05.560 --> 00:50:11.880]   It's just, I am just trying to think how to make it real from the technical
+[00:50:11.880 --> 00:50:14.680]   perspective, from the AI perspective. Yeah.
+[00:50:14.680 --> 00:50:18.680]   Just, I am just thinking about that. Yeah. Okay.
+[00:50:18.680 --> 00:50:24.520]   And Gaby, now you need to take this input. I know this is the third iteration.
+[00:50:24.520 --> 00:50:28.760]   I wish I was there with you guys in one room over a day to explain all this so
+[00:50:28.760 --> 00:50:31.720]   that we have only one or two iterations and done with it.
+[00:50:31.720 --> 00:50:37.240]   Um, but, but, you know, uh, from next time, maybe I'll spend
+[00:50:37.240 --> 00:50:42.120]   four hours of conversations like this rather than having multiple conversations.
+[00:50:42.120 --> 00:50:44.920]   It's a good learning for me. I'm going to start doing that.
+[00:50:44.920 --> 00:50:47.720]   But for now, please take this. This is the last iteration.
+[00:50:47.720 --> 00:50:52.680]   I want to build a project on boarding agent for K-squares.
+[00:50:52.680 --> 00:50:58.280]   Yeah. Yeah. Now, I think it's clear and even I can say that we have an interesting
+[00:50:58.280 --> 00:51:04.200]   features already. We need to only think about more about the onboarding focus
+[00:51:04.200 --> 00:51:08.120]   in order to decide which one needs to be there and which one do we need to remove.
+[00:51:08.120 --> 00:51:11.800]   Right. But I think we already have something there.
+[00:51:11.800 --> 00:51:17.160]   So we just need to make like a double check again with this intention.
+[00:51:17.160 --> 00:51:22.360]   Yeah. In this concept. Okay. Um, okay.
+[00:51:23.400 --> 00:51:29.160]   So do you want us to call this agent onboarding agent or?
+[00:51:29.160 --> 00:51:34.440]   Yeah. K-square project onboarding agent or program onboarding agent.
+[00:51:34.440 --> 00:51:39.960]   Okay. Or Ray and Alberto, if you, or you guys have a better name, please bring it up.
+[00:51:39.960 --> 00:51:44.920]   Yeah. Let's take on that on that, but it sounds good for now.
+[00:51:44.920 --> 00:51:50.760]   Okay. Okay. All right. Then let's catch up on, I'll give you time till Monday.
+[00:51:50.760 --> 00:51:57.320]   Okay. Okay. Just to, just to get Ray and Reynolds, I mean, sorry, Reynolds and Alberto excited.
+[00:51:57.320 --> 00:51:59.960]   I don't know if the UX team mentioned this to you. Okay.
+[00:51:59.960 --> 00:52:07.640]   Yeah. The UX team is already using Figma's LLM to build these experience, by the way.
+[00:52:07.640 --> 00:52:11.160]   Very good. That is impressive.
+[00:52:11.160 --> 00:52:17.240]   The LLM is already giving them a structure and they validated. I asked them the question,
+[00:52:17.240 --> 00:52:21.080]   right? Hey, if you're not using that Figma LLM, what would it have,
+[00:52:21.080 --> 00:52:23.640]   what would it take you to build something like this? Right?
+[00:52:23.640 --> 00:52:25.720]   They said probably 10 times the effort.
+[00:52:25.720 --> 00:52:27.720]   Yeah.
+[00:52:27.720 --> 00:52:30.520]   Yeah. Amazing. Amazing.
+[00:52:30.520 --> 00:52:38.520]   So if, if it is happening at a UX level, I'm sure we should be able to do whatever I'm asking to do.
+[00:52:38.520 --> 00:52:41.480]   Right? Yeah.
+[00:52:44.200 --> 00:52:48.200]   Makes sense. All right. Okay. So then let's catch up on Monday.
+[00:52:48.200 --> 00:52:53.400]   Around the same time so that we can review.
+[00:52:53.400 --> 00:52:58.920]   And in the meantime, Alberto, you can, you can start thinking in those lines.
+[00:52:58.920 --> 00:53:03.720]   And, and the progression to this is our requirements engine.
+[00:53:03.720 --> 00:53:08.200]   Yeah. For sure. And they already have that, by the way.
+[00:53:10.520 --> 00:53:15.080]   Al, can you go back and show how you can set up meeting from here?
+[00:53:15.080 --> 00:53:18.040]   Yes. Remember you designed the flow?
+[00:53:18.040 --> 00:53:27.720]   Yes. This is the one that we, let's say, trespassed in from the Figma made into the Figma design.
+[00:53:27.720 --> 00:53:30.520]   It was the manual process, as I mentioned before, Marma.
+[00:53:30.520 --> 00:53:37.720]   Just like a quick note on the Figma maker. It's good for making. It's very bad for editing.
+[00:53:37.720 --> 00:53:43.640]   So we had to change everything into, into the manual thing, but it was even quicker
+[00:53:43.640 --> 00:53:48.360]   than just basically coming up with ideas on the, the designing platform.
+[00:53:48.360 --> 00:53:51.640]   So that's something that we did.
+[00:53:51.640 --> 00:53:58.520]   I don't know if you can start loading the, the other agent as I go through these
+[00:53:58.520 --> 00:54:01.720]   basically sections so that we can see the make one.
+[00:54:01.720 --> 00:54:04.600]   So I, because it takes a bit of time to load.
+[00:54:04.600 --> 00:54:09.480]   No, no, no, no. No, no, no, no, no. That's not my question. Al, that's not my question.
+[00:54:09.480 --> 00:54:10.920]   Oh, sorry.
+[00:54:10.920 --> 00:54:16.680]   For the requirements engine agent, the meetings flow.
+[00:54:16.680 --> 00:54:19.400]   Yes. The meetings agent. Yeah, the other one. Exactly. Yeah.
+[00:54:19.400 --> 00:54:26.760]   So basically we have a meetings agent that has a recollection of basically how all meetings looked.
+[00:54:26.760 --> 00:54:30.120]   What's my schedule for today? Where were the previous meetings?
+[00:54:30.120 --> 00:54:32.920]   If I have any insects from that, I can see.
+[00:54:34.600 --> 00:54:37.000]   It's changing to strings. Sorry.
+[00:54:37.000 --> 00:54:41.800]   Which were, oh, I know what happened here.
+[00:54:41.800 --> 00:54:49.080]   So what's the summary for all the meetings that I had, which was the summary of this meeting?
+[00:54:49.080 --> 00:54:53.880]   If there were any action items, how was the overall sentiment of the participants as well?
+[00:54:53.880 --> 00:54:57.640]   Let's say, for example, if I have
+[00:55:00.360 --> 00:55:07.080]   for the meetings insights, I can get, okay, so all my meetings haven't 68% of engagement,
+[00:55:07.080 --> 00:55:13.160]   the most of the time, my calls are a bit too long and I schedule them for it.
+[00:55:13.160 --> 00:55:14.840]   I can get insights like that.
+[00:55:14.840 --> 00:55:20.760]   I can get, for example, if they are on the previous meeting, I have my stakeholders more engaged.
+[00:55:20.760 --> 00:55:22.920]   What did I do to make this happen?
+[00:55:25.240 --> 00:55:32.040]   The client mentioned into a scope like an expansion interest, I can get that inside as well.
+[00:55:32.040 --> 00:55:35.240]   I can have action items from all those meetings.
+[00:55:35.240 --> 00:55:45.080]   I can have basically, I see that Alex is spending on some action item that it's due for tomorrow
+[00:55:45.080 --> 00:55:46.920]   and he has not given me anything else.
+[00:55:46.920 --> 00:55:48.760]   I can get a reminder for that.
+[00:55:48.760 --> 00:55:54.760]   I can see that Mary and Lee have action spending as well from those meetings, extracted automatically.
+[00:55:54.760 --> 00:55:59.560]   I can maybe have an action that, okay, turn this to an advocate or maybe something like that.
+[00:55:59.560 --> 00:56:04.040]   I can have the meeting sentiment overall for all those meetings.
+[00:56:04.040 --> 00:56:12.920]   This is a weird filter, but I can see basically how the sentiment went
+[00:56:12.920 --> 00:56:17.000]   overall through all those meetings and see how my meetings.
+[00:56:17.000 --> 00:56:18.600]   True.
+[00:56:18.600 --> 00:56:23.560]   So this is where Alberto, the meetings that I'm saying, instead of
+[00:56:23.560 --> 00:56:29.560]   sentiment, we can probably bring out, instead of the sentiment, we can bring out this scope.
+[00:56:29.560 --> 00:56:32.440]   That's what we want, you understand?
+[00:56:32.440 --> 00:56:34.440]   That's where we'll probe.
+[00:56:34.440 --> 00:56:39.160]   Once you have the onboarding, now I can take that to the next level, continue that in setting up meetings
+[00:56:39.160 --> 00:56:41.880]   through the agent, through this app.
+[00:56:41.880 --> 00:56:45.800]   And that agent will start listening.
+[00:56:45.800 --> 00:56:48.920]   Again, the flow they created is you can integrate teams.
+[00:56:50.200 --> 00:56:53.320]   So you schedule the meeting, the teams is going to schedule the meeting.
+[00:56:53.320 --> 00:56:54.840]   The recording will happen in teams.
+[00:56:54.840 --> 00:57:00.040]   We will use that entire ecosystem, but what we'll do is we'll only bring the audio back,
+[00:57:00.040 --> 00:57:03.960]   like we discussed, and analyze the audio and give the outcomes.
+[00:57:03.960 --> 00:57:09.480]   Are you taking the transcript or the audio recording?
+[00:57:09.480 --> 00:57:10.440]   I mean, we can decide.
+[00:57:10.440 --> 00:57:17.240]   I mean, it's just a conversation I want to have with them so that they understand my thought process.
+[00:57:21.000 --> 00:57:27.800]   All right, so let me not talk about the next one.
+[00:57:27.800 --> 00:57:29.000]   Maybe I'm going far ahead.
+[00:57:29.000 --> 00:57:30.840]   Alberto, I'll work with you.
+[00:57:30.840 --> 00:57:36.200]   But for the program onboarding, you guys work on the wireframe.
+[00:57:36.200 --> 00:57:45.080]   We'll work on the agent side, the structure and how it should be, and create an agent,
+[00:57:45.080 --> 00:57:49.960]   sample agent, see how we can run it, and see if the outcomes for onboarding
+[00:57:49.960 --> 00:57:50.680]   is coming or not.
+[00:57:50.680 --> 00:57:59.240]   So I have that ready already.
+[00:57:59.240 --> 00:58:01.160]   There is a customer that we just signed up.
+[00:58:01.160 --> 00:58:03.080]   We just signed up called GT Automotive.
+[00:58:03.080 --> 00:58:08.760]   And I'm already asking pre-sales to create this folder structure that I just talked to you guys.
+[00:58:08.760 --> 00:58:11.560]   And Alberto, I'll give you that structure.
+[00:58:11.560 --> 00:58:16.440]   This GT Automotive folder they're creating, or a SharePoint they're creating,
+[00:58:16.440 --> 00:58:21.640]   will have all the recordings of the customer interaction during pre-sales.
+[00:58:21.640 --> 00:58:27.400]   It'll have all discovery sessions, recordings as well, separately.
+[00:58:27.400 --> 00:58:31.400]   And it'll have any kind of discovery documentation pre-sales did.
+[00:58:31.400 --> 00:58:36.520]   It'll have the scope document, the complete SW, and it'll have the timelines, everything.
+[00:58:36.520 --> 00:58:37.160]   Right.
+[00:58:37.160 --> 00:58:38.920]   Now, that's what you take.
+[00:58:38.920 --> 00:58:42.200]   You put it to this agent and we want to get the pre-onboarding.
+[00:58:42.200 --> 00:58:44.520]   Got it.
+[00:58:44.520 --> 00:58:45.000]   Okay.
+[00:58:47.320 --> 00:58:48.040]   Okay.
+[00:58:48.040 --> 00:58:49.240]   I think I got it, yeah.
+[00:58:49.240 --> 00:58:50.040]   Okay.
+[00:58:50.040 --> 00:58:53.080]   All right.
+[00:58:53.080 --> 00:58:53.720]   Thank you guys.
+[00:58:53.720 --> 00:58:54.200]   Thank you.
+[00:58:54.200 --> 00:58:55.000]   Thank you very much.
+[00:58:55.000 --> 00:58:56.680]   Then we'll catch up on Monday again.
+[00:58:56.680 --> 00:58:59.480]   Gabby and team, you guys can disconnect.
+[00:58:59.480 --> 00:59:02.440]   I need about five minutes from Ray and Alberto.
+[00:59:02.440 --> 00:59:02.840]   Yeah.
+[00:59:02.840 --> 00:59:05.080]   I want to record, okay?
+[00:59:05.080 --> 00:59:05.880]   Thank you.
+[00:59:05.880 --> 00:59:06.680]   Thanks.
+[00:59:16.440 --> 00:59:45.240]   [no audio]
