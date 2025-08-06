@@ -1,0 +1,393 @@
+% Setting up the LaTeX document with necessary packages
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\setlength{\parindent}{0pt}
+
+% Beginning the document
+\begin{document}
+
+% Defining the title, author, and date
+\title{K-Square Programme Onboarding Agent: User Interface Specification and Data Architecture}
+\author{Alberto Espinosa \\ KSquare Group}
+\date{1 August 2025}
+\maketitle
+
+% Providing an abstract for the document
+\begin{abstract}
+This document provides a comprehensive specification of the K-Square Programme Onboarding Agent user interface, detailing the data architecture, visual components, and functional capabilities of each application view. The system comprises six primary interface modules: Dashboard, Client Profiles, Insights Generation, Meeting Analysis, Knowledge Base, and Programme Setup. Each module is designed to facilitate specific aspects of the onboarding workflow whilst maintaining consistency in user experience and data presentation. This specification serves as a technical reference for understanding the system's visual organisation, data structures, and interactive capabilities.
+\end{abstract}
+
+% Introducing the system interface architecture
+\section{Introduction}
+The K-Square Programme Onboarding Agent employs a modular interface architecture designed to support the complex workflows of programme execution team onboarding. The system presents information through six distinct views, each optimised for specific user tasks and data types. The interface follows modern web application principles, utilising responsive design patterns, real-time data synchronisation, and progressive disclosure of information complexity. This document examines each interface module in detail, specifying the data components, visual elements, and functional capabilities that comprise the complete user experience.
+
+% Describing the overall interface architecture
+\section{Interface Architecture Overview}
+The application interface is constructed using React TypeScript with a component-based architecture that ensures consistency across all views. The system employs a unified design language characterised by:
+
+\begin{itemize}
+    \item \textbf{Responsive Grid Layouts}: Adaptive layouts that accommodate various screen sizes and data densities
+    \item \textbf{Real-time Data Synchronisation}: Live updates through WebSocket connections and polling mechanisms
+    \item \textbf{Progressive Information Disclosure}: Hierarchical presentation of data complexity from summary to detailed views
+    \item \textbf{Consistent Visual Language}: Unified colour schemes, typography, and iconography across all modules
+    \item \textbf{Contextual Navigation}: Dynamic navigation elements that adapt to user workflow states
+\end{itemize}
+
+The interface architecture supports both novice and expert users through adaptive complexity management, allowing users to access increasingly detailed information as their expertise and requirements develop.
+
+% Dashboard View Specification
+\section{Dashboard View}
+The Dashboard serves as the primary entry point and system overview, providing real-time metrics and performance indicators across all onboarding activities. The view is organised into five primary sections that present hierarchical information from high-level system status to detailed operational metrics.
+
+\subsection{Key Performance Indicators}
+The Dashboard presents four primary statistical cards displaying core system metrics:
+
+\begin{itemize}
+    \item \textbf{Total Workflows}: Aggregate count of all onboarding workflows initiated within the system, including completed, active, failed, and pending states. This metric provides insight into overall system utilisation and processing capacity.
+    \item \textbf{Active Clients}: Current count of client profiles actively engaged in onboarding processes. This indicator reflects the immediate workload and resource allocation requirements.
+    \item \textbf{Insights Generated}: Cumulative count of AI-generated insights across all client profiles and workflows. This metric demonstrates the system's analytical output and value generation.
+    \item \textbf{Meetings Analysed}: Total number of meeting recordings processed through the automated analysis pipeline, indicating the scope of conversational data integration.
+\end{itemize}
+
+Each statistical card includes trend indicators showing percentage changes over configurable time periods, enabling users to assess system performance trajectories and identify emerging patterns.
+
+\subsection{Workflow Status Distribution}
+A doughnut chart visualisation presents the distribution of workflow statuses across four categories: Completed, In Progress, Failed, and Pending. This visualisation employs colour coding to facilitate rapid status assessment:
+
+\begin{itemize}
+    \item \textbf{Completed Workflows}: Represented in success green, indicating successfully concluded onboarding processes
+    \item \textbf{In Progress Workflows}: Displayed in primary blue, showing active onboarding activities
+    \item \textbf{Failed Workflows}: Highlighted in danger red, identifying processes requiring intervention
+    \item \textbf{Pending Workflows}: Shown in secondary grey, representing queued or awaiting processes
+\end{itemize}
+
+\subsection{Client Industry Distribution}
+A horizontal bar chart displays the distribution of client profiles across industry sectors, currently categorised into Automotive, Healthcare, Retail, and Other. This visualisation enables users to understand the sectoral diversity of the client portfolio and identify industry-specific patterns in onboarding requirements.
+
+\subsection{Performance Trends Analysis}
+A dual-axis line chart presents temporal performance metrics over configurable time periods (24 hours, 7 days, 30 days, 90 days). The chart displays two primary metrics:
+
+\begin{itemize}
+    \item \textbf{Workflows Completed}: Daily completion rates showing system throughput and processing efficiency
+    \item \textbf{Client Satisfaction}: Aggregated satisfaction scores derived from meeting sentiment analysis and feedback mechanisms
+\end{itemize}
+
+\subsection{System Health Monitoring}
+The Dashboard includes a comprehensive system health section displaying operational status across three critical areas:
+
+\begin{itemize}
+    \item \textbf{API Status}: Real-time monitoring of backend service availability and response capabilities
+    \item \textbf{Response Time}: Average API response times with performance benchmarking against established thresholds
+    \item \textbf{System Uptime}: Cumulative uptime statistics demonstrating system reliability and availability
+\end{itemize}
+
+\subsection{Activity Feed and Quick Actions}
+The Dashboard incorporates a real-time activity feed displaying recent system events, including programme completions, insight generation, and user interactions. Adjacent quick action buttons provide immediate access to frequently used functions such as insight generation, meeting upload, and client profile creation.
+
+% Client Profiles View Specification
+\section{Client Profiles View}
+The Client Profiles view provides comprehensive management capabilities for client information, supporting both individual profile examination and portfolio-wide analysis. The interface accommodates detailed client data whilst maintaining accessibility for rapid profile assessment and comparison.
+
+\subsection{Profile Summary Statistics}
+The view presents aggregate statistics across the client portfolio:
+
+\begin{itemize}
+    \item \textbf{Total Profiles}: Complete count of client profiles within the system
+    \item \textbf{Average Completeness}: Mean completeness score across all profiles, calculated from data field population and validation status
+    \item \textbf{Industry Distribution}: Visual representation of client distribution across industry sectors
+    \item \textbf{Regional Coverage}: Geographic distribution of client operations and market presence
+\end{itemize}
+
+\subsection{Individual Profile Data Structure}
+Each client profile contains comprehensive organisational information structured across multiple data categories:
+
+\subsubsection{Core Company Information}
+\begin{itemize}
+    \item \textbf{Company Name}: Primary organisational identifier and branding reference
+    \item \textbf{Industry Classification}: Sector categorisation for market analysis and benchmarking
+    \item \textbf{Company Size}: Organisational scale indicator affecting resource allocation and approach strategies
+    \item \textbf{Founding Year}: Historical context for organisational maturity and market experience assessment
+\end{itemize}
+
+\subsubsection{Operational Geography}
+\begin{itemize}
+    \item \textbf{Regional Presence}: Array of geographic markets where the client maintains operations
+    \item \textbf{Market Penetration}: Depth of presence within specified regional markets
+\end{itemize}
+
+\subsubsection{Stakeholder Network}
+The stakeholder management system captures key personnel information:
+
+\begin{itemize}
+    \item \textbf{Stakeholder Name}: Individual identification for communication and relationship management
+    \item \textbf{Organisational Role}: Position and responsibility scope within the client organisation
+    \item \textbf{Engagement Level}: Participation intensity in onboarding processes and decision-making authority
+\end{itemize}
+
+\subsection{Profile Completeness Assessment}
+The system calculates a completeness score for each profile based on data field population, validation status, and information quality. This metric guides users in identifying profiles requiring additional data collection and ensures comprehensive client understanding before programme initiation.
+
+\subsection{Insights Integration}
+Each client profile incorporates AI-generated insights across four analytical dimensions:
+
+\begin{itemize}
+    \item \textbf{Market Position Analysis}: Assessment of competitive standing and market dynamics
+    \item \textbf{Growth Potential Evaluation}: Identification of expansion opportunities and development trajectories
+    \item \textbf{Risk Factor Assessment}: Analysis of potential challenges and mitigation requirements
+    \item \textbf{Strategic Recommendations}: Actionable guidance for programme design and implementation
+\end{itemize}
+
+% Insights Generation View Specification
+\section{Insights Generation View}
+The Insights Generation view serves as the analytical centre of the onboarding system, presenting AI-generated strategic recommendations, risk assessments, and opportunity identification across client portfolios and individual engagements.
+
+\subsection{Insights Classification System}
+The system categorises insights across four primary types, each addressing specific analytical requirements:
+
+\begin{itemize}
+    \item \textbf{Strategic Insights}: High-level recommendations addressing long-term positioning and competitive advantage
+    \item \textbf{Tactical Insights}: Operational recommendations for immediate implementation and short-term objectives
+    \item \textbf{Risk Insights}: Identification and assessment of potential challenges, threats, and mitigation strategies
+    \item \textbf{Opportunity Insights}: Recognition of growth potential, market gaps, and expansion possibilities
+\end{itemize}
+
+\subsection{Priority Assessment Framework}
+Each insight receives priority classification based on impact potential and implementation urgency:
+
+\begin{itemize}
+    \item \textbf{High Priority}: Critical insights requiring immediate attention and resource allocation
+    \item \textbf{Medium Priority}: Important insights suitable for planned implementation within standard timelines
+    \item \textbf{Low Priority}: Valuable insights for consideration during future planning cycles
+\end{itemize}
+
+\subsection{Impact Scoring Methodology}
+The system employs a quantitative impact scoring mechanism ranging from 0 to 100, evaluating insights based on:
+
+\begin{itemize}
+    \item \textbf{Revenue Potential}: Projected financial impact of insight implementation
+    \item \textbf{Risk Mitigation Value}: Potential cost avoidance through proactive risk management
+    \item \textbf{Competitive Advantage}: Strategic positioning benefits relative to market competitors
+    \item \textbf{Implementation Feasibility}: Resource requirements and execution complexity assessment
+\end{itemize}
+
+\subsection{Implementation Planning Components}
+Each insight includes comprehensive implementation guidance:
+
+\begin{itemize}
+    \item \textbf{Effort Estimation}: Resource requirements and time allocation projections
+    \item \textbf{Timeline Specification}: Recommended implementation schedule and milestone identification
+    \item \textbf{Resource Requirements}: Personnel, technology, and financial resources necessary for execution
+    \item \textbf{Success Metrics}: Quantifiable indicators for measuring implementation effectiveness
+\end{itemize}
+
+\subsection{Status Tracking System}
+Insights progress through defined status states enabling workflow management:
+
+\begin{itemize}
+    \item \textbf{Pending}: Newly generated insights awaiting review and prioritisation
+    \item \textbf{In Progress}: Insights currently under implementation with active resource allocation
+    \item \textbf{Completed}: Successfully implemented insights with achieved objectives
+    \item \textbf{Dismissed}: Insights determined unsuitable for current implementation cycles
+\end{itemize}
+
+% Meeting Analysis View Specification
+\section{Meeting Analysis View}
+The Meeting Analysis view provides comprehensive processing and analysis capabilities for meeting recordings, extracting actionable intelligence from conversational data through automated transcription, sentiment analysis, and content categorisation.
+
+\subsection{Meeting Data Structure}
+Each processed meeting contains structured information across multiple analytical dimensions:
+
+\subsubsection{Basic Meeting Information}
+\begin{itemize}
+    \item \textbf{Meeting Title}: Descriptive identifier for content categorisation and retrieval
+    \item \textbf{Date and Duration}: Temporal context and resource allocation measurement
+    \item \textbf{Participant List}: Attendee identification for stakeholder engagement tracking
+\end{itemize}
+
+\subsubsection{Content Analysis}
+\begin{itemize}
+    \item \textbf{Complete Transcript}: Full textual representation of meeting dialogue
+    \item \textbf{Key Topics Identification}: Automated extraction of primary discussion themes
+    \item \textbf{Action Items}: Specific tasks and commitments identified during discussions
+    \item \textbf{Meeting Summary}: Condensed overview of primary outcomes and decisions
+\end{itemize}
+
+\subsection{Sentiment Analysis Framework}
+The system employs advanced natural language processing to assess meeting sentiment across multiple dimensions:
+
+\begin{itemize}
+    \item \textbf{Overall Sentiment Score}: Aggregate emotional tone assessment ranging from negative to positive
+    \item \textbf{Positive Sentiment Percentage}: Proportion of discussion characterised by optimistic or constructive tone
+    \item \textbf{Negative Sentiment Percentage}: Identification of concerns, objections, or problematic areas
+    \item \textbf{Neutral Sentiment Percentage}: Factual or procedural discussion without emotional valence
+\end{itemize}
+
+\subsection{Engagement Measurement}
+The system calculates engagement scores based on participation patterns, interaction frequency, and conversational dynamics. This metric provides insight into stakeholder involvement and meeting effectiveness.
+
+\subsection{Strategic Intelligence Extraction}
+Advanced analysis capabilities identify strategic information within meeting content:
+
+\begin{itemize}
+    \item \textbf{Key Decisions}: Critical determinations made during discussions
+    \item \textbf{Concerns Raised}: Issues, objections, or challenges identified by participants
+    \item \textbf{Next Steps}: Agreed-upon actions and follow-up activities
+    \item \textbf{Stakeholder Perspectives}: Individual viewpoints and position analysis
+\end{itemize}
+
+\subsection{Portfolio Analytics}
+The view provides aggregate analytics across the complete meeting portfolio:
+
+\begin{itemize}
+    \item \textbf{Total Meeting Count}: Complete inventory of processed meetings
+    \item \textbf{Cumulative Duration}: Total time investment in recorded discussions
+    \item \textbf{Average Sentiment Trends}: Temporal sentiment patterns across multiple meetings
+    \item \textbf{Action Item Completion Rates}: Progress tracking for identified tasks and commitments
+\end{itemize}
+
+% Knowledge Base View Specification
+\section{Knowledge Base View}
+The Knowledge Base view serves as the centralised repository for organisational knowledge, best practices, and reference materials, providing sophisticated search, categorisation, and content management capabilities.
+
+\subsection{Content Organisation Framework}
+The knowledge base employs a multi-dimensional organisation system:
+
+\subsubsection{Category Classification}
+\begin{itemize}
+    \item \textbf{Industry-Specific Knowledge}: Sector-focused content addressing unique industry requirements
+    \item \textbf{Methodological Guidance}: Process documentation and procedural best practices
+    \item \textbf{Technical Documentation}: System specifications, integration guides, and technical references
+    \item \textbf{Case Studies}: Historical project examples and lessons learned documentation
+\end{itemize}
+
+\subsubsection{Complexity Stratification}
+\begin{itemize}
+    \item \textbf{Beginner Level}: Introductory content suitable for new team members
+    \item \textbf{Intermediate Level}: Standard operational guidance for experienced practitioners
+    \item \textbf{Advanced Level}: Specialist knowledge for complex scenarios and expert applications
+\end{itemize}
+
+\subsection{Content Metadata Structure}
+Each knowledge item includes comprehensive metadata supporting discovery and utilisation:
+
+\begin{itemize}
+    \item \textbf{Title and Content}: Primary information and detailed documentation
+    \item \textbf{Source Attribution}: Original author, creation date, and authority verification
+    \item \textbf{Relevance Scoring}: Algorithmic assessment of content applicability to current contexts
+    \item \textbf{Usage Analytics}: View counts, engagement metrics, and utilisation patterns
+    \item \textbf{Tag System}: Flexible labelling for cross-referencing and thematic organisation
+\end{itemize}
+
+\subsection{Search and Discovery Capabilities}
+The knowledge base incorporates advanced search functionality:
+
+\begin{itemize}
+    \item \textbf{Full-Text Search}: Comprehensive content indexing with relevance ranking
+    \item \textbf{Faceted Filtering}: Multi-dimensional filtering by category, complexity, and metadata
+    \item \textbf{Semantic Search}: Context-aware search understanding conceptual relationships
+    \item \textbf{Recommendation Engine}: Automated suggestion of related content based on user behaviour
+\end{itemize}
+
+\subsection{User Interaction Features}
+The system supports various user engagement mechanisms:
+
+\begin{itemize}
+    \item \textbf{Bookmarking System}: Personal content curation and quick access functionality
+    \item \textbf{Rating and Feedback}: Community-driven quality assessment and content improvement
+    \item \textbf{Sharing Capabilities}: Content distribution and collaborative knowledge development
+    \item \textbf{Reading Time Estimation}: Automated calculation of content consumption requirements
+\end{itemize}
+
+% Programme Setup View Specification
+\section{Programme Setup View}
+The Programme Setup view implements a conversational AI interface designed to guide users through the systematic collection of programme requirements, client information, and project parameters necessary for successful onboarding initiation.
+
+\subsection{Conversational Interface Architecture}
+The setup process employs a sophisticated dialogue management system:
+
+\begin{itemize}
+    \item \textbf{Progressive Information Gathering}: Structured questioning sequences that build comprehensive project understanding
+    \item \textbf{Context-Aware Responses}: AI responses that adapt to previously provided information and identified gaps
+    \item \textbf{Validation and Verification}: Real-time data validation with immediate feedback on information quality
+    \item \textbf{Completeness Tracking}: Dynamic assessment of setup progress with percentage completion indicators
+\end{itemize}
+
+\subsection{Data Collection Framework}
+The system systematically gathers information across multiple project dimensions:
+
+\subsubsection{Organisational Context}
+\begin{itemize}
+    \item \textbf{Company Identification}: Client organisation name and basic identifying information
+    \item \textbf{Industry Classification}: Sector identification for appropriate methodology selection
+    \item \textbf{Organisational Scale}: Company size assessment affecting resource allocation and approach strategies
+\end{itemize}
+
+\subsubsection{Project Definition}
+\begin{itemize}
+    \item \textbf{Problem Statement}: Clear articulation of challenges and objectives driving the engagement
+    \item \textbf{Success Criteria}: Quantifiable outcomes and achievement indicators
+    \item \textbf{Scope Boundaries}: Project limitations and exclusions for expectation management
+\end{itemize}
+
+\subsubsection{Technical Requirements}
+\begin{itemize}
+    \item \textbf{Technology Stack}: Existing technical infrastructure and preferred technologies
+    \item \textbf{Integration Requirements}: System connectivity and data exchange specifications
+    \item \textbf{Security Considerations}: Compliance requirements and security constraints
+\end{itemize}
+
+\subsubsection{Resource Parameters}
+\begin{itemize}
+    \item \textbf{Timeline Constraints}: Project duration expectations and milestone requirements
+    \item \textbf{Budget Parameters}: Financial constraints and resource allocation guidelines
+    \item \textbf{Stakeholder Network}: Key personnel identification and engagement requirements
+\end{itemize}
+
+\subsection{Validation and Quality Assurance}
+The system incorporates multiple validation mechanisms:
+
+\begin{itemize}
+    \item \textbf{Real-Time Validation}: Immediate feedback on data quality and completeness
+    \item \textbf{Consistency Checking}: Cross-referencing of related information for logical coherence
+    \item \textbf{Completeness Assessment}: Dynamic evaluation of information sufficiency for programme initiation
+    \item \textbf{Recommendation Generation}: Automated suggestions for improving setup quality and completeness
+\end{itemize}
+
+\subsection{Workflow Integration}
+Upon successful completion, the setup process automatically initiates downstream workflows:
+
+\begin{itemize}
+    \item \textbf{Client Profile Creation}: Automatic generation of comprehensive client profiles
+    \item \textbf{Initial Insights Generation}: Preliminary analysis and recommendation development
+    \item \textbf{Team Notification}: Automated alerts to relevant team members and stakeholders
+    \item \textbf{Resource Allocation}: Initial resource assignment based on project requirements
+\end{itemize}
+
+% Technical Implementation Considerations
+\section{Technical Implementation}
+The user interface implementation employs modern web technologies optimised for performance, accessibility, and maintainability. The system utilises React TypeScript for component development, ensuring type safety and development efficiency. State management is handled through React Query for server state and React Context for application state, providing optimal data synchronisation and caching strategies.
+
+The interface design follows responsive design principles, ensuring consistent functionality across desktop, tablet, and mobile devices. Accessibility compliance is maintained through ARIA labelling, keyboard navigation support, and screen reader compatibility.
+
+Real-time data updates are achieved through a combination of WebSocket connections for immediate updates and intelligent polling for background synchronisation. This approach ensures users receive timely information whilst minimising server load and network traffic.
+
+% Conclusion and Future Enhancements
+\section{Conclusion}
+The K-Square Programme Onboarding Agent user interface represents a comprehensive solution for managing complex onboarding workflows through intuitive, data-rich visualisations and intelligent automation. Each view is designed to support specific user tasks whilst maintaining consistency in interaction patterns and visual design.
+
+The modular architecture enables future enhancements including advanced analytics dashboards, machine learning-powered recommendations, and integration with external enterprise systems. The foundation established by this interface specification supports scalable growth whilst maintaining usability and performance standards.
+
+Future development should focus on enhancing the conversational AI capabilities, expanding the knowledge base content management features, and developing advanced analytics for deeper insights into onboarding effectiveness and client satisfaction patterns.
+
+% Ending the document
+\end{document}

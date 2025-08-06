@@ -1,0 +1,17 @@
+Hello! I'm here to help you set up your K-Square programme. Let's start by telling me about your company and the problem you're trying to solve.
+
+20:08:24
+
+We're a mid-sized retail company with 150 employees based in New York. We're struggling with inventory management inefficiencies and customer data fragmentation across multiple systems. We want to implement an integrated solution to improve our supply chain visibility and customer experience.
+
+20:08:40
+
+Thank you for that information! Great! Now I need to understand your current technology setup and implementation timeline. What systems and tools are you currently using, and what's your preferred timeframe for this project?
+
+20:08:40
+
+Our current systems include Shopify for e-commerce, Square POS for in-store sales, and we're using basic Excel spreadsheets for inventory tracking. We also have customer data scattered across Mailchimp for email marketing, our POS system, and Google Analytics for website data. We need better integration between all these platforms. We're looking at a 6-month implementation timeline with a budget of around $150,000 for the initial phase.
+
+20:10:41
+
+Thank you for that information! Perfect! I have all the information needed about your retail company, challenges, technology setup, and implementation timeline. I can now set up your K-Square programme with a customized plan tailored to your specific needs. Let me prepare your onboarding strategy.
