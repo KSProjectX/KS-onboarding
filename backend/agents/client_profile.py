@@ -84,15 +84,25 @@ class ClientProfileAgent:
         stakeholders = self._generate_stakeholders(problem_statement, industry)
         
         profile = {
-            "name": client_name,
+            "id": f"profile_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+            "company_name": client_name,
             "industry": industry,
-            "founded": founded_year,
+            "founding_year": founded_year,
             "company_size": company_size,
-            "region": regions,
+            "regions": regions if isinstance(regions, list) else [regions],
             "stakeholders": stakeholders,
-            "tech_stack": [tech.strip() for tech in tech_stack.split(',')],
+            "tech_stack": [tech.strip() for tech in tech_stack.split(',') if tech.strip()],
             "primary_challenge": self._extract_primary_challenge(problem_statement),
-            "profile_created": datetime.now().isoformat(),
+            "problem_statement": problem_statement,
+            "completeness_score": 85,
+            "insights": {
+                "market_position": "To be determined",
+                "growth_potential": "Medium",
+                "risk_factors": ["Market competition"],
+                "recommendations": ["Complete profile setup"]
+            },
+            "created_at": datetime.now().isoformat(),
+            "updated_at": datetime.now().isoformat(),
             "profile_source": "generated"
         }
         
@@ -164,18 +174,18 @@ class ClientProfileAgent:
         else:
             return current_year - (10 + (modern_score * 3))  # Medium age
     
-    def _determine_regions(self, industry: str) -> str:
+    def _determine_regions(self, industry: str) -> List[str]:
         """Determine likely operational regions based on industry"""
         industry_regions = {
-            "automotive": "USA, Europe, Asia",
-            "healthcare": "USA, Canada",
-            "retail": "Global",
-            "technology": "USA, Europe",
-            "finance": "USA, Europe, Asia",
-            "manufacturing": "USA, Europe, Asia"
+            "automotive": ["USA", "Europe", "Asia"],
+            "healthcare": ["USA", "Canada"],
+            "retail": ["Global"],
+            "technology": ["USA", "Europe"],
+            "finance": ["USA", "Europe", "Asia"],
+            "manufacturing": ["USA", "Europe", "Asia"]
         }
         
-        return industry_regions.get(industry.lower(), "USA")
+        return industry_regions.get(industry.lower(), ["USA"])
     
     def _generate_stakeholders(self, problem_statement: str, industry: str) -> List[Dict[str, str]]:
         """Generate likely stakeholders based on problem statement and industry"""

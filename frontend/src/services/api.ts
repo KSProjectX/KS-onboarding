@@ -70,7 +70,7 @@ export interface SearchResult {
 // Create axios instance with default configuration
 const createApiInstance = (): AxiosInstance => {
   const instance = axios.create({
-    baseURL: (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000',
+    baseURL: (import.meta as any).env?.VITE_API_URL || 'http://localhost:8001',
     timeout: 30000, // 30 seconds
     headers: {
       'Content-Type': 'application/json',
@@ -188,6 +188,15 @@ export class ApiService {
   ): Promise<ApiResponse> {
     try {
       const response = await api.post(`/api/agent/${agentName}`, params)
+      return response.data
+    } catch (error) {
+      throw this.handleError(error)
+    }
+  }
+
+  static async executeWorkflow(clientData: Record<string, any>): Promise<ApiResponse> {
+    try {
+      const response = await api.post('/api/execute-workflow', { client_data: clientData })
       return response.data
     } catch (error) {
       throw this.handleError(error)

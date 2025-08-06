@@ -260,6 +260,40 @@ class DatabaseManager:
         
         return profiles
     
+    def save_client_profile(self, client_name: str, profile_data: Dict[str, Any]):
+        """Save or update client profile in database"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        
+        try:
+            # Check if profile already exists
+            cursor.execute("SELECT id FROM profiles WHERE client_name = ?", (client_name,))
+            existing = cursor.fetchone()
+            
+            profile_json = json.dumps(profile_data)
+            
+            if existing:
+                # Update existing profile
+                cursor.execute(
+                    "UPDATE profiles SET profile_data = ?, updated_at = CURRENT_TIMESTAMP WHERE client_name = ?",
+                    (profile_json, client_name)
+                )
+                logger.info(f"Updated existing profile for {client_name}")
+            else:
+                # Insert new profile
+                cursor.execute(
+                    "INSERT INTO profiles (client_name, profile_data) VALUES (?, ?)",
+                    (client_name, profile_json)
+                )
+                logger.info(f"Created new profile for {client_name}")
+            
+            conn.commit()
+            
+        except Exception as e:
+            logger.error(f"Error saving client profile for {client_name}: {e}")
+            conn.rollback()
+            raise
+    
     def get_domain_knowledge(self) -> List[Dict]:
         """Get domain knowledge insights"""
         conn = self.get_connection()

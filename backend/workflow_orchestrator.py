@@ -5,11 +5,11 @@ from datetime import datetime
 import json
 
 # Import all agents
-from .agents.programme_setup import ProgrammeSetupAgent
-from .agents.domain_knowledge import DomainKnowledgeAgent
-from .agents.client_profile import ClientProfileAgent
-from .agents.actionable_insights import ActionableInsightsAgent
-from .agents.meetings import MeetingsAgent
+from agents.programme_setup import ProgrammeSetupAgent
+from agents.domain_knowledge import DomainKnowledgeAgent
+from agents.client_profile import ClientProfileAgent
+from agents.actionable_insights import ActionableInsightsAgent
+from agents.meetings import MeetingsAgent
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +49,12 @@ class WorkflowOrchestrator:
             
             # Step 1: Programme Setup
             logger.info(f"Workflow {workflow_id}: Starting Programme Setup")
-            setup_result = await self.programme_setup_agent.process_setup(client_data)
+            setup_result = await self.programme_setup_agent.process_setup(
+                client_data.get("client_name", ""),
+                client_data.get("industry", ""),
+                client_data.get("problem_statement", ""),
+                client_data.get("tech_stack", "")
+            )
             self.workflow_state[workflow_id]["agent_results"]["programme_setup"] = setup_result
             self.workflow_state[workflow_id]["current_step"] = "domain_knowledge"
             
@@ -58,10 +63,10 @@ class WorkflowOrchestrator:
             
             # Step 2: Domain Knowledge Analysis
             logger.info(f"Workflow {workflow_id}: Starting Domain Knowledge Analysis")
-            domain_result = await self.domain_knowledge_agent.analyze_domain(
+            domain_result = await self.domain_knowledge_agent.process_domain_knowledge(
                 client_data.get("industry", ""),
                 client_data.get("problem_statement", ""),
-                client_data.get("tech_stack", [])
+                client_data.get("tech_stack", "")
             )
             self.workflow_state[workflow_id]["agent_results"]["domain_knowledge"] = domain_result
             self.workflow_state[workflow_id]["current_step"] = "client_profile"
@@ -71,9 +76,25 @@ class WorkflowOrchestrator:
             
             # Step 3: Client Profile Building
             logger.info(f"Workflow {workflow_id}: Starting Client Profile Building")
-            profile_result = await self.client_profile_agent.build_profile(client_data)
+            profile_result = await self.client_profile_agent.build_client_profile(
+                client_data.get("client_name", ""),
+                client_data.get("industry", ""),
+                client_data.get("problem_statement", ""),
+                client_data.get("tech_stack", "")
+            )
             self.workflow_state[workflow_id]["agent_results"]["client_profile"] = profile_result
             self.workflow_state[workflow_id]["current_step"] = "meetings_analysis"
+            
+            # Save client profile to database if successful
+            if profile_result.get("status") == "success" and profile_result.get("client_profile"):
+                try:
+                    self.db_manager.save_client_profile(
+                        client_data.get("client_name", ""),
+                        profile_result["client_profile"]
+                    )
+                    logger.info(f"Client profile saved to database for {client_data.get('client_name', '')}")
+                except Exception as save_error:
+                    logger.error(f"Failed to save client profile: {save_error}")
             
             if profile_result.get("status") != "success":
                 raise Exception(f"Client Profile Building failed: {profile_result.get('message')}")

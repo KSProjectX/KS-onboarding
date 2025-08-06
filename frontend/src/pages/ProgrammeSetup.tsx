@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Bot, User, CheckCircle, AlertCircle, Loader } from 'lucide-react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 import { ApiService } from '../services/api'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorMessage from '../components/ErrorMessage'
@@ -19,10 +20,10 @@ interface Message {
 }
 
 interface SetupData {
-  company_name?: string
+  client_name?: string
   industry?: string
   problem_statement?: string
-  tech_stack?: string[]
+  tech_stack?: string | string[]
   timeline?: string
   budget?: string
   stakeholders?: string[]
@@ -30,11 +31,12 @@ interface SetupData {
 }
 
 const ProgrammeSetup: React.FC = () => {
+  const navigate = useNavigate()
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       type: 'bot',
-      content: 'Hello! I\'m here to help you set up your K-Square programme. Let\'s start by telling me about your company and the problem you\'re trying to solve.',
+      content: 'Welcome to the K-Square Programme Setup! I\'ll help you configure your programme. Let\'s start by understanding your company and project requirements. What\'s your company name and what industry are you in?',
       timestamp: new Date(),
     },
   ])
@@ -72,6 +74,14 @@ const ProgrammeSetup: React.FC = () => {
       
       if (response.completeness >= 90) {
         toast.success('Programme setup completed!')
+        
+        // If workflow was executed and client profile was created, redirect
+        if (response.workflow_result && response.workflow_result.summary?.client_profile) {
+          setTimeout(() => {
+            toast.success('Client profile created automatically! Redirecting...')
+            navigate('/profile')
+          }, 2000)
+        }
       }
     },
     onError: (error: any) => {
