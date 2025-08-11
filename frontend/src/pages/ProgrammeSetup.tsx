@@ -32,17 +32,11 @@ interface SetupData {
 
 const ProgrammeSetup: React.FC = () => {
   const navigate = useNavigate()
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      type: 'bot',
-      content: 'Welcome to the K-Square Programme Setup! I\'ll help you configure your programme. Let\'s start by understanding your company and project requirements. What\'s your company name and what industry are you in?',
-      timestamp: new Date(),
-    },
-  ])
+  const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState('')
   const [setupData, setSetupData] = useState<SetupData>({})
   const [isComplete, setIsComplete] = useState(false)
+  const [conversationId, setConversationId] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -54,38 +48,65 @@ const ProgrammeSetup: React.FC = () => {
     scrollToBottom()
   }, [messages])
 
-  const setupMutation = useMutation({
-    mutationFn: (data: { message: string; setup_data: SetupData }) =>
-      ApiService.setupProgramme(data),
+  // Start conversation when component mounts
+  const startConversationMutation = useMutation({
+    mutationFn: () => ApiService.startConversation(`programme_setup_${Date.now()}`),
+    onSuccess: (response) => {
+      setConversationId(response.data.conversation_id)
+      const botMessage: Message = {
+        id: '1',
+        type: 'bot',
+        content: response.data.message,
+        timestamp: new Date(),
+      }
+      setMessages([botMessage])
+    },
+    onError: (error: any) => {
+      toast.error('Failed to start conversation')
+    },
+  })
+
+  // Send message mutation
+  const sendMessageMutation = useMutation({
+    mutationFn: (message: string) => {
+      if (!conversationId) throw new Error('No conversation ID')
+      return ApiService.sendMessage(conversationId, message)
+    },
     onSuccess: (response) => {
       const botMessage: Message = {
         id: Date.now().toString(),
         type: 'bot',
-        content: response.response,
+        content: response.data.message,
         timestamp: new Date(),
         metadata: {
-          completeness: response.completeness,
-          validation: response.validation,
+          completeness: response.data.completion_percentage,
         },
       }
       setMessages((prev) => [...prev, botMessage])
-      setSetupData(response.setup_data)
-      setIsComplete(response.completeness >= 90)
       
-      if (response.completeness >= 90) {
+      // Update setup data from client_info
+      if (response.data.client_info) {
+        setSetupData({
+          client_name: response.data.client_info.company_name,
+          industry: response.data.client_info.industry,
+          problem_statement: response.data.client_info.problem_statement,
+          tech_stack: response.data.client_info.tech_stack,
+          timeline: response.data.client_info.timeline,
+          budget: response.data.client_info.budget,
+        })
+      }
+      
+      setIsComplete(response.data.is_complete)
+      
+      if (response.data.is_complete) {
         toast.success('Programme setup completed!')
-        
-        // If workflow was executed and client profile was created, redirect
-        if (response.workflow_result && response.workflow_result.summary?.client_profile) {
-          setTimeout(() => {
-            toast.success('Client profile created automatically! Redirecting...')
-            navigate('/profile')
-          }, 2000)
-        }
+        setTimeout(() => {
+          navigate('/profile')
+        }, 2000)
       }
     },
     onError: (error: any) => {
-      toast.error(error.response?.data?.detail || 'Failed to process message')
+      toast.error(error.response?.data?.detail || 'Failed to send message')
       const errorMessage: Message = {
         id: Date.now().toString(),
         type: 'bot',
@@ -96,8 +117,13 @@ const ProgrammeSetup: React.FC = () => {
     },
   })
 
+  // Start conversation on component mount
+  useEffect(() => {
+    startConversationMutation.mutate()
+  }, [])
+
   const handleSendMessage = () => {
-    if (!inputValue.trim() || setupMutation.isPending) return
+    if (!inputValue.trim() || sendMessageMutation.isPending || !conversationId) return
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -108,10 +134,7 @@ const ProgrammeSetup: React.FC = () => {
 
     setMessages((prev) => [...prev, userMessage])
     
-    setupMutation.mutate({
-      message: inputValue,
-      setup_data: setupData,
-    })
+    sendMessageMutation.mutate(inputValue)
 
     setInputValue('')
   }
@@ -287,14 +310,14 @@ const ProgrammeSetup: React.FC = () => {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder={isComplete ? 'Setup completed! You can ask follow-up questions...' : 'Type your message...'}
-                    disabled={setupMutation.isPending}
+                    disabled={sendMessageMutation.isPending}
                     className="flex-1 input"
                   />
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleSendMessage}
-                    disabled={!inputValue.trim() || setupMutation.isPending}
+                    disabled={!inputValue.trim() || sendMessageMutation.isPending}
                     className="btn btn-primary p-2"
                   >
                     <Send className="w-4 h-4" />

@@ -5,7 +5,7 @@ from datetime import datetime
 import json
 
 # Import all agents
-from agents.programme_setup import ProgrammeSetupAgent
+from agents.natural_conversational_agent import NaturalConversationalAgent
 from agents.domain_knowledge import DomainKnowledgeAgent
 from agents.client_profile import ClientProfileAgent
 from agents.actionable_insights import ActionableInsightsAgent
@@ -20,7 +20,7 @@ class WorkflowOrchestrator:
         self.db_manager = db_manager
         
         # Initialize all agents
-        self.programme_setup_agent = ProgrammeSetupAgent(db_manager)
+        self.conversational_setup_agent = NaturalConversationalAgent(db_manager)
         self.domain_knowledge_agent = DomainKnowledgeAgent(db_manager)
         self.client_profile_agent = ClientProfileAgent(db_manager)
         self.actionable_insights_agent = ActionableInsightsAgent(db_manager)
@@ -44,24 +44,10 @@ class WorkflowOrchestrator:
                 "start_time": start_time.isoformat(),
                 "client_data": client_data,
                 "agent_results": {},
-                "current_step": "programme_setup"
+                "current_step": "domain_knowledge"
             }
             
-            # Step 1: Programme Setup
-            logger.info(f"Workflow {workflow_id}: Starting Programme Setup")
-            setup_result = await self.programme_setup_agent.process_setup(
-                client_data.get("client_name", ""),
-                client_data.get("industry", ""),
-                client_data.get("problem_statement", ""),
-                client_data.get("tech_stack", "")
-            )
-            self.workflow_state[workflow_id]["agent_results"]["programme_setup"] = setup_result
-            self.workflow_state[workflow_id]["current_step"] = "domain_knowledge"
-            
-            if setup_result.get("status") != "success":
-                raise Exception(f"Programme Setup failed: {setup_result.get('message')}")
-            
-            # Step 2: Domain Knowledge Analysis
+            # Step 1: Domain Knowledge Analysis
             logger.info(f"Workflow {workflow_id}: Starting Domain Knowledge Analysis")
             domain_result = await self.domain_knowledge_agent.process_domain_knowledge(
                 client_data.get("industry", ""),
@@ -74,7 +60,7 @@ class WorkflowOrchestrator:
             if domain_result.get("status") != "success":
                 raise Exception(f"Domain Knowledge Analysis failed: {domain_result.get('message')}")
             
-            # Step 3: Client Profile Building
+            # Step 2: Client Profile Building
             logger.info(f"Workflow {workflow_id}: Starting Client Profile Building")
             profile_result = await self.client_profile_agent.build_client_profile(
                 client_data.get("client_name", ""),
@@ -99,7 +85,7 @@ class WorkflowOrchestrator:
             if profile_result.get("status") != "success":
                 raise Exception(f"Client Profile Building failed: {profile_result.get('message')}")
             
-            # Step 4: Meetings Analysis (if meeting data available)
+            # Step 3: Meetings Analysis (if meeting data available)
             logger.info(f"Workflow {workflow_id}: Starting Meetings Analysis")
             meeting_result = await self._analyze_meetings_for_client(client_data.get("client_name", ""))
             self.workflow_state[workflow_id]["agent_results"]["meetings"] = meeting_result
@@ -155,10 +141,7 @@ class WorkflowOrchestrator:
         logger.info(f"Executing single agent: {agent_name}")
         
         try:
-            if agent_name == "programme_setup":
-                return await self.programme_setup_agent.process_setup(kwargs.get("client_data", {}))
-            
-            elif agent_name == "domain_knowledge":
+            if agent_name == "domain_knowledge":
                 return await self.domain_knowledge_agent.analyze_domain(
                     kwargs.get("industry", ""),
                     kwargs.get("problem_statement", ""),
@@ -253,17 +236,6 @@ class WorkflowOrchestrator:
             return {
                 "status": "error",
                 "message": f"Failed to get dashboard data: {str(e)}"
-            }
-    
-    async def validate_programme_data(self, client_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Validate programme data using the Programme Setup Agent"""
-        try:
-            return await self.programme_setup_agent.validate_input(client_data)
-        except Exception as e:
-            logger.error(f"Error validating programme data: {e}")
-            return {
-                "status": "error",
-                "message": f"Validation failed: {str(e)}"
             }
     
     async def search_knowledge_base(self, query: str, industry: Optional[str] = None) -> Dict[str, Any]:
@@ -368,15 +340,6 @@ class WorkflowOrchestrator:
         }
         
         return summary
-    
-    def _extract_setup_summary(self, setup_result: Dict) -> Dict[str, Any]:
-        """Extract summary from programme setup results"""
-        return {
-            "validation_status": setup_result.get("validation", {}).get("is_valid", False),
-            "completeness_score": setup_result.get("validation", {}).get("completeness_score", 0),
-            "missing_fields": setup_result.get("validation", {}).get("missing_fields", []),
-            "conversation_prompt": setup_result.get("conversation_prompt", "")
-        }
     
     def _extract_domain_summary(self, domain_result: Dict) -> Dict[str, Any]:
         """Extract summary from domain knowledge results"""

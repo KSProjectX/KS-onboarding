@@ -8,7 +8,7 @@ import logging
 from datetime import datetime
 import uvicorn
 
-from agents.programme_setup import ProgrammeSetupAgent
+from agents.natural_conversational_agent import NaturalConversationalAgent
 from agents.domain_knowledge import DomainKnowledgeAgent
 from agents.client_profile import ClientProfileAgent
 from agents.actionable_insights import ActionableInsightsAgent
@@ -36,10 +36,6 @@ db_manager = DatabaseManager("ks_onboarding.db")
 orchestrator = WorkflowOrchestrator(db_manager)
 
 # Pydantic models
-class SetupRequest(BaseModel):
-    message: str
-    setup_data: Optional[Dict[str, Any]] = None
-
 class DirectSetupRequest(BaseModel):
     client_name: str
     industry: str
@@ -57,6 +53,16 @@ class WorkflowExecutionRequest(BaseModel):
 class SearchRequest(BaseModel):
     query: str
     tags: Optional[List[str]] = None
+
+class ConversationRequest(BaseModel):
+    message: str
+    conversation_id: Optional[str] = None
+
+class ConversationResponse(BaseModel):
+    response: str
+    conversation_id: str
+    is_complete: bool
+    client_profile: Optional[Dict[str, Any]] = None
 
 @app.on_event("startup")
 async def startup_event():
@@ -80,247 +86,73 @@ async def get_use_cases():
         logger.error(f"Error fetching use cases: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch use cases")
 
-@app.post("/api/setup")
-async def setup_programme(request: SetupRequest):
-    """Handle chat-style programme setup conversation"""
+@app.post("/api/conversation/start")
+async def start_conversation():
+    """Start a new conversational setup session"""
     try:
-        start_time = datetime.now()
-        logger.info(f"Processing setup message: {request.message[:100]}...")
-        
-        # Extract current setup data
-        setup_data = request.setup_data or {}
-        
-        # Parse the message to extract company information
-        message_lower = request.message.lower()
-        
-        # Check what information we already have
-        has_company_info = bool(setup_data.get("industry") or setup_data.get("problem_statement"))
-        has_tech_info = bool(setup_data.get("tech_stack"))
-        has_timeline_info = bool(setup_data.get("timeline"))
-        
-        # Debug logging
-        logger.info(f"Current setup_data: {setup_data}")
-        logger.info(f"Message content: {request.message[:200]}...")
-        
-        # Update setup data based on current message
-        # Extract company name from the message
-        def extract_company_name(message):
-            """Extract company name from user message"""
-            import re
-            
-            # Look for explicit company name mentions
-            patterns = [
-                r"(?:company\s+name\s+is\s+|our\s+company\s+is\s+|we[''']?re\s+called\s+)([A-Za-z][A-Za-z\s&.-]+?)(?:\s+with|\s*[,.]|$)",
-                r"company\s+called\s+([A-Za-z][A-Za-z\s&.-]+?)(?:\s+with|\s*[,.]|$)",
-                r"([A-Z][a-zA-Z\s&.-]+?)\s+(?:company|corporation|corp|inc|llc|ltd)(?:\s|[,.]|$)",
-                r"at\s+([A-Z][a-zA-Z\s&.-]+?)(?:\s*[,.]|$)",
-                r"I[''']?m\s+from\s+([A-Z][a-zA-Z\s&.-]+?)(?:\s*[,.]|$)",
-                r"^([a-zA-Z][a-zA-Z0-9\s&.-]*?)(?:,|\s+we\s+are|\s+in\s+|$)",  # Handle "k-square, we are..."
-                r"(?:^|\s)([a-zA-Z][a-zA-Z0-9-]+)(?:,|\s+we\s+are)"  # Handle hyphenated names like "k-square"
-            ]
-            
-            for pattern in patterns:
-                match = re.search(pattern, message, re.IGNORECASE)
-                if match:
-                    name = match.group(1).strip()
-                    # Clean up the name
-                    name = re.sub(r'^(a|an|the)\s+', '', name, flags=re.IGNORECASE)
-                    # Remove descriptive words
-                    name = re.sub(r'\b(mid-sized|small|large|startup|new|old)\s+', '', name, flags=re.IGNORECASE)
-                    if len(name) > 2 and name.lower() not in ['retail', 'manufacturing', 'fintech', 'company']:
-                        return name.title()
-            
-            # If no explicit name found, try to infer from context
-            # Look for "We're [description] company" and generate a name
-            context_match = re.search(r"we[''']?re\s+a\s+([^,]+?)\s+company", message, re.IGNORECASE)
-            if context_match:
-                description = context_match.group(1).strip()
-                if "retail" in description.lower():
-                    return "Retail Solutions Inc"
-                elif "manufacturing" in description.lower():
-                    return "Manufacturing Corp"
-                elif "fintech" in description.lower():
-                    return "FinTech Solutions"
-            
-            return None
-        
-        # Extract company name if not already set
-        if not setup_data.get("client_name"):
-            company_name = extract_company_name(request.message)
-            if company_name:
-                setup_data["client_name"] = company_name
-        
-        # Detect company/industry information
-        if ("manufacturing" in message_lower and "company" in message_lower) or "automotive parts" in message_lower:
-            setup_data["industry"] = "Manufacturing"
-            if not setup_data.get("client_name"):
-                setup_data["client_name"] = "Manufacturing Company"
-            if "supply chain" in message_lower or "quality control" in message_lower or "automotive" in message_lower:
-                setup_data["problem_statement"] = request.message
-        elif "fintech" in message_lower or "payments" in message_lower or "lending" in message_lower:
-            setup_data["industry"] = "Fintech"
-            if not setup_data.get("client_name"):
-                setup_data["client_name"] = "FinanceFlow"
-            if "startup" in message_lower or "employees" in message_lower or "transactions" in message_lower:
-                setup_data["problem_statement"] = request.message
-        elif "retail" in message_lower or "retailflow" in message_lower or ("inventory management" in message_lower and "company" in message_lower):
-            setup_data["industry"] = "Retail"
-            if not setup_data.get("client_name"):
-                setup_data["client_name"] = "RetailFlow"
-            if "inventory" in message_lower or "customer data" in message_lower or "supply chain" in message_lower:
-                setup_data["problem_statement"] = request.message
-        elif "healthcare" in message_lower or "health care" in message_lower or "medical" in message_lower or "hospital" in message_lower:
-            setup_data["industry"] = "Healthcare"
-            if not setup_data.get("client_name"):
-                setup_data["client_name"] = "Healthcare Solutions"
-            if "patient" in message_lower or "compliance" in message_lower or "hipaa" in message_lower or "medical records" in message_lower:
-                setup_data["problem_statement"] = request.message
-        
-        # Detect tech stack information - only if not already set and message is specifically about tech
-        specific_tech = ["shopify", "square", "pos", "excel", "mailchimp", "salesforce", "aws", "react", "node", "postgresql", "stripe", "docker", "erp", "crm"]
-        
-        # Only update tech_stack if not already set, we have basic company info, and message contains specific tech mentions
-        has_basic_info = setup_data.get("client_name") and setup_data.get("industry")
-        # Check if message is actually about tech stack (not just company name containing tech words)
-        is_tech_message = ("current systems" in message_lower or "tech stack" in message_lower or 
-                          "using" in message_lower or "systems include" in message_lower or
-                          "we use" in message_lower or "our technology" in message_lower)
-        
-        if not setup_data.get("tech_stack") and has_basic_info and is_tech_message and any(tech in message_lower for tech in specific_tech):
-            # Extract only the tech-related part of the message
-            tech_part = ""
-            sentences = request.message.split(". ")
-            for sentence in sentences:
-                if any(tech in sentence.lower() for tech in specific_tech) or "current systems" in sentence.lower():
-                    tech_part += sentence + ". "
-            
-            if tech_part:
-                setup_data["tech_stack"] = tech_part.strip()
-            else:
-                setup_data["tech_stack"] = request.message
-        
-        # Detect timeline information - only if not already set and message is specifically about timeline/budget
-        timeline_keywords = ["timeline", "timeframe", "months", "weeks", "years", "when do you want", "by when"]
-        budget_indicators = ["$", "budget", "cost", "investment", "funding", "000", "million", "thousand"]
-        
-        # Only update timeline if not already set, we have basic company info, and message contains specific timeline/budget info
-        if not setup_data.get("timeline") and has_basic_info and (any(keyword in message_lower for keyword in timeline_keywords) or any(indicator in message_lower for indicator in budget_indicators)):
-            # Extract only the timeline/budget-related part of the message
-            timeline_part = ""
-            sentences = request.message.split(". ")
-            for sentence in sentences:
-                if any(keyword in sentence.lower() for keyword in timeline_keywords) or any(indicator in sentence.lower() for indicator in budget_indicators):
-                    timeline_part += sentence + ". "
-            
-            if timeline_part:
-                setup_data["timeline"] = timeline_part.strip()
-            else:
-                setup_data["timeline"] = request.message
-        
-        # Determine response based on what we have and what we need
-        response_text = "Thank you for that information! "
-        
-        # Calculate completeness
-        completeness = 0
-        if setup_data.get("industry"): completeness += 20
-        if setup_data.get("client_name"): completeness += 20
-        if setup_data.get("problem_statement"): completeness += 20
-        if setup_data.get("tech_stack"): completeness += 20
-        if setup_data.get("timeline"): completeness += 20
-        
-        # Generate appropriate response based on what information is missing
-        industry = setup_data.get("industry", "")
-        
-        # Determine what information is still needed
-        missing_info = []
-        if not setup_data.get("industry") or not setup_data.get("problem_statement") or not setup_data.get("client_name"):
-            missing_info.append("company_info")
-        if not setup_data.get("tech_stack"):
-            missing_info.append("tech_stack")
-        if not setup_data.get("timeline"):
-            missing_info.append("timeline")
-        
-        if not missing_info:
-            # All information collected - provide completion response
-            response_text += f"Perfect! I have all the information needed about your {industry.lower()} company, challenges, technology setup, and implementation timeline. I can now set up your K-Square programme with a customized plan tailored to your specific needs. Let me prepare your onboarding strategy."
-        elif "company_info" in missing_info:
-            # Still need basic company information
-            if not setup_data.get("client_name") and not setup_data.get("industry"):
-                response_text += "Welcome to the K-Square Programme Setup! I'll help you configure your programme. Let's start by understanding your company and project requirements. What's your company name and what industry are you in?"
-            elif not setup_data.get("client_name"):
-                response_text += f"Great! I see you're in the {setup_data.get('industry', '')} industry. What's your company name?"
-            elif not setup_data.get("industry"):
-                response_text += f"Thank you, {setup_data.get('client_name', '')}! What industry are you in?"
-            elif not setup_data.get("problem_statement"):
-                response_text += f"Perfect! Now I understand you're {setup_data.get('client_name', '')} in the {setup_data.get('industry', '')} industry. Could you tell me about the specific challenges or problems you're facing that you'd like to address?"
-            else:
-                response_text += "Could you tell me more about your company, the industry you're in, and the specific challenges you're facing?"
-        elif "tech_stack" in missing_info and "timeline" in missing_info:
-            # Need both tech and timeline info
-            response_text += "Great! Now I need to understand your current technology setup and implementation timeline. What systems and tools are you currently using, and what's your preferred timeframe for this project?"
-        elif "tech_stack" in missing_info:
-            # Only need tech stack info
-            response_text += "Excellent! Now I need to understand your current technology infrastructure. What systems, platforms, and tools are you currently using?"
-        elif "timeline" in missing_info:
-            # Only need timeline info
-            response_text += "Great! I understand your technology setup. What's your preferred timeline and budget for implementing this solution?"
-        else:
-            # Fallback for any edge cases
-            response_text += "Thank you for the information. What additional details can you share about your project requirements?"
-        
-        # Save setup data to database
-        try:
-            conn = sqlite3.connect('ks_onboarding.db')
-            cursor = conn.cursor()
-            
-            # Check if there's an existing session to update
-            cursor.execute("SELECT id FROM setup_sessions ORDER BY created_at DESC LIMIT 1")
-            existing_session = cursor.fetchone()
-            
-            if existing_session:
-                # Update existing session
-                cursor.execute(
-                    "UPDATE setup_sessions SET setup_data = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
-                    (json.dumps(setup_data), existing_session[0])
-                )
-            else:
-                # Create new session
-                cursor.execute(
-                    "INSERT INTO setup_sessions (setup_data) VALUES (?)",
-                    (json.dumps(setup_data),)
-                )
-            
-            conn.commit()
-            conn.close()
-            logger.info(f"Setup data saved to database: {setup_data}")
-        except Exception as db_error:
-            logger.error(f"Error saving setup data to database: {db_error}")
-            # Continue execution even if database save fails
-        
-        execution_time = (datetime.now() - start_time).total_seconds()
-        
-        # If setup is complete (100%), trigger the full workflow
-        workflow_result = None
-        if completeness >= 100:
-            try:
-                logger.info("Setup complete, triggering full workflow...")
-                workflow_result = await orchestrator.execute_full_workflow(setup_data)
-                logger.info(f"Workflow completed: {workflow_result}")
-            except Exception as workflow_error:
-                logger.error(f"Error executing workflow: {workflow_error}")
-                # Continue execution even if workflow fails
+        import uuid
+        session_id = str(uuid.uuid4())
+        result = await orchestrator.conversational_setup_agent.start_conversation(session_id)
         
         return {
-            "response": response_text,
-            "setup_data": setup_data,
-            "completeness": completeness,
-            "validation": {"is_valid": True},
-            "execution_time": execution_time,
-            "workflow_result": workflow_result
+            "status": "started",
+            "conversation_id": session_id,
+            "session_id": session_id,
+            "message": result.get("message"),
+            "client_info": result.get("client_info", {}),
+            "completion_percentage": result.get("completion_percentage", 0),
+            "is_complete": result.get("is_complete", False)
         }
     except Exception as e:
-        logger.error(f"Error in programme setup: {e}")
-        raise HTTPException(status_code=500, detail=f"Programme setup failed: {str(e)}")
+        logger.error(f"Error starting conversation: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to start conversation: {str(e)}")
+
+@app.post("/api/conversation/message")
+async def send_message(request: ConversationRequest):
+    """Send a message in the conversational setup"""
+    try:
+        if not request.conversation_id:
+            raise HTTPException(status_code=400, detail="Conversation ID is required")
+        
+        result = await orchestrator.conversational_setup_agent.process_message(
+            request.conversation_id, 
+            request.message
+        )
+        
+        return {
+            "status": "success",
+            "conversation_id": request.conversation_id,
+            "response": result.get("message"),
+            "message": result.get("message"),
+            "client_info": result.get("client_info", {}),
+            "completion_percentage": result.get("completion_percentage", 0),
+            "missing_fields": result.get("missing_fields", []),
+            "is_complete": result.get("is_complete", False)
+        }
+    except Exception as e:
+        logger.error(f"Error processing conversation message: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to process message: {str(e)}")
+
+@app.get("/api/conversation/{conversation_id}/status")
+async def get_conversation_status(conversation_id: str):
+    """Get the current status of a conversation"""
+    try:
+        status = orchestrator.conversational_setup_agent.get_session_status(conversation_id)
+        
+        if "error" in status:
+            raise HTTPException(status_code=404, detail=status["error"])
+        
+        return {
+            "conversation_id": conversation_id,
+            "client_info": status.get("client_info", {}),
+            "completion_percentage": status.get("completion_percentage", 0),
+            "missing_fields": status.get("missing_fields", []),
+            "is_complete": status.get("is_complete", False),
+            "message_count": status.get("message_count", 0)
+        }
+    except Exception as e:
+        logger.error(f"Error getting conversation status: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get conversation status: {str(e)}")
 
 @app.post("/api/validate")
 async def validate_output(request: ValidationRequest):

@@ -129,8 +129,35 @@ export class ApiService {
   // Programme setup endpoints
   static async setupProgramme(data: ProgrammeData): Promise<ApiResponse<WorkflowResult>> {
     try {
-      const response = await api.post('/api/setup', data)
-      return response.data
+      // Start a new conversation
+      const startResponse = await api.post('/api/conversation/start')
+      const conversationId = startResponse.data.conversation_id || startResponse.data.session_id
+      
+      // Send the programme data as a message
+      const message = `Company: ${data.client_name}, Industry: ${data.industry}, Problem: ${data.problem_statement}, Tech Stack: ${data.tech_stack?.join(', ')}, Budget: ${data.budget_range || 'Not specified'}, Timeline: ${data.timeline || 'Not specified'}`
+      
+      const response = await api.post('/api/conversation/message', {
+        conversation_id: conversationId,
+        message: message
+      })
+      
+      return {
+        status: 'success',
+        data: {
+          workflow_id: conversationId,
+          status: 'completed',
+          execution_time: 0,
+          client_name: data.client_name,
+          summary: {
+            programme_setup: response.data.client_info,
+            domain_knowledge: {},
+            client_profile: response.data.client_info,
+            meetings: {},
+            actionable_insights: {}
+          },
+          full_results: response.data
+        }
+      }
     } catch (error) {
       throw this.handleError(error)
     }
@@ -139,6 +166,39 @@ export class ApiService {
   static async validateProgramme(data: ProgrammeData): Promise<ApiResponse<ValidationResult>> {
     try {
       const response = await api.post('/api/validate', data)
+      return response.data
+    } catch (error) {
+      throw this.handleError(error)
+    }
+  }
+
+  // Conversation endpoints
+  static async startConversation(sessionId?: string): Promise<ApiResponse<{conversation_id: string, session_id: string}>> {
+    try {
+      const response = await api.post('/api/conversation/start', {
+        session_id: sessionId || `session_${Date.now()}`
+      })
+      return response.data
+    } catch (error) {
+      throw this.handleError(error)
+    }
+  }
+
+  static async sendMessage(conversationId: string, message: string): Promise<ApiResponse<any>> {
+    try {
+      const response = await api.post('/api/conversation/message', {
+        conversation_id: conversationId,
+        message: message
+      })
+      return response.data
+    } catch (error) {
+      throw this.handleError(error)
+    }
+  }
+
+  static async getConversationStatus(conversationId: string): Promise<ApiResponse<any>> {
+    try {
+      const response = await api.get(`/api/conversation/${conversationId}/status`)
       return response.data
     } catch (error) {
       throw this.handleError(error)
