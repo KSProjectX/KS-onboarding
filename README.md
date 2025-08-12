@@ -379,9 +379,9 @@ The AI-guided setup process walks users through programme initialization with co
 - Team Role Assignment
 ### Demo Video
 
-https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4
 
-[View Demo Video](https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4)
+
+![Onboarding Demo](demo-onboarding.gif)
 
 Watch the demo video above to see the assistant agent in action, demonstrating:
 - Natural conversation flow
