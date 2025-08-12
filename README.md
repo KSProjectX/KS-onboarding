@@ -381,10 +381,7 @@ The AI-guided setup process walks users through programme initialization with co
 
 https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4
 
-<video width="100%" controls>
-  <source src="https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[View Demo Video](https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4)
 
 Watch the demo video above to see the assistant agent in action, demonstrating:
 - Natural conversation flow
