@@ -50,8 +50,12 @@ const ProgrammeSetup: React.FC = () => {
 
   // Start conversation when component mounts
   const startConversationMutation = useMutation({
-    mutationFn: () => ApiService.startConversation(`programme_setup_${Date.now()}`),
+    mutationFn: () => {
+      console.log('Starting conversation mutation...')
+      return ApiService.startConversation(`programme_setup_${Date.now()}`)
+    },
     onSuccess: (response) => {
+      console.log('Conversation started successfully:', response)
       setConversationId(response.conversation_id)
       const botMessage: Message = {
         id: '1',
@@ -60,9 +64,11 @@ const ProgrammeSetup: React.FC = () => {
         timestamp: new Date(),
       }
       setMessages([botMessage])
+      toast.success('Conversation started!')
     },
     onError: (error: any) => {
       console.error('Start conversation error:', error)
+      console.error('Error details:', error.response?.data || error.message)
       toast.error('Failed to start conversation')
     },
   })
@@ -120,8 +126,25 @@ const ProgrammeSetup: React.FC = () => {
 
   // Start conversation on component mount
   useEffect(() => {
+    console.log('Component mounted, starting conversation...')
+    console.log('Mutation state:', {
+      isPending: startConversationMutation.isPending,
+      isError: startConversationMutation.isError,
+      isSuccess: startConversationMutation.isSuccess
+    })
     startConversationMutation.mutate()
   }, [])
+
+  // Debug mutation state changes
+  useEffect(() => {
+    console.log('Mutation state changed:', {
+      isPending: startConversationMutation.isPending,
+      isError: startConversationMutation.isError,
+      isSuccess: startConversationMutation.isSuccess,
+      data: startConversationMutation.data,
+      error: startConversationMutation.error
+    })
+  }, [startConversationMutation.isPending, startConversationMutation.isError, startConversationMutation.isSuccess])
 
   const handleSendMessage = () => {
     if (!inputValue.trim() || sendMessageMutation.isPending || !conversationId) return
@@ -226,19 +249,46 @@ const ProgrammeSetup: React.FC = () => {
           {/* Chat Container */}
           <div className="card">
             <div className="card-content p-0">
-              {/* Messages */}
-              <div className="h-96 overflow-y-auto p-6 space-y-4">
-                <AnimatePresence>
-                  {messages.map((message) => (
-                    <motion.div
-                      key={message.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      className={`flex items-start space-x-3 ${
-                        message.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''
-                      }`}
+              {/* Loading State */}
+              {startConversationMutation.isPending && (
+                <div className="h-96 flex items-center justify-center">
+                  <div className="text-center">
+                    <Loader className="w-8 h-8 animate-spin text-primary-600 mx-auto mb-4" />
+                    <p className="text-secondary-600">Starting conversation...</p>
+                  </div>
+                </div>
+              )}
+              
+              {/* Error State */}
+              {startConversationMutation.isError && (
+                <div className="h-96 flex items-center justify-center">
+                  <div className="text-center">
+                    <AlertCircle className="w-8 h-8 text-red-600 mx-auto mb-4" />
+                    <p className="text-red-600 mb-4">Failed to start conversation</p>
+                    <button 
+                      onClick={() => startConversationMutation.mutate()}
+                      className="btn btn-primary"
                     >
+                      Try Again
+                    </button>
+                  </div>
+                </div>
+              )}
+              
+              {/* Messages */}
+              {!startConversationMutation.isPending && !startConversationMutation.isError && (
+                <div className="h-96 overflow-y-auto p-6 space-y-4">
+                  <AnimatePresence>
+                    {messages.map((message) => (
+                      <motion.div
+                        key={message.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className={`flex items-start space-x-3 ${
+                          message.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''
+                        }`}
+                      >
                       <div
                         className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                           message.type === 'user'
@@ -273,58 +323,61 @@ const ProgrammeSetup: React.FC = () => {
                         </p>
                       </div>
                     </motion.div>
-                  ))}
-                </AnimatePresence>
-                
-                {sendMessageMutation.isPending && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-start space-x-3"
-                  >
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary-600 flex items-center justify-center">
-                      <Bot className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="inline-block p-3 rounded-lg bg-secondary-100">
-                        <div className="flex items-center space-x-2">
-                          <Loader className="w-4 h-4 animate-spin text-secondary-600" />
-                          <span className="text-sm text-secondary-600">
-                            Thinking...
-                          </span>
+                    ))}
+                  </AnimatePresence>
+                  
+                  {sendMessageMutation.isPending && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-start space-x-3"
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary-600 flex items-center justify-center">
+                        <Bot className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="inline-block p-3 rounded-lg bg-secondary-100">
+                          <div className="flex items-center space-x-2">
+                            <Loader className="w-4 h-4 animate-spin text-secondary-600" />
+                            <span className="text-sm text-secondary-600">
+                              Thinking...
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-                
-                <div ref={messagesEndRef} />
-              </div>
+                    </motion.div>
+                  )}
+                  
+                  <div ref={messagesEndRef} />
+                </div>
+              )}
 
               {/* Input */}
-              <div className="border-t border-secondary-200 p-4">
-                <div className="flex items-center space-x-3">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder={isComplete ? 'Setup completed! You can ask follow-up questions...' : 'Type your message...'}
-                    disabled={sendMessageMutation.isPending}
-                    className="flex-1 input"
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={handleSendMessage}
-                    disabled={!inputValue.trim() || sendMessageMutation.isPending}
-                    className="btn btn-primary p-2"
-                  >
-                    <Send className="w-4 h-4" />
-                  </motion.button>
+              {!startConversationMutation.isPending && !startConversationMutation.isError && (
+                <div className="border-t border-secondary-200 p-4">
+                  <div className="flex items-center space-x-3">
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder={isComplete ? 'Setup completed! You can ask follow-up questions...' : 'Type your message...'}
+                      disabled={sendMessageMutation.isPending || !conversationId}
+                      className="flex-1 input"
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleSendMessage}
+                      disabled={!inputValue.trim() || sendMessageMutation.isPending || !conversationId}
+                      className="btn btn-primary p-2"
+                    >
+                      <Send className="w-4 h-4" />
+                    </motion.button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
