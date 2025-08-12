@@ -352,7 +352,7 @@ For issues or questions:
 3. Examine browser console and terminal logs for errors
 4. Ensure all dependencies are properly installed
 
-## Screenshots
+## Screenshots of components
 
 ### Dashboard Overview
 ![Dashboard Overview](00_board.png)
