@@ -379,7 +379,7 @@ The AI-guided setup process walks users through programme initialization with co
 - Team Role Assignment
 ### Demo Video
 
-https://user-images.githubusercontent.com/123456/demo-onboarding.mp4
+https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4
 
 <video width="100%" controls>
   <source src="https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4" type="video/mp4">
