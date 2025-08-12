@@ -382,7 +382,7 @@ The AI-guided setup process walks users through programme initialization with co
 https://user-images.githubusercontent.com/123456/demo-onboarding.mp4
 
 <video width="100%" controls>
-  <source src="https://github.com/k-square/onboarding/raw/main/demo-onboarding.mp4" type="video/mp4">
+  <source src="https://github.com/KSProjectX/KS-onboarding/blob/poc/demo-onboarding.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
