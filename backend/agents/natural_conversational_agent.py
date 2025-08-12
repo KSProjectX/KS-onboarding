@@ -156,6 +156,7 @@ Be conversational, warm, and professional. Show genuine interest in their busine
         
         return {
             "session_id": session_id,
+            "response": response,
             "message": response,
             "client_info": session.client_info.to_dict(),
             "completion_percentage": completion_percentage,

@@ -173,7 +173,7 @@ export class ApiService {
   }
 
   // Conversation endpoints
-  static async startConversation(sessionId?: string): Promise<ApiResponse<{conversation_id: string, session_id: string}>> {
+  static async startConversation(sessionId?: string): Promise<{conversation_id: string, session_id: string, message: string, client_info: any, completion_percentage: number, is_complete: boolean}> {
     try {
       const response = await api.post('/api/conversation/start', {
         session_id: sessionId || `session_${Date.now()}`
@@ -184,7 +184,7 @@ export class ApiService {
     }
   }
 
-  static async sendMessage(conversationId: string, message: string): Promise<ApiResponse<any>> {
+  static async sendMessage(conversationId: string, message: string): Promise<{status: string, conversation_id: string, response: string, message: string, client_info: any, completion_percentage: number, missing_fields: string[], is_complete: boolean}> {
     try {
       const response = await api.post('/api/conversation/message', {
         conversation_id: conversationId,

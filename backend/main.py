@@ -8,13 +8,13 @@ import logging
 from datetime import datetime
 import uvicorn
 
-from agents.natural_conversational_agent import NaturalConversationalAgent
-from agents.domain_knowledge import DomainKnowledgeAgent
-from agents.client_profile import ClientProfileAgent
-from agents.actionable_insights import ActionableInsightsAgent
-from agents.meetings import MeetingsAgent
-from database.db_manager import DatabaseManager
-from workflow_orchestrator import WorkflowOrchestrator
+from .agents.natural_conversational_agent import NaturalConversationalAgent
+from .agents.domain_knowledge import DomainKnowledgeAgent
+from .agents.client_profile import ClientProfileAgent
+from .agents.actionable_insights import ActionableInsightsAgent
+from .agents.meetings import MeetingsAgent
+from .database.db_manager import DatabaseManager
+from .workflow_orchestrator import WorkflowOrchestrator
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -58,6 +58,9 @@ class ConversationRequest(BaseModel):
     message: str
     conversation_id: Optional[str] = None
 
+class ConversationStartRequest(BaseModel):
+    session_id: Optional[str] = None
+
 class ConversationResponse(BaseModel):
     response: str
     conversation_id: str
@@ -87,12 +90,12 @@ async def get_use_cases():
         raise HTTPException(status_code=500, detail="Failed to fetch use cases")
 
 @app.post("/api/conversation/start")
-async def start_conversation():
+async def start_conversation(request: ConversationStartRequest = None):
     """Start a new conversational setup session"""
     try:
         import uuid
-        session_id = str(uuid.uuid4())
-        result = await orchestrator.conversational_setup_agent.start_conversation(session_id)
+        session_id = request.session_id if request and request.session_id else str(uuid.uuid4())
+        result = await orchestrator.natural_conversational_agent.start_conversation(session_id)
         
         return {
             "status": "started",
@@ -114,7 +117,7 @@ async def send_message(request: ConversationRequest):
         if not request.conversation_id:
             raise HTTPException(status_code=400, detail="Conversation ID is required")
         
-        result = await orchestrator.conversational_setup_agent.process_message(
+        result = await orchestrator.natural_conversational_agent.process_message(
             request.conversation_id, 
             request.message
         )
@@ -122,8 +125,8 @@ async def send_message(request: ConversationRequest):
         return {
             "status": "success",
             "conversation_id": request.conversation_id,
-            "response": result.get("message"),
-            "message": result.get("message"),
+            "response": result.get("response"),
+            "message": result.get("response"),
             "client_info": result.get("client_info", {}),
             "completion_percentage": result.get("completion_percentage", 0),
             "missing_fields": result.get("missing_fields", []),
@@ -137,7 +140,7 @@ async def send_message(request: ConversationRequest):
 async def get_conversation_status(conversation_id: str):
     """Get the current status of a conversation"""
     try:
-        status = orchestrator.conversational_setup_agent.get_session_status(conversation_id)
+        status = orchestrator.natural_conversational_agent.get_session_status(conversation_id)
         
         if "error" in status:
             raise HTTPException(status_code=404, detail=status["error"])

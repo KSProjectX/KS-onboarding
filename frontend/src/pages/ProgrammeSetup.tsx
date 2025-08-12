@@ -52,16 +52,17 @@ const ProgrammeSetup: React.FC = () => {
   const startConversationMutation = useMutation({
     mutationFn: () => ApiService.startConversation(`programme_setup_${Date.now()}`),
     onSuccess: (response) => {
-      setConversationId(response.data.conversation_id)
+      setConversationId(response.conversation_id)
       const botMessage: Message = {
         id: '1',
         type: 'bot',
-        content: response.data.message,
+        content: response.message,
         timestamp: new Date(),
       }
       setMessages([botMessage])
     },
     onError: (error: any) => {
+      console.error('Start conversation error:', error)
       toast.error('Failed to start conversation')
     },
   })
@@ -76,29 +77,29 @@ const ProgrammeSetup: React.FC = () => {
       const botMessage: Message = {
         id: Date.now().toString(),
         type: 'bot',
-        content: response.data.message,
+        content: response.message,
         timestamp: new Date(),
         metadata: {
-          completeness: response.data.completion_percentage,
+          completeness: response.completion_percentage,
         },
       }
       setMessages((prev) => [...prev, botMessage])
       
       // Update setup data from client_info
-      if (response.data.client_info) {
+      if (response.client_info) {
         setSetupData({
-          client_name: response.data.client_info.company_name,
-          industry: response.data.client_info.industry,
-          problem_statement: response.data.client_info.problem_statement,
-          tech_stack: response.data.client_info.tech_stack,
-          timeline: response.data.client_info.timeline,
-          budget: response.data.client_info.budget,
+          client_name: response.client_info.company_name,
+          industry: response.client_info.industry,
+          problem_statement: response.client_info.problem_statement,
+          tech_stack: response.client_info.tech_stack,
+          timeline: response.client_info.timeline,
+          budget: response.client_info.budget,
         })
       }
       
-      setIsComplete(response.data.is_complete)
+      setIsComplete(response.is_complete)
       
-      if (response.data.is_complete) {
+      if (response.is_complete) {
         toast.success('Programme setup completed!')
         setTimeout(() => {
           navigate('/profile')
@@ -275,7 +276,7 @@ const ProgrammeSetup: React.FC = () => {
                   ))}
                 </AnimatePresence>
                 
-                {setupMutation.isPending && (
+                {sendMessageMutation.isPending && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

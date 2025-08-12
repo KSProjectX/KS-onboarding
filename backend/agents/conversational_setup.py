@@ -697,3 +697,22 @@ class ConversationalSetupAgent:
             
         except Exception as e:
             logger.error(f"Error creating client profile: {e}")
+    
+    def get_session_status(self, session_id: str) -> Dict[str, Any]:
+        """Get current session status - for ConversationalSetupAgent, we need to reconstruct from database or return default state"""
+        try:
+            # Since ConversationalSetupAgent doesn't maintain session state in memory,
+            # we'll return a default state structure that process_message can work with
+            default_state = ConversationState(session_id=session_id)
+            
+            return {
+                "session_id": session_id,
+                "messages": default_state.messages,
+                "client_info": default_state.client_info.dict(),
+                "conversation_stage": default_state.conversation_stage,
+                "questions_asked": default_state.questions_asked,
+                "is_complete": default_state.is_complete
+            }
+        except Exception as e:
+            logger.error(f"Error getting session status: {e}")
+            return {"error": f"Failed to get session status: {str(e)}"}

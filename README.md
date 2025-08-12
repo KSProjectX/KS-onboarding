@@ -39,9 +39,11 @@ pip install -r requirements.txt
 #### Start Backend Server
 
 ```bash
-# From project root directory
+# From project root directory (IMPORTANT: Must be run from root, not backend folder)
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
+
+**⚠️ Important:** Always run the backend server from the project root directory (`KS-onboarding/`), not from the `backend/` subdirectory. This ensures proper module imports.
 
 The backend API will be available at: `http://localhost:8000`
 
@@ -72,8 +74,14 @@ The frontend application will be available at: `http://localhost:3000`
 
 **Terminal 1 - Backend:**
 ```bash
+# Navigate to the PROJECT ROOT directory (not backend/)
 cd /path/to/KS-onboarding
+
+# Activate virtual environment
 source venv/bin/activate  # On macOS/Linux
+# OR on Windows: venv\Scripts\activate
+
+# Run server from ROOT directory
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
@@ -140,6 +148,74 @@ KS-onboarding/
 ├── requirements.txt       # Python dependencies
 └── ks_onboarding.db      # SQLite database
 ```
+
+## Troubleshooting
+
+### Common Issues
+
+#### "ModuleNotFoundError: No module named 'agents'"
+
+**Problem:** This error occurs when trying to run the backend server from the wrong directory.
+
+**Solution:** Always run the backend server from the project root directory (`KS-onboarding/`), not from the `backend/` subdirectory.
+
+```bash
+# ❌ WRONG - Don't run from backend directory
+cd KS-onboarding/backend
+python -m uvicorn main:app --reload
+
+# ✅ CORRECT - Run from project root
+cd KS-onboarding
+python -m uvicorn main:app --reload
+```
+
+#### "Address already in use" Error
+
+**Problem:** Port 8000 is already occupied by another process.
+
+**Solution:** Use a different port or kill the existing process:
+
+```bash
+# Use different port
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8001
+
+# Or find and kill existing process
+lsof -ti:8000 | xargs kill -9
+```
+
+#### Virtual Environment Issues
+
+**Problem:** Dependencies not found or wrong Python version.
+
+**Solution:** Ensure virtual environment is properly activated:
+
+```bash
+# Create new virtual environment if needed
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate  # macOS/Linux
+# OR
+venv\Scripts\activate     # Windows
+
+# Verify activation (should show venv path)
+which python
+
+# Reinstall dependencies if needed
+pip install -r requirements.txt
+```
+
+### Project Portability
+
+This project is designed to work on any computer with the following setup:
+
+1. **Python 3.8+** installed
+2. **Node.js 16+** installed
+3. **Git** for cloning the repository
+4. **Virtual environment** properly configured
+5. **Run from project root** directory
+
+The import paths have been configured to use relative imports, making the project portable across different systems and directory structures.
 
 ## Application Features
 
@@ -276,6 +352,73 @@ For issues or questions:
 3. Examine browser console and terminal logs for errors
 4. Ensure all dependencies are properly installed
 
+## Screenshots
+
+### Dashboard Overview
+![Dashboard Overview](00_board.png)
+The main dashboard provides a comprehensive view of ongoing onboarding processes, key metrics, and system status. Current components include:
+
+- Activity Timeline
+- Client Status Cards
+- Performance Metrics
+- Knowledge Base Quick Access
+- Recent Interactions Log
+- Task Priority Queue
+
+### Setup Wizard
+![Setup Process](01_setup.png)
+The AI-guided setup process walks users through programme initialization with contextual assistance. Current features:
+
+- Step-by-step Configuration
+- Real-time Validation
+- Progress Tracking
+- Dynamic Recommendations
+- Document Upload Interface
+- Team Role Assignment
+
+## Evolution Roadmap
+
+This Proof of Concept (PoC) represents the initial phase of the system. Future evolutionary phases include:
+
+### Phase 1: Enhanced Conversational Intelligence
+- Advanced natural language understanding
+- Context-aware responses
+- Multi-turn conversation handling
+- Personalized interaction patterns
+- Emotional intelligence integration
+- Learning from user interactions
+
+### Phase 2: Information Processing Capabilities
+- Automated meeting summary generation
+- Document analysis and extraction
+- Cross-reference capabilities
+- Knowledge base integration
+- Smart search functionality
+- Historical context awareness
+
+### Phase 3: External Data Integration
+- Industry database connections
+- Market intelligence feeds
+- Regulatory compliance updates
+- Competitor analysis integration
+- Economic indicators tracking
+- News and trends monitoring
+
+### Phase 4: Information Verification Framework
+- Fact-checking mechanisms
+- Source credibility assessment
+- Cross-validation protocols
+- Automated verification agents
+- Confidence scoring system
+- Audit trail generation
+
 ## License
 
 Internal use only - K-Square Group
+
+
+## License
+
+Internal use only - K-Square Group
+
+

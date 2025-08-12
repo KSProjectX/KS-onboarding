@@ -5,11 +5,12 @@ from datetime import datetime
 import json
 
 # Import all agents
-from agents.natural_conversational_agent import NaturalConversationalAgent
-from agents.domain_knowledge import DomainKnowledgeAgent
-from agents.client_profile import ClientProfileAgent
-from agents.actionable_insights import ActionableInsightsAgent
-from agents.meetings import MeetingsAgent
+from .agents.conversational_setup import ConversationalSetupAgent
+from .agents.natural_conversational_agent import NaturalConversationalAgent
+from .agents.domain_knowledge import DomainKnowledgeAgent
+from .agents.client_profile import ClientProfileAgent
+from .agents.actionable_insights import ActionableInsightsAgent
+from .agents.meetings import MeetingsAgent
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +21,8 @@ class WorkflowOrchestrator:
         self.db_manager = db_manager
         
         # Initialize all agents
-        self.conversational_setup_agent = NaturalConversationalAgent(db_manager)
+        self.conversational_setup_agent = ConversationalSetupAgent(db_manager)
+        self.natural_conversational_agent = NaturalConversationalAgent(db_manager)
         self.domain_knowledge_agent = DomainKnowledgeAgent(db_manager)
         self.client_profile_agent = ClientProfileAgent(db_manager)
         self.actionable_insights_agent = ActionableInsightsAgent(db_manager)

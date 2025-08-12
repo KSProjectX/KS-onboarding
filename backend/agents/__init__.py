@@ -8,11 +8,11 @@ This package contains all the specialized agents for the K-Square Programme Onbo
 - MeetingsAgent: Analyzes meeting transcripts and extracts insights
 """
 
-from agents.conversational_setup import ConversationalSetupAgent
-from agents.domain_knowledge import DomainKnowledgeAgent
-from agents.client_profile import ClientProfileAgent
-from agents.actionable_insights import ActionableInsightsAgent
-from agents.meetings import MeetingsAgent
+from .conversational_setup import ConversationalSetupAgent
+from .domain_knowledge import DomainKnowledgeAgent
+from .client_profile import ClientProfileAgent
+from .actionable_insights import ActionableInsightsAgent
+from .meetings import MeetingsAgent
 
 __all__ = [
     'ConversationalSetupAgent',
