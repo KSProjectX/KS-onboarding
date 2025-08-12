@@ -352,7 +352,9 @@ For issues or questions:
 3. Examine browser console and terminal logs for errors
 4. Ensure all dependencies are properly installed
 
-## Screenshots of components
+
+
+## Screenshots and Demo
 
 ### Dashboard Overview
 ![Dashboard Overview](00_board.png)
@@ -375,6 +377,21 @@ The AI-guided setup process walks users through programme initialization with co
 - Dynamic Recommendations
 - Document Upload Interface
 - Team Role Assignment
+### Demo Video
+
+https://user-images.githubusercontent.com/123456/demo-onboarding.mp4
+
+<video width="100%" controls>
+  <source src="https://github.com/k-square/onboarding/raw/main/demo-onboarding.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+Watch the demo video above to see the assistant agent in action, demonstrating:
+- Natural conversation flow
+- Real-time response generation  
+- Context awareness
+- Document processing capabilities
+- Knowledge base integration
 
 ## Evolution Roadmap
 

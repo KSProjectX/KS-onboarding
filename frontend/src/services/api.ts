@@ -70,7 +70,7 @@ export interface SearchResult {
 // Create axios instance with default configuration
 const createApiInstance = (): AxiosInstance => {
   const instance = axios.create({
-    baseURL: (import.meta as any).env?.VITE_API_URL || 'http://localhost:8001',
+    baseURL: (import.meta as any).env?.VITE_API_URL || '',
     timeout: 30000, // 30 seconds
     headers: {
       'Content-Type': 'application/json',
@@ -80,10 +80,12 @@ const createApiInstance = (): AxiosInstance => {
   // Request interceptor
   instance.interceptors.request.use(
     (config) => {
+      console.log('API Request:', config.method?.toUpperCase(), config.url, config.data)
       // Add any auth headers here if needed
       return config
     },
     (error) => {
+      console.error('API Request Error:', error)
       return Promise.reject(error)
     }
   )
@@ -91,11 +93,16 @@ const createApiInstance = (): AxiosInstance => {
   // Response interceptor
   instance.interceptors.response.use(
     (response: AxiosResponse) => {
+      console.log('API Response:', response.status, response.config.url, response.data)
       return response
     },
     (error) => {
+      console.error('API Response Error:', error.response?.status, error.response?.data, error.message)
       // Handle common errors
-      if (error.response?.status === 404) {
+      if (error.response?.status === 401) {
+        // Handle unauthorized access
+        toast.error('Unauthorized access')
+      } else if (error.response?.status === 404) {
         toast.error('Resource not found')
       } else if (error.response?.status === 500) {
         toast.error('Server error. Please try again later.')

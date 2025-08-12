@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        .loading {
+            background-color: #fff3cd;
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .log {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Frontend API Test</h1>
+        <p>This test simulates the frontend API calls to debug the conversation start issue.</p>
+        
+        <div class="test-section">
+            <h3>Test 1: Direct Fetch API Call</h3>
+            <button onclick="testDirectFetch()" id="directBtn">Test Direct Fetch</button>
+            <div id="directResult"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test 2: Axios-like Call (with proxy simulation)</h3>
+            <button onclick="testAxiosLike()" id="axiosBtn">Test Axios-like Call</button>
+            <div id="axiosResult"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test 3: CORS and Network Analysis</h3>
+            <button onclick="testCORS()" id="corsBtn">Test CORS</button>
+            <div id="corsResult"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Console Logs</h3>
+            <button onclick="clearLogs()">Clear Logs</button>
+            <div id="logs" class="log"></div>
+        </div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logDiv = document.getElementById('logs');
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            logEntry.style.color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            logDiv.appendChild(logEntry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(`[${timestamp}] ${message}`);
+        }
+        
+        function clearLogs() {
+            document.getElementById('logs').innerHTML = '';
+        }
+        
+        function setResult(elementId, content, type = 'success') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = content;
+            element.className = `test-section ${type}`;
+        }
+        
+        async function testDirectFetch() {
+            const btn = document.getElementById('directBtn');
+            btn.disabled = true;
+            setResult('directResult', 'Testing direct fetch...', 'loading');
+            log('Starting direct fetch test');
+            
+            try {
+                const sessionId = `test_direct_${Date.now()}`;
+                log(`Using session ID: ${sessionId}`);
+                
+                const response = await fetch('http://localhost:8001/api/conversation/start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ session_id: sessionId })
+                });
+                
+                log(`Response status: ${response.status}`);
+                log(`Response headers: ${JSON.stringify([...response.headers.entries()])}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                log('Response received successfully', 'success');
+                
+                setResult('directResult', `
+                    <h4>✅ Direct Fetch Success</h4>
+                    <p><strong>Status:</strong> ${response.status}</p>
+                    <p><strong>Conversation ID:</strong> ${data.conversation_id}</p>
+                    <p><strong>Message:</strong> ${data.message ? data.message.substring(0, 100) + '...' : 'None'}</p>
+                    <p><strong>Completion:</strong> ${data.completion_percentage}%</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `, 'success');
+                
+            } catch (error) {
+                log(`Direct fetch error: ${error.message}`, 'error');
+                setResult('directResult', `
+                    <h4>❌ Direct Fetch Failed</h4>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                `, 'error');
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        async function testAxiosLike() {
+            const btn = document.getElementById('axiosBtn');
+            btn.disabled = true;
+            setResult('axiosResult', 'Testing axios-like call...', 'loading');
+            log('Starting axios-like test');
+            
+            try {
+                const sessionId = `programme_setup_${Date.now()}`;
+                log(`Using session ID: ${sessionId}`);
+                
+                // Simulate what the frontend does with proxy
+                const response = await fetch('/api/conversation/start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ session_id: sessionId })
+                });
+                
+                log(`Proxy response status: ${response.status}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                log('Proxy response received successfully', 'success');
+                
+                setResult('axiosResult', `
+                    <h4>✅ Axios-like Call Success</h4>
+                    <p><strong>Status:</strong> ${response.status}</p>
+                    <p><strong>Conversation ID:</strong> ${data.conversation_id}</p>
+                    <p><strong>Message:</strong> ${data.message ? data.message.substring(0, 100) + '...' : 'None'}</p>
+                    <p><strong>Completion:</strong> ${data.completion_percentage}%</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `, 'success');
+                
+            } catch (error) {
+                log(`Axios-like error: ${error.message}`, 'error');
+                setResult('axiosResult', `
+                    <h4>❌ Axios-like Call Failed</h4>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p>This might be expected if not running through Vite dev server</p>
+                `, 'error');
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        async function testCORS() {
+            const btn = document.getElementById('corsBtn');
+            btn.disabled = true;
+            setResult('corsResult', 'Testing CORS...', 'loading');
+            log('Starting CORS test');
+            
+            try {
+                // Test OPTIONS request
+                const optionsResponse = await fetch('http://localhost:8001/api/conversation/start', {
+                    method: 'OPTIONS',
+                    headers: {
+                        'Origin': window.location.origin,
+                        'Access-Control-Request-Method': 'POST',
+                        'Access-Control-Request-Headers': 'Content-Type'
+                    }
+                });
+                
+                log(`OPTIONS response status: ${optionsResponse.status}`);
+                log(`CORS headers: ${JSON.stringify([...optionsResponse.headers.entries()])}`);
+                
+                setResult('corsResult', `
+                    <h4>✅ CORS Test Complete</h4>
+                    <p><strong>OPTIONS Status:</strong> ${optionsResponse.status}</p>
+                    <p><strong>Access-Control-Allow-Origin:</strong> ${optionsResponse.headers.get('Access-Control-Allow-Origin')}</p>
+                    <p><strong>Access-Control-Allow-Methods:</strong> ${optionsResponse.headers.get('Access-Control-Allow-Methods')}</p>
+                    <p><strong>Access-Control-Allow-Headers:</strong> ${optionsResponse.headers.get('Access-Control-Allow-Headers')}</p>
+                `, 'success');
+                
+            } catch (error) {
+                log(`CORS test error: ${error.message}`, 'error');
+                setResult('corsResult', `
+                    <h4>❌ CORS Test Failed</h4>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                `, 'error');
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        // Initialize
+        log('Frontend API test page loaded');
+        log(`Current origin: ${window.location.origin}`);
+    </script>
+</body>
+</html>

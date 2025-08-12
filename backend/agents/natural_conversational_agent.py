@@ -61,8 +61,8 @@ Your goal is to have a natural, engaging conversation while gradually learning a
 
 1. Be genuinely curious and interested in their business
 2. Ask follow-up questions naturally based on what they tell you
-3. Share relevant insights or experiences when appropriate
-4. Keep the conversation flowing smoothly - don't interrogate
+3. Keep responses concise and focused (2-3 sentences max)
+4. Ask only 1-2 specific questions per response
 5. Be helpful and supportive throughout
 
 You're trying to understand their:
@@ -75,7 +75,7 @@ You're trying to understand their:
 
 But approach this organically through conversation, not as a checklist. Let the conversation evolve naturally while staying focused on understanding how K-Square can help them succeed.
 
-Be conversational, warm, and professional. Show genuine interest in their business and challenges.
+Be conversational, warm, and professional. Keep responses brief but engaging.
 """
     
     async def start_conversation(self, session_id: str) -> Dict[str, Any]:
@@ -86,8 +86,10 @@ Be conversational, warm, and professional. Show genuine interest in their busine
         # Generate a natural, welcoming opening message
         opening_prompt = ChatPromptTemplate.from_template(
             self.system_prompt + 
-            "\n\nGenerate a warm, welcoming opening message to start the conversation. "
-            "Be friendly and set a positive tone for learning about their business needs."
+            "\n\nGenerate ONLY a warm, welcoming opening message to start the conversation. "
+            "Be friendly and set a positive tone for learning about their business needs. "
+            "Return ONLY the message text that should be sent to the client, without any "
+            "meta-commentary, notes, or explanations. Just the direct message."
         )
         
         chain = opening_prompt | self.llm
@@ -95,16 +97,19 @@ Be conversational, warm, and professional. Show genuine interest in their busine
         try:
             response = await chain.ainvoke({})
             
+            # Clean the response - extract only the actual message
+            clean_message = self._extract_clean_message(response)
+            
             # Add to conversation history
             session.messages.append({
                 "role": "assistant",
-                "content": response,
+                "content": clean_message,
                 "timestamp": datetime.now().isoformat()
             })
             
             return {
                 "session_id": session_id,
-                "message": response,
+                "message": clean_message,
                 "client_info": session.client_info.to_dict(),
                 "completion_percentage": session.client_info.completion_percentage(),
                 "is_complete": session.is_complete
@@ -119,6 +124,65 @@ Be conversational, warm, and professional. Show genuine interest in their busine
                 "completion_percentage": 0,
                 "is_complete": False
             }
+    
+    def _extract_clean_message(self, raw_response: str) -> str:
+        """Extract clean message from LLM response, removing meta-commentary and enforcing brevity"""
+        try:
+            # Convert to string if it's not already
+            response_text = str(raw_response)
+            
+            # Look for common patterns that indicate meta-commentary
+            lines = response_text.split('\n')
+            clean_lines = []
+            
+            for line in lines:
+                line = line.strip()
+                # Skip empty lines
+                if not line:
+                    continue
+                # Skip lines that look like meta-commentary
+                if any(pattern in line.lower() for pattern in [
+                    'notes on why', 'approach was chosen', 'would you like me to',
+                    '**notes', '---', 'this approach', 'why this', 'adjust this message',
+                    'generate a', 'response that', 'i\'m particularly interested',
+                    'it sounds like', 'that\'s really', 'fantastic!', 'wow,'
+                ]):
+                    break  # Stop processing when we hit meta-commentary
+                # Skip lines that start with asterisks (bullet points in explanations)
+                if line.startswith('*') or line.startswith('-'):
+                    continue
+                # Add valid message lines
+                clean_lines.append(line)
+            
+            # Join the clean lines
+            clean_message = ' '.join(clean_lines).strip()
+            
+            # Remove quotes if the entire message is wrapped in quotes
+            if clean_message.startswith('"') and clean_message.endswith('"'):
+                clean_message = clean_message[1:-1].strip()
+            
+            # Enforce word limit (50 words max)
+            words = clean_message.split()
+            if len(words) > 50:
+                # Keep first 45 words and add a question
+                clean_message = ' '.join(words[:45])
+                # Ensure it ends with a question if it doesn't already
+                if not clean_message.endswith('?'):
+                    clean_message += "?"
+            
+            # Remove excessive enthusiasm and redundant phrases
+            clean_message = clean_message.replace('really ', '').replace('fantastic! ', '').replace('That\'s ', '')
+            clean_message = clean_message.replace('It sounds like ', '').replace('I\'m particularly interested in ', '')
+            
+            # Fallback to a simple default if cleaning failed
+            if not clean_message or len(clean_message) < 10:
+                clean_message = "Hello! What brings you to K-Square today?"
+            
+            return clean_message
+            
+        except Exception as e:
+            logger.error(f"Error cleaning message: {e}")
+            return "Hello! What brings you to K-Square today?"
     
     async def process_message(self, session_id: str, user_message: str) -> Dict[str, Any]:
         """Process user message and generate natural response"""
@@ -233,16 +297,16 @@ Current information collected: {current_info}
             Missing information: {missing_fields}
             Completion: {completion_percentage}%
             
-Generate a natural, engaging response that:
-            1. Responds appropriately to what the user just said
-            2. Shows genuine interest and understanding
-            3. Naturally guides the conversation toward learning more (if needed)
-            4. Feels like a real business conversation, not an interview
+Generate a brief, focused response that:
+            1. Acknowledges what the user said (1 sentence)
+            2. Asks 1-2 specific follow-up questions to gather missing info
+            3. Keeps total response under 50 words
+            4. Prioritizes the most important missing information
             
-If completion is above 80%, focus on summarizing and confirming the information.
-            Otherwise, continue the natural flow while gently exploring missing areas.
+If completion is above 80%, focus on confirming details and next steps.
+            Otherwise, ask targeted questions about the highest priority missing fields.
             
-Be conversational, helpful, and authentic."""
+Be friendly but concise. No lengthy explanations or multiple topics."""
         )
         
         chain = response_prompt | self.llm
