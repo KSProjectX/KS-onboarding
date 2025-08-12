@@ -1,166 +1,129 @@
-You are tasked with developing a Proof of Concept (PoC) for the K-Square Programme Onboarding Agent, an AI-driven system to streamline the onboarding of programme execution teams. The system automates data aggregation and insight generation, combining a conversational AI interface with a visual dashboard to deliver client profiles, domain knowledge, and actionable recommendations within 2–3 days. The PoC must follow the architecture and functionality outlined in the documentation located at /doc/00_description.pdf and /doc/01_architecture.pdf. The PoC will use three controlled use cases to demonstrate technical feasibility in a simplified, reliable environment. Below is a detailed specification for the PoC, including technologies, components, and requirements.
-Objective:
-Create a functional PoC that demonstrates the core functionality of the K-Square Programme Onboarding Agent, including a conversational AI for data input, agent-based data processing, and a minimalistic visual dashboard for output. The PoC should use three predefined use cases to simulate real-world scenarios in a controlled environment, focusing on illustrating technical capabilities.
-Technologies:
+You are tasked with developing a Proof of Concept (PoC) for the K-Square Programme Onboarding Agent, an AI-driven system to streamline the onboarding of programme execution teams. The system automates data aggregation and insight generation, combining a conversational AI interface with a visual dashboard to deliver client profiles, domain knowledge, meeting insights (including sentiment analysis), and actionable recommendations within 2–3 days. The PoC must follow the architecture and functionality outlined in the documentation located at `doc/00_description.pdf` and `doc/01_architecture.pdf`, relative to the main project directory. The PoC will use three controlled use cases to demonstrate technical feasibility in a simplified, reliable environment, with a simple plot to visualize meeting sentiment. Below is a detailed specification for the PoC, including technologies, components, and requirements.
 
-Backend: Use Python with FastAPI to create a REST API for data exchange between agents and the frontend.
-Agent Orchestration: Use LangGraph to manage workflows for five agents (Programme Setup, Domain Knowledge, Client Profile, Actionable Insights, Meetings) and a Knowledge Base.
-Language Model: Use Ollama with LLaMA 3 for local inference to process use case inputs and generate insights, ensuring privacy.
-Frontend: Use React with Tailwind CSS for a minimalistic, responsive dashboard displaying client profiles, domain knowledge, meeting insights, and recommendations.
-Data Storage: Use an in-memory SQLite database to store use case inputs and tagged outputs.
-Speech-to-Text: Simulate meeting transcripts with predefined text inputs from use cases (no actual speech-to-text required).
-Monitoring: Include basic logging to simulate monitoring (e.g., print agent performance metrics to console).
+Objective:
+Create a functional PoC that demonstrates the core functionality of the K-Square Programme Onboarding Agent, including a conversational AI for data input, agent-based data processing with sentiment analysis, and a minimalistic visual dashboard with a sentiment plot for output. The PoC should use three predefined use cases to simulate real-world scenarios in a controlled environment, focusing on illustrating technical capabilities.
+
+Technologies:
+- Backend: Use Python with FastAPI to create a REST API for data exchange between agents and the frontend.
+- Agent Orchestration: Use LangGraph to manage workflows for five agents (Programme Setup, Domain Knowledge, Client Profile, Actionable Insights, Meetings) and a Knowledge Base.
+- Language Model: Use Ollama with LLaMA 3 for local inference to process use case inputs and generate insights, ensuring privacy.
+- Sentiment Analysis: Use `TextBlob` for lightweight sentiment analysis of meeting transcripts, extracting polarity scores (positive, negative, neutral).
+- Frontend: Use React with Tailwind CSS for a minimalistic, responsive dashboard displaying client profiles, domain knowledge, meeting insights, recommendations, and a sentiment plot. Use `Chart.js` for the sentiment visualization.
+- Data Storage: Use an in-memory SQLite database to store use case inputs and tagged outputs.
+- Monitoring: Include basic logging to simulate monitoring (e.g., print agent performance metrics to console).
 
 System Components:
 The PoC must implement the following components, as detailed in the documentation:
-
-Programme Setup Agent: A conversational AI that guides users to input project details (e.g., client name, industry, problem statement) via a chat interface, using predefined use case inputs. Validates input sufficiency and routes data to other agents.
-Domain Knowledge Agent: Processes use case inputs to generate domain-specific insights and best practices, tagged and stored in the Knowledge Base.
-Client Profile Agent: Builds client profiles from use case inputs, validated by user input, and stores them in the Knowledge Base.
-Actionable Insights Agent: Synthesizes outputs from Domain Knowledge, Client Profile, and Meetings Agents to generate recommendations, summaries, and tasks, stored in the Knowledge Base.
-Meetings Agent: Analyzes predefined meeting transcript texts from use cases to extract action items and insights, storing them in the Knowledge Base.
-Knowledge Base: A central repository for tagged data (e.g., Client, Problem Statement, Best Practices), accessible via the dashboard and supporting search functionality.
+1. Programme Setup Agent: A conversational AI that guides users to input project details (e.g., client name, industry, problem statement) via a chat interface, using predefined use case inputs. Validates input sufficiency and routes data to other agents.
+2. Domain Knowledge Agent: Processes use case inputs to generate domain-specific insights and best practices, tagged and stored in the Knowledge Base.
+3. Client Profile Agent: Builds client profiles from use case inputs, validated by user input, and stores them in the Knowledge Base.
+4. Actionable Insights Agent: Synthesizes outputs from Domain Knowledge, Client Profile, and Meetings Agents to generate recommendations, summaries, and tasks, stored in the Knowledge Base.
+5. Meetings Agent: Analyzes predefined meeting transcript texts from use cases to extract action items, engagement metrics, and sentiment scores (using `TextBlob`), storing them in the Knowledge Base.
+6. Knowledge Base: A central repository for tagged data (e.g., Client, Problem Statement, Best Practices, Sentiment), accessible via the dashboard and supporting search functionality.
 
 Architecture Layers:
 Implement the five-layer architecture from the documentation:
-
-Data Layer: Store use case inputs and outputs in an in-memory SQLite database. Simulate preprocessing with basic text parsing.
-Agent Layer: Implement the five agents using LangGraph for workflow orchestration, with each agent processing use case inputs and producing tagged outputs for the Knowledge Base.
-Processing Layer: Use Ollama with LLaMA 3 for summarization and insight generation. Simulate vector search with SQLite queries for data retrieval. Include a feedback mechanism (e.g., API endpoint for user validation).
-UI Layer: Develop a React-based dashboard with tabs for client profiles, domain knowledge, meeting insights, and recommendations. Include a conversational chat interface and action buttons (e.g., “Generate Checklist”). Use Tailwind CSS for styling.
-Orchestration Layer: Use LangGraph to define agent workflows as graphs, with nodes for agent tasks and edges for data flow. Log agent execution times to simulate monitoring.
+1. Data Layer: Store use case inputs and outputs in an in-memory SQLite database. Simulate preprocessing with basic text parsing.
+2. Agent Layer: Implement the five agents using LangGraph for workflow orchestration, with each agent processing use case inputs and producing tagged outputs for the Knowledge Base.
+3. Processing Layer: Use Ollama with LLaMA 3 for summarization and insight generation. Use `TextBlob` for sentiment analysis of meeting transcripts. Simulate vector search with SQLite queries for data retrieval. Include a feedback mechanism (e.g., API endpoint for user validation).
+4. UI Layer: Develop a React-based dashboard with tabs for client profiles, domain knowledge, meeting insights (including sentiment plot), and recommendations. Include a conversational chat interface and action buttons (e.g., “Generate Checklist”). Use Tailwind CSS for styling and `Chart.js` for sentiment visualization.
+5. Orchestration Layer: Use LangGraph to define agent workflows as graphs, with nodes for agent tasks (including sentiment analysis) and edges for data flow. Log agent execution times to simulate monitoring.
 
 Controlled Use Cases:
 Implement the following three use cases, embedded in the code or SQLite database, to simulate real-world scenarios:
+1. Automotive Client (GT Automotive):
+   - Input: `{ "client_name": "GT Automotive", "industry": "Automotive", "problem_statement": "Implement a lead management process using Salesforce", "tech_stack": "Salesforce, Java" }`
+   - Meeting Transcript: “Discussion on lead management. VP of Product emphasized clear KPIs. Action item: Clarify MVP scope by next meeting. Engagement: 70%.”
+   - Outputs:
+     - Client Profile: `{ "name": "GT Automotive", "industry": "Automotive", "founded": 1970, "region": "USA, Latin America", "stakeholders": [{"name": "John Doe", "role": "VP of Product"}, {"name": "Jane Smith", "role": "CTO"}] }`
+     - Domain Knowledge: “Best practices: Define KPIs early, use Salesforce Sales Cloud for lead tracking, ensure clear customer journey mapping.”
+     - Meeting Insights: “Action item: Clarify MVP scope. Engagement: 70%. Sentiment: Neutral (polarity 0.1).”
+     - Recommendations: “Define KPIs early to avoid delays.”
+2. Healthcare Client (MediCare Solutions):
+   - Input: `{ "client_name": "MediCare Solutions", "industry": "Healthcare", "problem_statement": "Develop a patient record system with HIPAA compliance", "tech_stack": "Python, AWS" }`
+   - Meeting Transcript: “Discussion on patient record system. CTO requested data encryption. Action item: Finalize encryption plan. Engagement: 80%.”
+   - Outputs:
+     - Client Profile: `{ "name": "MediCare Solutions", "industry": "Healthcare", "founded": 2010, "region": "USA", "stakeholders": [{"name": "Alice Brown", "role": "CTO"}, {"name": "Bob Wilson", "role": "Compliance Officer"}] }`
+     - Domain Knowledge: “Best practices: Ensure HIPAA compliance, use encrypted databases, conduct regular audits.”
+     - Meeting Insights: “Action item: Finalize encryption plan. Engagement: 80%. Sentiment: Neutral (polarity 0.2).”
+     - Recommendations: “Use AWS RDS for HIPAA-compliant storage.”
+3. Retail Client (ShopTrend Inc.):
+   - Input: `{ "client_name": "ShopTrend Inc.", "industry": "Retail", "problem_statement": "Optimize e-commerce platform checkout process", "tech_stack": "Shopify, Node.js" }`
+   - Meeting Transcript: “Discussion on checkout optimization. Marketing lead suggested one-click checkout. Action item: Test checkout flow. Engagement: 65%.”
+   - Outputs:
+     - Client Profile: `{ "name": "ShopTrend Inc.", "industry": "Retail", "founded": 2015, "region": "Global", "stakeholders": [{"name": "Emma Davis", "role": "Marketing Lead"}, {"name": "Tom Clark", "role": "CTO"}] }`
+     - Domain Knowledge: “Best practices: Simplify checkout forms, implement one-click checkout, optimize for mobile.”
+     - Meeting Insights: “Action item: Test checkout flow. Engagement: 65%. Sentiment: Positive (polarity 0.4).”
+     - Recommendations: “Implement one-click checkout to improve conversion rates.”
 
-Automotive Client (GT Automotive):
+Store these use cases in the SQLite database during initialization, with inputs, outputs, and sentiment scores tagged (e.g., “Client”, “Problem Statement”, “Sentiment”).
 
-Input: { "client_name": "GT Automotive", "industry": "Automotive", "problem_statement": "Implement a lead management process using Salesforce", "tech_stack": "Salesforce, Java" }
-Meeting Transcript: “Discussion on lead management. VP of Product emphasized clear KPIs. Action item: Clarify MVP scope by next meeting. Engagement: 70%.”
-Outputs:
-
-Client Profile: { "name": "GT Automotive", "industry": "Automotive", "founded": 1970, "region": "USA, Latin America", "stakeholders": [{"name": "John Doe", "role": "VP of Product"}, {"name": "Jane Smith", "role": "CTO"}] }
-Domain Knowledge: “Best practices: Define KPIs early, use Salesforce Sales Cloud for lead tracking, ensure clear customer journey mapping.”
-Meeting Insights: “Action item: Clarify MVP scope. Engagement: 70%.”
-Recommendations: “Define KPIs early to avoid delays.”
-
-
-
-
-Healthcare Client (MediCare Solutions):
-
-Input: { "client_name": "MediCare Solutions", "industry": "Healthcare", "problem_statement": "Develop a patient record system with HIPAA compliance", "tech_stack": "Python, AWS" }
-Meeting Transcript: “Discussion on patient record system. CTO requested data encryption. Action item: Finalize encryption plan. Engagement: 80%.”
-Outputs:
-
-Client Profile: { "name": "MediCare Solutions", "industry": "Healthcare", "founded": 2010, "region": "USA", "stakeholders": [{"name": "Alice Brown", "role": "CTO"}, {"name": "Bob Wilson", "role": "Compliance Officer"}] }
-Domain Knowledge: “Best practices: Ensure HIPAA compliance, use encrypted databases, conduct regular audits.”
-Meeting Insights: “Action item: Finalize encryption plan. Engagement: 80%.”
-Recommendations: “Use AWS RDS for HIPAA-compliant storage.”
-
-
-
-
-Retail Client (ShopTrend Inc.):
-
-Input: { "client_name": "ShopTrend Inc.", "industry": "Retail", "problem_statement": "Optimize e-commerce platform checkout process", "tech_stack": "Shopify, Node.js" }
-Meeting Transcript: “Discussion on checkout optimization. Marketing lead suggested one-click checkout. Action item: Test checkout flow. Engagement: 65%.”
-Outputs:
-
-Client Profile: { "name": "ShopTrend Inc.", "industry": "Retail", "founded": 2015, "region": "Global", "stakeholders": [{"name": "Emma Davis", "role": "Marketing Lead"}, {"name": "Tom Clark", "role": "CTO"}] }
-Domain Knowledge: “Best practices: Simplify checkout forms, implement one-click checkout, optimize for mobile.”
-Meeting Insights: “Action item: Test checkout flow. Engagement: 65%.”
-Recommendations: “Implement one-click checkout to improve conversion rates.”
-
-
-
-
-
-Store these use cases in the SQLite database during initialization, with inputs and outputs tagged (e.g., “Client”, “Problem Statement”, “Best Practices”).
 Frontend Requirements:
-
-Chat Interface: A minimalistic chat window for the Programme Setup Agent, prompting users to select a use case (e.g., “Choose a client: GT Automotive, MediCare Solutions, ShopTrend Inc.”) and input details, confirming data sufficiency.
-Dashboard: A single-page React app with tabs for:
-
-Client Profile: Display client data (e.g., name, industry, stakeholders).
-Domain Knowledge: Show best practices from use case outputs.
-Meeting Insights: List action items and engagement metrics from transcripts.
-Recommendations: Display tasks and summaries (e.g., “Define KPIs early”).
-
-
-Interactivity: Include buttons for actions (e.g., “Export Summary as PDF”, “Validate Data”) and a search bar for Knowledge Base queries by tag or keyword.
-Styling: Use Tailwind CSS for a clean, responsive design with collapsible cards and pagination for search results.
+- Chat Interface: A minimalistic chat window for the Programme Setup Agent, prompting users to select a use case (e.g., “Choose a client: GT Automotive, MediCare Solutions, ShopTrend Inc.”) and input details, confirming data sufficiency.
+- Dashboard: A single-page React app with tabs for:
+  - Client Profile: Display client data (e.g., name, industry, stakeholders).
+  - Domain Knowledge: Show best practices from use case outputs.
+  - Meeting Insights: List action items, engagement metrics, and sentiment scores, with a `Chart.js` bar chart showing sentiment distribution (e.g., positive, negative, neutral percentages) for the selected use case or all use cases combined.
+  - Recommendations: Display tasks and summaries (e.g., “Define KPIs early”).
+- Interactivity: Include buttons for actions (e.g., “Export Summary as PDF”, “Validate Data”) and a search bar for Knowledge Base queries by tag or keyword.
+- Sentiment Plot: Use `Chart.js` to create a simple bar chart in the “Meeting Insights” tab, displaying sentiment scores (e.g., positive: 40%, neutral: 50%, negative: 10%) for the selected use case’s transcript. Ensure the chart is responsive and styled with Tailwind CSS.
+- Styling: Use Tailwind CSS for a clean, responsive design with collapsible cards and pagination for search results.
 
 Backend Requirements:
-
-FastAPI Setup: Create endpoints for:
-
-/setup: Accept use case selection and project details (e.g., JSON with client name, industry) and trigger Programme Setup Agent.
-/validate: Accept user validation (e.g., relevance scores) for agent outputs.
-/dashboard: Retrieve tagged data from the Knowledge Base for display.
-/search: Query the Knowledge Base for specific tags or keywords.
-
-
-LangGraph Workflows: Define a graph with nodes for each agent’s tasks (e.g., data processing, summarization) and edges for data flow (e.g., Programme Setup to Domain Knowledge). Use LangGraph’s context retention for state management.
-Ollama Integration: Use LLaMA 3 via Ollama for summarization (e.g., summarize use case inputs) and insight generation (e.g., extract action items from transcripts).
-SQLite Database: Create tables for:
-
-use_cases: Store input data (e.g., client name, problem statement).
-profiles: Store client profiles from use case outputs.
-insights: Store tagged outputs (e.g., best practices, recommendations).
-meetings: Store transcript texts and extracted action items.
-
-
+- FastAPI Setup: Create endpoints for:
+  - `/setup`: Accept use case selection and project details (e.g., JSON with client name, industry) and trigger Programme Setup Agent.
+  - `/validate`: Accept user validation (e.g., relevance scores) for agent outputs.
+  - `/dashboard`: Retrieve tagged data (including sentiment scores) from the Knowledge Base for display.
+  - `/search`: Query the Knowledge Base for specific tags or keywords.
+- LangGraph Workflows: Define a graph with nodes for each agent’s tasks (e.g., data processing, summarization, sentiment analysis) and edges for data flow (e.g., Programme Setup to Domain Knowledge). Use LangGraph’s context retention for state management.
+- Ollama Integration: Use LLaMA 3 via Ollama for summarization (e.g., summarize use case inputs) and insight generation (e.g., extract action items from transcripts).
+- Sentiment Analysis: Use `TextBlob` to analyze meeting transcripts, calculating polarity scores (-1.0 to 1.0) and categorizing as positive (>0.1), neutral (-0.1 to 0.1), or negative (<-0.1). Store results in the Knowledge Base with a “Sentiment” tag.
+- SQLite Database: Create tables for:
+  - `use_cases`: Store input data (e.g., client name, problem statement).
+  - `profiles`: Store client profiles from use case outputs.
+  - `insights`: Store tagged outputs (e.g., best practices, recommendations, sentiment scores).
+  - `meetings`: Store transcript texts, action items, engagement metrics, and sentiment scores.
 
 Implementation Guidelines:
-
-Project Structure: Organize the PoC in subdirectories:
-
-backend/: FastAPI app, LangGraph workflows, Ollama integration, SQLite database.
-frontend/: React app with Tailwind CSS.
-
-
-Dependencies: Install required packages:
-
-Python: fastapi, uvicorn, sqlite3, langgraph, ollama.
-Node.js: react, tailwindcss, axios for API calls.
-
-
-Use Case Loading: Initialize the SQLite database with the three use cases on startup, storing inputs and predefined outputs as JSON or text.
-Conversational Flow: Implement a state machine in the Programme Setup Agent to prompt users to select a use case and input details, confirming sufficiency (e.g., “Is this data complete?”).
-Dashboard Output: Structure the dashboard as a single-page app with a grid layout, using Tailwind CSS for responsive cards. Display tagged data as collapsible sections with pagination for search results.
-Feedback Mechanism: Allow users to validate outputs via the /validate endpoint (e.g., JSON with { "output_id": 1, "relevant": true }) and log feedback for simulated retraining.
-Logging: Log agent execution times and API responses to the console to simulate monitoring.
+- Project Structure: Organize the PoC in the main project directory with subdirectories:
+  - `backend/`: FastAPI app, LangGraph workflows, Ollama integration, `TextBlob` sentiment analysis, SQLite database.
+  - `frontend/`: React app with Tailwind CSS and `Chart.js`.
+- Dependencies: Install required packages:
+  - Python: `fastapi`, `uvicorn`, `sqlite3`, `langgraph`, `ollama`, `textblob`.
+  - Node.js: `react`, `tailwindcss`, `axios`, `chart.js`.
+- Use Case Loading: Initialize the SQLite database with the three use cases on startup, storing inputs, outputs, and sentiment scores as JSON or text.
+- Conversational Flow: Implement a state machine in the Programme Setup Agent to prompt users to select a use case and input details, confirming sufficiency (e.g., “Is this data complete?”).
+- Sentiment Analysis: Implement a function in the Meetings Agent using `TextBlob` to analyze transcript texts, outputting polarity scores and categories (positive, neutral, negative). Store results in the `meetings` table with tags.
+- Dashboard Output: Structure the dashboard as a single-page app with a grid layout, using Tailwind CSS for responsive cards. Display tagged data as collapsible sections with pagination for search results. Include a `Chart.js` bar chart in the “Meeting Insights” tab to visualize sentiment scores.
+- Feedback Mechanism: Allow users to validate outputs via the `/validate` endpoint (e.g., JSON with `{ "output_id": 1, "relevant": true }`) and log feedback for simulated retraining.
+- Logging: Log agent execution times, API responses, and sentiment analysis results to the console to simulate monitoring.
 
 Deliverables:
-
-A working FastAPI backend with endpoints for setup, validation, dashboard data, and search.
-A LangGraph workflow orchestrating the five agents and Knowledge Base.
-An Ollama-powered summarization and insight generation pipeline using use case data.
-A React frontend with a conversational chat interface and visual dashboard.
-A SQLite database initialized with the three use cases.
-Documentation in /README.md explaining setup, dependencies, and how to run the PoC.
+- A working FastAPI backend with endpoints for setup, validation, dashboard data, and search.
+- A LangGraph workflow orchestrating the five agents and Knowledge Base, including sentiment analysis.
+- An Ollama-powered summarization and insight generation pipeline, with `TextBlob` for sentiment analysis.
+- A React frontend with a conversational chat interface, visual dashboard, and sentiment plot.
+- A SQLite database initialized with the three use cases and sentiment scores.
+- Documentation in `README.md` explaining setup, dependencies, and how to run the PoC.
 
 Constraints:
-
-Focus on a minimal viable PoC; avoid implementing speech-to-text or external data retrieval.
-Use only the three controlled use cases for inputs and outputs; do not create mock files or fetch external data.
-Ensure the frontend is minimalistic, prioritizing usability and clarity over complex features.
-Target a 60% initial accuracy for Ollama-generated summaries, with feedback logged for future improvement.
-Save generated files in subdirectories.
+- Focus on a minimal viable PoC; avoid implementing speech-to-text or external data retrieval.
+- Use only the three controlled use cases for inputs and outputs; do not create mock files or fetch external data.
+- Ensure the frontend is minimalistic, prioritizing usability and clarity, with a simple sentiment plot.
+- Target a 60% initial accuracy for Ollama-generated summaries, with feedback logged for future improvement.
+- Save generated files in the main project directory.
 
 Context Documents:
 Refer to the following for detailed system requirements and architecture:
-
-/doc/00_description.pdf
-/doc/01_architecture.pdf
+- `doc/00_description.pdf`
+- `doc/01_architecture.pdf`
 
 Success Criteria:
-
-The PoC allows users to select a use case and input project details via a conversational interface, displaying outputs in a visual dashboard.
-Agents correctly process use case inputs, storing tagged outputs in the Knowledge Base.
-The dashboard displays client profiles, domain knowledge, meeting insights, and recommendations with search functionality.
-The system runs locally with Ollama and logs basic performance metrics.
-The code is well-documented and executable in a Python/Node.js environment.
+- The PoC allows users to select a use case and input project details via a conversational interface, displaying outputs in a visual dashboard.
+- Agents correctly process use case inputs, storing tagged outputs (including sentiment scores) in the Knowledge Base.
+- The dashboard displays client profiles, domain knowledge, meeting insights (with sentiment plot), and recommendations with search functionality.
+- The Meetings Agent accurately extracts sentiment scores using `TextBlob`.
+- The system runs locally with Ollama and logs basic performance metrics.
+- The code is well-documented and executable in a Python/Node.js environment.
 
 Please implement the PoC according to this specification, ensuring all components are functional and aligned with the provided documentation. Generate necessary files, including Python scripts for the backend, React components for the frontend, and a README for setup instructions. Test the PoC with the three use cases to ensure it meets the success criteria.
